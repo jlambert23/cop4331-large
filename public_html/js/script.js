@@ -2,7 +2,7 @@
 // Ofcourse don't let that stop you from messing around with ajax and getting the hang of it.
 // Front end will need to know how to parse and transpose the return data, afterall.
 
-var testfile = "API/tests.php"
+var testfile = "API/test.php"
 
 function testing() {
     ajax(testfile);
@@ -17,11 +17,13 @@ function ajax(filename) {
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             // We're changing the current viewed html to the responses text that is sent back!
-            document.getElementById("test").innerHTML = this.responseText;
+            //document.getElementById("test").innerHTML = this.responseText;
+
+            callbackFunc( this.responseText );
         }
     };
 
-    xhttp.open("GET", filename, true);
+    xhttp.open("POST", filename, true);
     xhttp.send();
 }
 

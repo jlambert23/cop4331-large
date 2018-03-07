@@ -7,6 +7,9 @@
 		</title>
 		<!-- Include chaset-->
 		<meta charset="utf-8">
+
+		<script src="js/script.js"></script>
+
 		<!-- The line below is for mobile -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -56,7 +59,7 @@
 			<div class="jumbotron">
     		<h3>Already have an account?</h3>
 				<!-- Sign in form-->
-				<form action="/action_page.php">
+				<form>
 			    <div class="form-group">
 			      <label for="email">Email:</label>
 			      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
@@ -70,7 +73,7 @@
 			        <input class="form-check-input" type="checkbox" name="remember"> Remember me
 			      </label>
 			    </div>
-			    <button type="submit" class="btn btn-primary">Submit</button>
+			    <button type="submit" class="btn btn-primary" onclick="testing()">Submit</button>
 			  </form>
   		</div>
 		</div>
