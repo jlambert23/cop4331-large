@@ -1,8 +1,10 @@
 # cop4331-large
 
 #1) open terminal
-#2) run "chmod 400 mypem.pem" //this will make sure the .pem file is private
-#3) ssh -i POOPGROUP.pem ubuntu@ec2-18-188-148-0.us-east-2.compute.amazonaws.com //ubutntu is the default login, the server address is after the @
+
+#2) run "chmod 400 POOPGROUP.pem" //this will make sure the .pem file is private
+
+#3) ssh -i POOPGROUP.pem ubuntu@ec2-18-188-148-0.us-east-2.compute.amazonaws.com 
 
 #You should be greeted to the server.  Ubuntu is the root user.  There is no password for the root user.
 
@@ -27,3 +29,8 @@
 
 #Github Notes:
 #/git/testing will be the default git repo on the server
+
+#Apache WebServer:
+
+#it is set to look for .php files first before anything
+#directory for index files is /var/www/html
