@@ -4,13 +4,13 @@
 
 #2) run "chmod 400 POOPGROUP.pem" //this will make sure the .pem file is private
 
-#3) ssh -i POOPGROUP.pem ubuntu@ec2-18-188-148-0.us-east-2.compute.amazonaws.com 
+#3) ssh -i POOPGROUP.pem ubuntu@ec2-18-218-199-173.us-east-2.compute.amazonaws.com
 
 #You should be greeted to the server.  Ubuntu is the root user.  There is no password for the root user.
 
 
 #Notes:
-#http://18.188.148.0 is the server IP
+#http://18.218.199.173 is the server IP
 
 
 #MySQL Server:
