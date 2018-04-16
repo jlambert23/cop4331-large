@@ -21,7 +21,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 DROP TABLE IF EXISTS `Users` ;
 
 CREATE TABLE IF NOT EXISTS `Users` (
-  `userID` INT NOT NULL,
+  `userID` INT NOT NULL auto_increment,
   `fName` VARCHAR(45) NULL,
   `lName` VARCHAR(45) NULL,
   `userName` VARCHAR(45) NULL,
@@ -37,7 +37,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `Events` ;
 
 CREATE TABLE IF NOT EXISTS `Events` (
-  `eventID` INT NOT NULL,
+  `eventID` INT NOT NULL auto_increment,
   `name` VARCHAR(45) NULL,
   `start_date` DATE NULL,
   `end_date` DATE NULL,
@@ -56,7 +56,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `Teams` ;
 
 CREATE TABLE IF NOT EXISTS `Teams` (
-  `teamID` INT NOT NULL,
+  `teamID` INT NOT NULL auto_increment,
   `team_name` VARCHAR(45) NULL,
   PRIMARY KEY (`teamID`))
 ENGINE = InnoDB;
