@@ -72,4 +72,9 @@
     }
   });
 
+  // Modal tab selecion.
+  $('.test').click(function() {
+    alert('sign in affected');
+  }); 
+  
 })(jQuery); // End of use strict
