@@ -73,10 +73,10 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-2 ml-auto text-center">
-              <button type="button" class="btn btn-primary btn-xl" data-toggle="modal" data-target="#login-modal">Log In</button>
+              <a href="#login" class="btn btn-primary btn-xl modal-toggle" data-toggle="modal" data-target="#login-modal">Log In</a>
             </div>
             <div class="col-lg-2 mr-auto text-center">
-              <button type="button" class="btn btn-primary btn-xl" data-toggle="modal" data-target="#login-modal">Sign Up</button>
+              <a href="#signup" class="btn btn-primary btn-xl modal-toggle" data-toggle="modal" data-target="#login-modal">Sign Up</a>
             </div>
           </div>
         </div>
@@ -169,34 +169,57 @@
   <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-body">
 
-          <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" id="tabs" role="tablist">
             <li class="nav-item">
               <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Log In</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="sign-tab" data-toggle="tab" href="#signup" role="tab" aria-controls="signup" aria-selected="false">Sign Up</a>
+              <a class="nav-link" id="signup-tab" data-toggle="tab" href="#signup" role="tab" aria-controls="signup" aria-selected="false">Sign Up</a>
             </li>
           </ul>
 
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-
           <div class="container">
-            <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">No</div>
-              <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup-tab">Sign me up scotty!</div>
+            <!-- Tab panes -->
+            <div class="tab-content" id="tab-content">
+
+              <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login">
+                <div class="container">
+                  <form id="login-frm" class="form-group" action="scripts/login.php" method="post" accept-charset="utf-8" class="form" role="form">
+                    <input type="email" class="form-control input-lg my-3" placeholder="Email" name="email" required>
+                    <input type="password" class="form-control input-lg my-3" placeholder="Password" name="psw" required>
+                    <input type="submit" class="btn btn-primary pull-right">
+                    <a href="#">Forgot Password?</a>
+                  </form>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup">
+                <div class="container">
+                  <div class="row">
+                    <form id="signup-frm" class="form-group" action="#" method="post" accept-charset="utf-8" class="form" role="form">
+                      <div class="row my-3">
+                        <div class="col-xs-6 col-md-6">
+                          <input type="text" class="form-control input-lg" placeholder="First Name" name="fname" required>
+                        </div>
+                        <div class="col-xs-6 col-md-6">
+                          <input type="text" class="form-control input-lg" placeholder="Last Name" name="lname" required>
+                        </div>
+                      </div>
+                      <input type="email" class="form-control input-lg my-3" placeholder="Email" name="email" required>
+                      <input type="password" id="psw" class="form-control input-lg my-3" placeholder="Password" name="psw" required>
+                      <input type="password" id="psw-repeat" class="form-control input-lg my-3" placeholder="Repeat Password" name="psw-repeat"
+                        required>
+                      <input type="submit" class="btn btn-primary pull-right">
+                    </form>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Submit</button>
         </div>
       </div>
     </div>
@@ -207,7 +230,7 @@
 <!-- Bootstrap core JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script> -->
 
 <!-- Plugin JavaScript -->
 <script src="lib/jquery-easing/jquery.easing.min.js"></script>
@@ -216,5 +239,6 @@
 
 <!-- Custom scripts for this template -->
 <script src="scripts/js/creative.min.js"></script>
+<script src="scripts/js/home.js"></script>
 
 </html>
