@@ -1,16 +1,20 @@
 # cop4331-large
 
+Using linux/OSX:
 #1) open terminal
 
-#2) run "chmod 400 POOPGROUP.pem" //this will make sure the .pem file is private
+#2) run "chmod 400 /my/file/location/WebServer.pem" //this will make sure the .pem file is private
 
-#3) ssh -i POOPGROUP.pem ubuntu@ec2-18-218-199-173.us-east-2.compute.amazonaws.com
+#3) ssh -i WebServer.pem ubuntu@ec2-34-201-255-155.compute-1.amazonaws.com
 
 #You should be greeted to the server.  Ubuntu is the root user.  There is no password for the root user.
 
+Windows:
+Use the .ppk file on the master page and use PUTTY to access the server
 
 #Notes:
-#http://18.218.199.173 is the server IP
+#34.201.255.155 is the server IP
+www.cop4331-group16.com is the server domain 
 
 
 #MySQL Server:
@@ -18,10 +22,14 @@
 
 #password:  password
 
+#PHPMYADMIN (can be accessed in the browser)
+ http://www.cop4331-group16.com/phpmyadmin/
+login: root
+password: password
+
 #To access the sql server config file: sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
 
-#PHP Notes:
-#http://18.188.148.0/info.php is working.  Directory by default is /var/www/html/
+Webpage Index Directory by default is /var/www/html/
 
 #Google PHP API
 #https://developers.google.com/calendar/quickstart/php
@@ -32,5 +40,4 @@
 
 #Apache WebServer:
 
-#it is set to look for .php files first before anything
 #directory for index files is /var/www/html
