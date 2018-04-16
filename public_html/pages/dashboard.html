@@ -16,6 +16,9 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- Below copied from calendar.html-->
+    <link rel='stylesheet' type='text/css' href='../lib/fullcalendar/css/fullcalendar.css' />
+
 
 
 
@@ -44,6 +47,7 @@
     <![endif]-->
 
 </head>
+
 
 <body>
 
@@ -406,7 +410,8 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            
+                           <!-- CALENDAR BELOW-->
+                            <div id='calendar'></div>
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -506,6 +511,18 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
+
+    <!-- from calendar.html -->
+    <script src='../lib/fullcalendar/js/moment.min.js'></script>
+    <script src='../lib/fullcalendar/js/fullcalendar.min.js'></script>
+    <script>
+        $(document).ready(function() {
+
+            $('#calendar').fullCalendar({
+
+            })
+        });
+    </script>
 
 </body>
 
