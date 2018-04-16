@@ -16,6 +16,8 @@ Use the .ppk file on the master page and use PUTTY to access the server
 #34.201.255.155 is the server IP
 www.cop4331-group16.com is the server domain 
 
+#Git repository on the webserver: 
+/var/www/html
 
 #MySQL Server:
 #use this code to login: mysql -u root -p
