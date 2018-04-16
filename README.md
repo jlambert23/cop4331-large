@@ -19,7 +19,6 @@ www.cop4331-group16.com is the server domain
 
 #MySQL Server:
 #use this code to login: mysql -u root -p
-
 #password:  password
 
 #PHPMYADMIN (can be accessed in the browser)
