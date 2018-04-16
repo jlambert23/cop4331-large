@@ -29,15 +29,13 @@ password: password
 
 #To access the sql server config file: sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
 
-Webpage Index Directory by default is /var/www/html/
-
-#Google PHP API
-#https://developers.google.com/calendar/quickstart/php
-
+Webpage Index Directory by default is /var/www/html/cop4331-large/public_html
 
 #Github Notes:
 #/git/testing will be the default git repo on the server
 
 #Apache WebServer:
+login: root
+password: password
 
-#directory for index files is /var/www/html
+#directory for index files is /var/www/html/cop4331-large/public_html
