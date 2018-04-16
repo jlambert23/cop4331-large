@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `Users` (
   `userID` INT NOT NULL auto_increment,
   `fName` VARCHAR(45) NULL,
   `lName` VARCHAR(45) NULL,
-  `userName` VARCHAR(45) NULL,
+  `userName` VARCHAR(45) NULL UNIQUE,
   `email` VARCHAR(45) NULL,
   `password` VARCHAR(64) NULL,
   PRIMARY KEY (`userID`))
