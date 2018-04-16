@@ -1,12 +1,12 @@
 USE cop4331;
 
-INSERT INTO users VALUES('1','Stringer', 'Bell','SBell','goFYaself@gmail.com','password');
-INSERT INTO users VALUES('2','Lebron', 'James','LBJ','LBJ@gmail.com','ImTheGreatest');
-INSERT INTO users VALUES('3','Tony', 'Soprano','TonyS','capicolaLover@gmail.com','PieOMy');
-INSERT INTO users VALUES('4','Christopher','Moltisanti','ChrisM','heroinAddict@gmail.com','Adrian');
-INSERT INTO users VALUES('5','Dwayne','Wade','DWade','MiamiStyle@gmail.com','WadeandLebron');
-INSERT INTO users VALUES('6','Carmello','Anthony','Mello','BigAppleBaller@gmail.com','1password');
-INSERT INTO users VALUES('7','Don','Draper','MarketingMan','alcoholic@aol.com','2password');
+INSERT INTO users VALUES('1','Stringer', 'Bell','SBell','goFYaself@gmail.com','password','5555555555','Bla bla description');
+INSERT INTO users VALUES('2','Lebron', 'James','LBJ','LBJ@gmail.com','ImTheGreatest','5555555555','Bla bla description');
+INSERT INTO users VALUES('3','Tony', 'Soprano','TonyS','capicolaLover@gmail.com','PieOMy','5555555555','Bla bla description');
+INSERT INTO users VALUES('4','Christopher','Moltisanti','ChrisM','heroinAddict@gmail.com','Adrian','5555555555','Bla bla description');
+INSERT INTO users VALUES('5','Dwayne','Wade','DWade','MiamiStyle@gmail.com','WadeandLebron','5555555555','Bla bla description');
+INSERT INTO users VALUES('6','Carmello','Anthony','Mello','BigAppleBaller@gmail.com','1password','5555555555','Bla bla description');
+INSERT INTO users VALUES('7','Don','Draper','MarketingMan','alcoholic@aol.com','2password','5555555555','Bla bla description');
 
 
 INSERT INTO teams VALUES('1','New Jersey Crime Family');
@@ -29,6 +29,3 @@ INSERT INTO events_has_teams VALUES('2','1');
 
 INSERT INTO users_has_events VALUES('7','3');
 INSERT INTO users_has_events VALUES('2','4');
-
-
-
