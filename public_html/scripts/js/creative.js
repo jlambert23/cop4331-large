@@ -71,10 +71,5 @@
       tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
     }
   });
-
-  // Modal tab selecion.
-  $('.test').click(function() {
-    alert('sign in affected');
-  }); 
   
 })(jQuery); // End of use strict

@@ -1,0 +1,23 @@
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.card-header {
+    background-color: rgba(240, 95, 64, 0.9);
+}
+
+#section-header {
+    display: inline;
+}
+
+#wrapper {
+    padding: 50px;
+    padding-top: 80px;
+    padding-bottom: 5px;
+    background-color: rgba(245, 245, 245);
+}
