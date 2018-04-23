@@ -29,6 +29,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` VARCHAR(64) NULL,
   `phone` VARCHAR(12) NULL,
   `description` VARCHAR(256) NULL,
+  `picture_path` VARCHAR(64),
   PRIMARY KEY (`userID`))
 ENGINE = InnoDB;
 
@@ -60,6 +61,7 @@ DROP TABLE IF EXISTS `teams` ;
 CREATE TABLE IF NOT EXISTS `teams` (
   `teamID` INT NOT NULL auto_increment,
   `team_name` VARCHAR(45) NULL,
+  `picture_path` VARCHAR(64),  
   PRIMARY KEY (`teamID`))
 ENGINE = InnoDB;
 
