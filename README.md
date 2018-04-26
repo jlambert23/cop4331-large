@@ -33,10 +33,13 @@ password: password
 Webpage Index Directory by default is /var/www/html/cop4331-large/public_html
 
 #Github Notes:
-#/git/testing will be the default git repo on the server
+Navicate to /var/www/html/cop4331-large and use "git pull".  This is where the .git file is located so it has the server info ready to go.
 
 #Apache WebServer:
 login: root
 password: password
 
-#directory for index files is /var/www/html/cop4331-large/public_html
+#directory for index files is /var/www/html/cop4331-large/public_html. This is assigned through Apache Server.
+
+
+
