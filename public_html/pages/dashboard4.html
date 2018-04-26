@@ -41,6 +41,13 @@
     </div>
     <div>
       <ul class="navbar-nav navbar-right">
+
+         <!-- Button to Open the Modal -->
+         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-modal">Create</button>
+
+
+
+           <!-- Navbar MY Teams Dropdown -->
         <div class="dropdown mx-3">
           <button class="btn btn-primary" type="button" data-toggle="dropdown">
             My Teams
@@ -183,6 +190,73 @@
     </div>
   </section>
 
+  <!-- Navbar Create Modal -->
+  <!--<div class="modal fade" id="create-modal" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true"> -->
+  <div class="modal fade" id="create-modal" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
+   <div class="modal-dialog modal-lg" role="document">
+     <div class="modal-content">
+        <div class="modal-body">
+
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" id="tabs" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="login-tab" data-toggle="tab" href="#create-team" role="tab" aria-controls="login" aria-selected="true">Create Team</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="signup-tab" data-toggle="tab" href="#create-event" role="tab" aria-controls="signup" aria-selected="false">Create Event</a>
+            </li>
+          </ul>
+
+          <div class="container">
+            <!-- Tab panes -->
+            <div class="tab-content" id="tab-content">
+
+              <!-- Modal Tab for Create Team -->
+              <div class="tab-pane fade show active" id="create-team" role="tabpanel" aria-labelledby="create-team">
+                <div class="container">
+                  <form id="create-team-frm" class="form-group" action="scripts/CreateTeam.php" method="post" accept-charset="utf-8" class="form" role="form">
+                    <input type="text" class="form-control input-lg my-3" placeholder="Team Name" name="team-name" required>
+                    <input type="submit" class="btn btn-primary pull-right">
+                  </form>
+                </div>
+              </div>
+
+              <!-- Modal Tab for Create Event  -->
+              <!-- Probably will need to change action="scripts/UserCreateEvent.php" when we get to that. -->
+              <div class="tab-pane fade" id="create-event" role="tabpanel" aria-labelledby="create-event">
+                <div class="container">
+                    <form id="create-event-frm" class="form-group" action="scripts/UserCreateEvent.php" method="post" accept-charset="utf-8" class="form" role="form">
+                      <input type="text" id="event-name" class="form-control input-lg my-3" placeholder="Event Name" name="event-name" required>
+                      <div class="form-group row">
+                        <div class="col-3">
+                           <input class="form-control input-sm" type="date" value="2018-04-30" id="start-date-input">
+                        </div>
+                        <div class="col-2">
+                           <input class="form-control input-sm" type="time" value="12:00" id="start-time-input">
+                        </div>
+                        <div class="col-1">
+                           <div class="small">to</div>
+                        </div>
+                        <div class="col-3">
+                           <input class="form-control" type="date" value="2018-04-30" id="end-date-input">
+                        </div>
+                        <div class="col-2">
+                           <input class="form-control" type="time" value="13:00" id="end-time-input">
+                        </div>
+                     </div>
+                      <input type="text" id="event-location" class="form-control input-lg my-3" placeholder="Location" name="event-location" required>
+                      <textarea class="form-control" rows="5" id="event-description" placeholder="Event Description"></textarea>
+                      <input type="submit" class="btn btn-primary pull-right">
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+     </div>
+   </div>
+  </div>
 </body>
 
 
