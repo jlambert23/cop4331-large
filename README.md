@@ -39,6 +39,10 @@ Navicate to /var/www/html/cop4331-large and use "git pull".  This is where the .
 #Apache WebServer:
 login: root
 password: password
+#To change Apache's root directory, 
+#cd /etc/apache2/sites-available.
+#Then open the 000-default.conf file using the command: nano 000-default.conf.
+#Edit the DocumentRoot option: DocumentRoot /path/to/my/project.
 
 #directory for index files is /var/www/html/cop4331-large/public_html. This is assigned through Apache Server.
 
