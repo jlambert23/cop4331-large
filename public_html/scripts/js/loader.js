@@ -1,3 +1,17 @@
+// TESTING
+$(document).ready(function() {
+  $.ajax({
+    dataType: 'json',
+    url: '../scripts/giveUserInfo.php',
+    success: function() {
+      alert("SUCCESS");
+    },
+    error: function(data) {
+      alert(data.responseText);
+    }
+  });
+});
+
 // Profile loader
 $(document).ready(function () {
   $.getJSON('../scripts/giveUserInfo.php', function (user) {
