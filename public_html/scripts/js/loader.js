@@ -1,11 +1,8 @@
-// TESTING
+// Alert when giveUserInfo.php fails
 $(document).ready(function() {
   $.ajax({
     dataType: 'json',
     url: '../scripts/giveUserInfo.php',
-    success: function() {
-      alert("SUCCESS");
-    },
     error: function(data) {
       alert(data.responseText);
     }
@@ -15,9 +12,8 @@ $(document).ready(function() {
 // Profile loader
 $(document).ready(function () {
   $.getJSON('../scripts/giveUserInfo.php', function (user) {
-    $('#firstname').append(user.fname);
+    $('#firstname').append(user.fname + " ");
     $('#lastname').append(user.lname);
-    $('#description').append(user.description);
 
     if (user.hasOwnProperty('image')) {
       $.get(user.image)

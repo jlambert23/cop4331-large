@@ -43,10 +43,10 @@ if(isset($_POST['submitButton'])){
 
 					elseif($hashedPasswordCheck == true){
 						//log in the user here
-						$_SESSION["u_id"] = $row["user_id"];
-						$_SESSION["u_first"] = $row["user_first"];
-						$_SESSION["u_last"] = $row["user_last"];
-						$_SESSION["u_email"] = $row["user_email"];
+						$_SESSION["u_id"] = $row["userID"];
+						$_SESSION["u_first"] = $row["fName"];
+						$_SESSION["u_last"] = $row["lName"];
+						$_SESSION["u_email"] = $row["email"];
 						//$_SESSION["u_username"] = $row["username"];
 
 						header("Location: ../pages/dashboard.html");
