@@ -1,6 +1,6 @@
 // Profile loader
 $(document).ready(function () {
-  $.getJSON('/scripts/js/tmp/user.json', function (user) {
+  $.getJSON('../scripts/js/tmp/user.json', function (user) {
     $('#firstname').append(user.fname);
     $('#lastname').append(user.lname);
     $('#description').append(user.description);
@@ -22,7 +22,7 @@ $(document).ready(function () {
 
 // Event loader
 $("#event-list").ready(function () {
-  $.getJSON("/scripts/js/tmp/events.json", function (result) {
+  $.getJSON("../scripts/js/tmp/events.json", function (result) {
     $.each(result, function (i, field) {
       var dateformat = "dddd, MMM D YYYY";
       var start = moment(field.start).format("h:mm a " + dateformat);
@@ -53,7 +53,7 @@ $("#event-list").ready(function () {
 
 // Team loader
 $("#team-dropdown").ready(function () {
-  $.getJSON("tmp/emptyteams.json", function (result) {
+  $.getJSON("../scripts/js/tmp/emptyteams.json", function (result) {
     if (result.length <= 0) {
       var message = "Click here to create your<br>first team and get started!";
       $("#team-dropdown").append($("<a>", { href: "#create-team-modal", "data-toggle": "modal", "data-target": "#create-team-modal" }).addClass("dropdown-item").append(message));
