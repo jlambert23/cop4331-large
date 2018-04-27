@@ -16,6 +16,10 @@ select * from events
 	where eventID = any(select events_eventID from users_has_events
     where users_has_events.users_userID = 7);
     
+/* Used for searching for users with names similar to entry. */
+select fName, lName, email from users where
+	users.fname LIKE '%el%' OR users.lName like '%el%'; 
+    
 /*select * from events 
 	where eventID = any(select events_eventID from users_has_events
     where users_has_events.users_userID = 2) 
