@@ -1,3 +1,25 @@
+// Profile loader
+$(document).ready(function () {
+  $.getJSON('/scripts/js/tmp/user.json', function (user) {
+    $('#firstname').append(user.fname);
+    $('#lastname').append(user.lname);
+    $('#description').append(user.description);
+
+    if (user.hasOwnProperty('image')) {
+      $.get(user.image)
+        .done(function () {
+          $('#profile').attr('src', user.image);
+        }).fail(function () {
+          $('#profile').attr('src', '/img/default.jpg');
+        });
+    }
+    else {
+      $('#profile').attr('src', '/img/default.jpg');
+    }
+
+  });
+});
+
 // Event loader
 $("#event-list").ready(function () {
   $.getJSON("/scripts/js/tmp/events.json", function (result) {

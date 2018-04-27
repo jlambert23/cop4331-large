@@ -10,15 +10,16 @@
 
   <title>Apical</title>
 
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" type='text/css'>
-  <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css' rel='stylesheet' type='text/css'>
-  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type='text/css'>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" rel="stylesheet" type="text/css">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet" type="text/css">
 
   <!-- Fonts -->
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
-    rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic'
-    rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+    rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic"
+    rel="stylesheet" type="text/css">
 
   <!-- Font Awesome Icons -->
   <link href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" rel="stylesheet" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
@@ -74,41 +75,34 @@
   </nav>
 
   <div id="wrapper">
-
     <div class="row">
 
-      <div class="col-sm mb-4">
-        <!-- Header -->
-        <div class="card">
+      <div class="col">
+        <!-- Name -->
+        <div class="card mb-4">
           <div class="card-header">
-            <h1 id="firstname" class="text-white section-header">
-              Pizza
-            </h1>
-            <h1 id="lastname" class="text-white section-header">
-              Face
-            </h1>
+            <h1 id="firstname" class="text-white section-header"></h1>
+            <h1 id="lastname" class="text-white section-header"></h1>
           </div>
+          <!-- Profile picture -->
           <div class="card-body">
-            <div class="row">
-              <!-- Profile picture -->
-              <div class="col-xs px-3">
-                <div class="card" style="width: 18rem;">
-                  <img class="card-img-top" src="../img/Pizzaface.jpg" alt="Card image cap">
-                </div>
-              </div>
-              <!-- Description -->
-              <div id="description" class="col-xl">
-                I'm just a guy. Please stop laughing.
-              </div>
-
-            </div>
+            <img id="profile" class="rounded card-img-top">
           </div>
         </div>
+
+        <!-- Upcoming Events -->
+        <div class="card mb-4">
+          <div class="card-header">
+            <h4 class="text-white section-header">
+              <span class="fas fa-list-alt"></span> Upcoming Events
+            </h4>
+          </div>
+          <div class="card-body">
+            <div id="event-list" class="list-group"></div>
+          </div>
+        </div>
+
       </div>
-
-    </div>
-
-    <div class="row">
 
       <div class="col-lg-8">
         <!-- Calendar -->
@@ -126,19 +120,7 @@
         </div>
       </div>
 
-      <div class="col-lg">
-        <!-- Upcoming Events -->
-        <div class="card">
-          <div class="card-header">
-            <h4 class="text-white section-header">
-              <span class="fas fa-list-alt"></span> Upcoming Events
-            </h4>
-          </div>
-          <div class="card-body">
-            <div id="event-list" class="list-group"></div>
-          </div>
-        </div>
-      </div>
+
     </div>
   </div>
 
@@ -153,10 +135,12 @@
       <div class="row">
         <div class="col-lg-4 ml-auto text-center">
           <i class="fa fa-bar-chart fa-3x mb-3 sr-contact"></i>
-          <p><a href="https://www.youtube.com/watch?v=ZkwrIZQDt50">Our Software Development Process</a></p>
+          <p>
+            <a href="https://www.youtube.com/watch?v=ZkwrIZQDt50">Our Software Development Process</a>
+          </p>
         </div>
         <div class="col-lg-4 mr-auto text-center">
-           <i class="fa fa-space-shuttle fa-3x mb-3 sr-contact"></i>
+          <i class="fa fa-space-shuttle fa-3x mb-3 sr-contact"></i>
           <p>
             <a href="https://www.spacetelescope.org/images/archive/category/cosmology/">Reach For The Stars</a>
           </p>
@@ -254,6 +238,7 @@
   <div>
     <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js'></script>

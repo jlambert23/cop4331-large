@@ -21,3 +21,9 @@ h1 {
     padding-bottom: 5px;
     background-color: rgba(245, 245, 245);
 }
+
+.card-img-top {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
