@@ -77,38 +77,32 @@
 
     <div class="row">
 
-      <div class="col-sm mb-4">
-        <!-- Header -->
-        <div class="card">
+      <div class="col">
+        <!-- Name -->
+        <div class="card mb-4">
           <div class="card-header">
-            <h1 id="firstname" class="text-white section-header">
-              Pizza
-            </h1>
-            <h1 id="lastname" class="text-white section-header">
-              Face
-            </h1>
+            <h1 id="firstname" class="text-white section-header"></h1>
+            <h1 id="lastname" class="text-white section-header"></h1>
           </div>
+          <!-- Profile picture -->
           <div class="card-body">
-            <div class="row">
-              <!-- Profile picture -->
-              <div class="col-xs px-3">
-                <div class="card" style="width: 18rem;">
-                  <img class="card-img-top" src="../img/Pizzaface.jpg" alt="Card image cap">
-                </div>
-              </div>
-              <!-- Description -->
-              <div id="description" class="col-xl">
-                I'm just a guy. Please stop laughing.
-              </div>
-
-            </div>
+            <img id="profile" class="rounded card-img-top">
           </div>
         </div>
+
+        <!-- Upcoming Events -->
+        <div class="card mb-4">
+          <div class="card-header">
+            <h4 class="text-white section-header">
+              <span class="fas fa-list-alt"></span> Upcoming Events
+            </h4>
+          </div>
+          <div class="card-body">
+            <div id="event-list" class="list-group"></div>
+          </div>
+        </div>
+
       </div>
-
-    </div>
-
-    <div class="row">
 
       <div class="col-lg-8">
         <!-- Calendar -->
@@ -126,19 +120,7 @@
         </div>
       </div>
 
-      <div class="col-lg">
-        <!-- Upcoming Events -->
-        <div class="card">
-          <div class="card-header">
-            <h4 class="text-white section-header">
-              <span class="fas fa-list-alt"></span> Upcoming Events
-            </h4>
-          </div>
-          <div class="card-body">
-            <div id="event-list" class="list-group"></div>
-          </div>
-        </div>
-      </div>
+
     </div>
   </div>
 
@@ -153,10 +135,12 @@
       <div class="row">
         <div class="col-lg-4 ml-auto text-center">
           <i class="fa fa-bar-chart fa-3x mb-3 sr-contact"></i>
-          <p><a href="https://www.youtube.com/watch?v=ZkwrIZQDt50">Our Software Development Process</a></p>
+          <p>
+            <a href="https://www.youtube.com/watch?v=ZkwrIZQDt50">Our Software Development Process</a>
+          </p>
         </div>
         <div class="col-lg-4 mr-auto text-center">
-           <i class="fa fa-space-shuttle fa-3x mb-3 sr-contact"></i>
+          <i class="fa fa-space-shuttle fa-3x mb-3 sr-contact"></i>
           <p>
             <a href="https://www.spacetelescope.org/images/archive/category/cosmology/">Reach For The Stars</a>
           </p>
