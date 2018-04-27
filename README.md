@@ -1,4 +1,5 @@
 # cop4331-large
+website:  www.cop4331-group16.com
 
 Using linux/OSX:
 #1) open terminal
@@ -33,10 +34,17 @@ password: password
 Webpage Index Directory by default is /var/www/html/cop4331-large/public_html
 
 #Github Notes:
-#/git/testing will be the default git repo on the server
+Navicate to /var/www/html/cop4331-large and use "git pull".  This is where the .git file is located so it has the server info ready to go.
 
 #Apache WebServer:
 login: root
 password: password
+#To change Apache's root directory, 
+#cd /etc/apache2/sites-available.
+#Then open the 000-default.conf file using the command: nano 000-default.conf.
+#Edit the DocumentRoot option: DocumentRoot /path/to/my/project.
 
-#directory for index files is /var/www/html/cop4331-large/public_html
+#directory for index files is /var/www/html/cop4331-large/public_html. This is assigned through Apache Server.
+
+
+

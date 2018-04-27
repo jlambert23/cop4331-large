@@ -41,6 +41,19 @@
     </div>
     <div>
       <ul class="navbar-nav navbar-right">
+
+        <!-- Modal Dropdown -->
+        <div class="dropdown">
+          <button class="btn btn-primary" type="button" data-toggle="dropdown">
+            Create
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#create-team-modal" data-toggle="modal" data-target="#create-team-modal">Create Team</a>
+            <a class="dropdown-item" href="#create-event-modal" data-toggle="modal" data-target="#create-event-modal">Create Event</a>
+          </div>
+        </div>
+
+        <!-- Navbar My Teams Dropdown -->
         <div class="dropdown mx-3">
           <button class="btn btn-primary" type="button" data-toggle="dropdown">
             My Teams
@@ -51,6 +64,8 @@
             <a class="dropdown-item" href="#">Cool People Club</a>
           </div>
         </div>
+
+        <!-- Navbar Profile Dropdown-->
         <div class="dropdown">
           <button class="btn btn-primary" type="button" data-toggle="dropdown">
             Profile
@@ -128,32 +143,7 @@
             </h4>
           </div>
           <div class="card-body">
-            <div class="list-group">
-              <div class="list-group-item">
-                <a id="event1title" href="#">Work on Server Meeting</a>
-                <div id="event1team" class="small"> Senior Design Team </div>
-                <div class="small"> Monday <span id="event1date">April 2</span> from <span id="event1starttime">11:00 am</span> - <span id="event1endtime">12:00 pm</span> </div>
-                <div id="event1location" class="small"> UCF Library: Ground Floor </div>
-              </div>
-              <div class="list-group-item">
-                <a id="event2title" href="#">Work on Server Meeting</a>
-                <div id="event2team" class="small"> Senior Design Team </div>
-                <div class="small"> Monday <span id="event2date">April 2</span> from <span id="event2starttime">11:00 am</span> - <span id="event2endtime">12:00 pm</span> </div>
-                <div id="event2location" class="small"> UCF Library: Ground Floor </div>
-              </div>
-              <div class="list-group-item">
-                <a id="event3title" href="#">Work on Server Meeting</a>
-                <div id="event3team" class="small"> Senior Design Team </div>
-                <div class="small"> Monday <span id="event3date">April 2</span> from <span id="event3starttime">11:00 am</span> - <span id="event3endtime">12:00 pm</span> </div>
-                <div id="event3location" class="small"> UCF Library: Ground Floor </div>
-              </div>
-              <div class="list-group-item">
-                <a id="event4title" href="#">Work on Server Meeting</a>
-                <div id="event4team" class="small"> Senior Design Team </div>
-                <div class="small"> Monday <span id="event4date">April 2</span> from <span id="event4starttime">11:00 am</span> - <span id="event4endtime">12:00 pm</span> </div>
-                <div id="event4location" class="small"> UCF Library: Ground Floor </div>
-              </div>
-            </div>
+            <div class="list-group"></div>
           </div>
         </div>
       </div>
@@ -170,41 +160,115 @@
       </div>
       <div class="row">
         <div class="col-lg-4 ml-auto text-center">
-          <i class="fa fa-phone fa-3x mb-3 sr-contact"></i>
-          <p>123-456-6789</p>
+          <i class="fa fa-bar-chart fa-3x mb-3 sr-contact"></i>
+          <p><a href="https://www.youtube.com/watch?v=ZkwrIZQDt50">Our Software Development Process</a></p>
         </div>
         <div class="col-lg-4 mr-auto text-center">
-          <i class="fa fa-envelope-o fa-3x mb-3 sr-contact"></i>
+           <i class="fa fa-space-shuttle fa-3x mb-3 sr-contact"></i>
           <p>
-            <a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a>
+            <a href="https://www.spacetelescope.org/images/archive/category/cosmology/">feedback@startbootstrap.com</a>
           </p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Create Team Modal -->
+  <div class="modal fade" id="create-team-modal" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Create Team</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <div class="modal-body">
+          <div class="container">
+            <!-- Contents of Modal -->
+            <div class="tab-pane fade show active" id="create-team" role="tabpanel" aria-labelledby="create-team">
+              <div class="container">
+                <form id="create-team-frm" class="form-group" action="scripts/CreateTeam.php" method="post" accept-charset="utf-8" class="form"
+                  role="form">
+                  <input type="text" class="form-control input-lg my-3" placeholder="Team Name" name="team-name" required>
+                  <input type="submit" class="btn btn-primary pull-right">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Create Event Modal -->
+  <div class="modal fade" id="create-event-modal" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Create Event</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <div class="modal-body">
+          <div class="container">
+            <!-- Modal Content/Forms -->
+            <!-- Probably will need to change action="scripts/UserCreateEvent.php" when we get to that. -->
+            <div class="tab-pane fade show active" id="create-event" role="tabpanel" aria-labelledby="create-event">
+              <div class="container">
+                <form id="create-event-frm" class="form-group" action="scripts/UserCreateEvent.php" method="post" accept-charset="utf-8"
+                  class="form" role="form">
+                  <input type="text" id="event-name" class="form-control input-lg my-3" placeholder="Event Name" name="event-name" required>
+                  <div class="form-group row">
+                    <div class="col-3">
+                      <input class="form-control input-sm" type="date" value="2018-04-30" id="start-date-input">
+                    </div>
+                    <div class="col-2">
+                      <input class="form-control input-sm" type="time" value="12:00" id="start-time-input">
+                    </div>
+                    <div class="col-1">
+                      <div class="small">to</div>
+                    </div>
+                    <div class="col-3">
+                      <input class="form-control" type="date" value="2018-04-30" id="end-date-input">
+                    </div>
+                    <div class="col-2">
+                      <input class="form-control" type="time" value="13:00" id="end-time-input">
+                    </div>
+                  </div>
+                  <input type="text" id="event-location" class="form-control input-lg my-3" placeholder="Location" name="event-location" required>
+                  <textarea class="form-control" rows="5" id="event-description" placeholder="Event Description"></textarea>
+                  <input type="submit" class="btn btn-primary pull-right">
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="../lib/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../lib/scrollreveal/scrollreveal.min.js"></script>
+    <script src="../lib/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="../lib/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../lib/scrollreveal/scrollreveal.min.js"></script>
+    <script src="../lib/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- FullCalendar -->
+    <script src='../lib/fullcalendar/js/moment.min.js'></script>
+    <script src='../lib/fullcalendar/js/fullcalendar.min.js'></script>
+
+    <script src='../scripts/js/eventloader.js'></script>
+    <script src='../scripts/js/dashboard.js'></script>
+  </div>
 </body>
-
-
-<!-- Bootstrap core JavaScript -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-<!-- Plugin JavaScript -->
-<script src="../lib/jquery-easing/jquery.easing.min.js"></script>
-<script src="../lib/scrollreveal/scrollreveal.min.js"></script>
-<script src="../lib/magnific-popup/jquery.magnific-popup.min.js"></script>
-
-<!-- FullCalendar -->
-<script src='../lib/fullcalendar/js/moment.min.js'></script>
-<script src='../lib/fullcalendar/js/fullcalendar.min.js'></script>
-
-<!-- This will be exported into a different script -->
-<script>
-  $(document).ready(function () {
-
-    $('#calendar').fullCalendar({
-
-    })
-  });
-</script>
