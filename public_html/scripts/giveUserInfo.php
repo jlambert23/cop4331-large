@@ -16,7 +16,7 @@ if(isset($_SESSION[u_id])){
 	$jsonExample['lname'] = '$lName';
 	$jsonExample['description'] = 'I\'m just a guy. Please stop laughing.';
 
-	$sql = "SELECT picture_path FROM users WHERE ussers = '$userID';";
+	$sql = "SELECT picture_path FROM users WHERE userID = '$userId';";
 	$result = mysqli_query($conn, $sql);
 
 	while($row = mysql_fetch_assoc($result)) {
