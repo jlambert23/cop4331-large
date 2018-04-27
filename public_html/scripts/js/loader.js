@@ -10,11 +10,11 @@ $(document).ready(function () {
         .done(function () {
           $('#profile').attr('src', user.image);
         }).fail(function () {
-          $('#profile').attr('src', '/img/default.jpg');
+          $('#profile').attr('src', '../img/default.jpg');
         });
     }
     else {
-      $('#profile').attr('src', '/img/default.jpg');
+      $('#profile').attr('src', '../img/default.jpg');
     }
 
   });
@@ -53,7 +53,7 @@ $("#event-list").ready(function () {
 
 // Team loader
 $("#team-dropdown").ready(function () {
-  $.getJSON("/scripts/js/tmp/emptyteams.json", function (result) {
+  $.getJSON("tmp/emptyteams.json", function (result) {
     if (result.length <= 0) {
       var message = "Click here to create your<br>first team and get started!";
       $("#team-dropdown").append($("<a>", { href: "#create-team-modal", "data-toggle": "modal", "data-target": "#create-team-modal" }).addClass("dropdown-item").append(message));
