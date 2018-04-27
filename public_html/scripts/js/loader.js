@@ -1,6 +1,6 @@
 // Profile loader
 $(document).ready(function () {
-  $.getJSON('../scripts/js/tmp/user.json', function (user) {
+  $.getJSON('../scripts/giveUserInfo', function (user) {
     $('#firstname').append(user.fname);
     $('#lastname').append(user.lname);
     $('#description').append(user.description);
