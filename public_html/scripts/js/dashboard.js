@@ -16,3 +16,14 @@ $(document).ready(function () {
 $(document).on('mouseenter', '.dropdown-toggle', function () {
   $(this).trigger('click');
 });
+
+$('#logout').click( function() {
+  $.ajax({
+    type: 'POST',
+    url: '/scripts/logout.php',
+    data: { logout: 'true' },
+    success: function(data) {
+      window.location = data;
+    }
+  })
+});
