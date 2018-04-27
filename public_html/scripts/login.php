@@ -49,7 +49,7 @@ if(isset($_POST['submitButton'])){
 						$_SESSION["u_email"] = $row["user_email"];
 						//$_SESSION["u_username"] = $row["username"];
 
-						header("Location: ../superLoginPage.php? login = success");
+						header("Location: /pages/dashboard.html");
 						exit();
 					
 
