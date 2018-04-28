@@ -64,7 +64,6 @@ $("#event-list").ready(function () {
 // Team loader
 $("#team-dropdown").ready(function () {
   $.getJSON("../scripts/getTeams.php", function (teams) {
-    alert(teams);
     if (teams.length <= 0) {
       var message = "Click here to create your<br>first team and get started!";
       $("#team-dropdown").append($("<a>", { href: "#create-team-modal", "data-toggle": "modal", "data-target": "#create-team-modal" }).addClass("dropdown-item").append(message));
