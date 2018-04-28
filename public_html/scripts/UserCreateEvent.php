@@ -28,8 +28,7 @@ if(isset($_POST['submit'])){
 	// right now storing in DB without questions
 	else{
 
-		$sql = "INSERT INTO events (name, start_date, end_date, start_time,end_time, location, description) VALUES (?, ?, ?, ?,?,?)";
-
+	$sql = "INSERT INTO events (name, start_date, end_date, start_time,end_time, location, description) VALUES (?, ?, ?, ?,?,?, ?)";
 		$stmt = mysqli_stmt_init($conn);
 
 		if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -37,9 +36,11 @@ if(isset($_POST['submit'])){
 			header("Location: ../pages/dashboard.html? eventCreation = ivalidSQL");
 		}
 
-		mysqli_stmt_bind_param($stmt, "sssssss" , '$eventName', 
-								'$start_date' , '$start_time', '$end_date','$endTime', 
-								'$eventDescription', '$eventLocation');
+		
+
+		mysqli_stmt_bind_param($stmt, "sssssss" , $eventName, 
+								$startDate , $startTime, $endDate,$endTime, 
+								$eventDescription, $eventLocation);
 
 		mysqli_stmt_execute($stmt);
 		header("Location: ../pages/dashboard.html ? we got in?");
