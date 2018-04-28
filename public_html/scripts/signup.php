@@ -10,7 +10,7 @@ if(isset($_POST['submit'])){
 	$last = mysqli_real_escape_string($conn, $_POST["lname"]);
 	$email = mysqli_real_escape_string($conn, $_POST["email"]);
 	$password = mysqli_real_escape_string($conn, $_POST["psw"]);
-	$passwordRepeat = mysqli_real_escape_string($conn, $_POST["psw-repeat"]);
+	$passwordRepeat = mysqli_real_escape_string($conn, $_POST["pswrepeat"]);
 
 
 	//error handlers

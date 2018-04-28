@@ -10,10 +10,10 @@
 
   <title>Apical</title>
 
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" rel="stylesheet" type="text/css">
-  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" rel="stylesheet" type="text/css">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
@@ -34,11 +34,8 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand">Apical</a>
-    </div>
-    <div>
-      <ul class="navbar-nav navbar-right">
-
+      <a class="navbar-brand" href="/pages/dashboard.html">Apical</a>
+      <ul class="navbar-nav ml-auto">
         <!-- Modal Dropdown -->
         <div class="dropdown">
           <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
@@ -49,7 +46,6 @@
             <a class="dropdown-item" href="#create-event-modal" data-toggle="modal" data-target="#create-event-modal">Create Event</a>
           </div>
         </div>
-
         <!-- Navbar My Teams Dropdown -->
         <div class="dropdown mx-3">
           <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
@@ -57,73 +53,83 @@
           </button>
           <div id="team-dropdown" class="dropdown-menu"></div>
         </div>
-
         <!-- Navbar Profile Dropdown-->
         <div class="dropdown">
           <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
             Profile
           </button>
-          <div class="dropdown-menu dropdown-menu-right">
+          <div class="dropdown-menu">
             <a class="dropdown-item" href="/pages/dashboard.html">My Profile</a>
             <a class="dropdown-item" href="#">Settings</a>
             <a class="dropdown-item" href="#" id="logout">Sign Out</a>
           </div>
         </div>
-
       </ul>
     </div>
   </nav>
 
-  <div id="wrapper">
+  <div id="wrapper" class="container">
     <div class="row">
 
-      <div class="col">
+      <div class="col-4">
         <!-- Name -->
-        <div class="card mb-4">
+        <div class="card h-100">
           <div class="card-header">
-            <h1 id="firstname" class="text-white section-header"></h1>
-            <h1 id="lastname" class="text-white section-header"></h1>
+            <h4 class="text-white section-header fas fa-user pr-1"></h4>
+            <h4 id="firstname" class="font-weight-bold text-white section-header"></h4>
+            <h4 id="lastname" class="font-weight-bold text-white section-header"></h4>
           </div>
           <!-- Profile picture -->
-          <div class="card-body">
+          <div class="card-body mx-auto my-auto">
             <img id="profile" class="rounded card-img-top">
           </div>
+          <!-- Contact information-->
+          <div class="card-footer">
+            <div class="row">
+              <h5 class="text-red section-header mx-auto">Contact Information</h5>
+            </div>
+            Email:
+            <a id="email"></a>
+            <br>Phone:
+            <a id="phone"></a>
+          </div>
         </div>
+      </div>
+
+      <div class="col-8">
 
         <!-- Upcoming Events -->
-        <div class="card mb-4">
+        <div class="card h-100">
           <div class="card-header">
             <h4 class="text-white section-header">
-              <span class="fas fa-list-alt"></span> Upcoming Events
+              <span class="fas fa-list-alt pr-1"></span> Upcoming Events
             </h4>
           </div>
           <div class="card-body">
             <div id="event-list" class="list-group"></div>
           </div>
         </div>
-
       </div>
-
-      <div class="col-lg-8">
+    </div>
+    <div class="container">
+      <div class="row">
         <!-- Calendar -->
-        <div class="card mb-4">
+        <div class="card my-4">
           <div class="card-header">
             <h4 class="text-white section-header">
               <span class="fas fa-calendar-alt pr-1"></span>
               Calendar
             </h4>
           </div>
-
           <div class="card-body">
             <div id="calendar"></div>
           </div>
         </div>
       </div>
-
-
     </div>
   </div>
 
+  <!-- Footer -->
   <section class="bg-dark text-white">
     <div class="container">
       <div class="row">
@@ -164,7 +170,7 @@
             <!-- Contents of Modal -->
             <div class="tab-pane fade show active" id="create-team" role="tabpanel" aria-labelledby="create-team">
               <div class="container">
-                <form id="create-team-frm" class="form-group" action="/scripts/CreateTeam.php" method="post" accept-charset="utf-8" class="form"
+                <form id="create-team-frm" class="form-group" action="../scripts/CreateTeam.php" method="post" accept-charset="utf-8" class="form"
                   role="form">
                   <input type="text" class="form-control input-lg my-3" placeholder="Team Name" name="team-name" required>
                   <textarea class="form-control" rows="5" id="event-description" placeholder="Event Description"></textarea>
@@ -191,10 +197,9 @@
         <div class="modal-body">
           <div class="container">
             <!-- Modal Content/Forms -->
-            <!-- Probably will need to change action="scripts/UserCreateEvent.php" when we get to that. -->
             <div class="tab-pane fade show active" id="create-event" role="tabpanel" aria-labelledby="create-event">
               <div class="container">
-                <form id="create-event-frm" class="form-group" action="/scripts/UserCreateEvent.php" method="post" accept-charset="utf-8"
+                <form id="create-event-frm" class="form-group" action="../scripts/UserCreateEvent.php" method="post" accept-charset="utf-8"
                   class="form" role="form">
 
                   <div class="row">

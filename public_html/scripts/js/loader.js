@@ -12,8 +12,9 @@ $(document).ready(function() {
 // Profile loader
 $(document).ready(function () {
   $.getJSON('../scripts/giveUserInfo.php', function (user) {
-    $('#firstname').append(user.fname + " ");
+    $('#firstname').append(user.fname + ' ');
     $('#lastname').append(user.lname);
+    $('#email').append(user.email).attr('href', 'mailto:' + user.email);
 
     if (user.hasOwnProperty('image')) {
       $.get(user.image)
@@ -27,6 +28,9 @@ $(document).ready(function () {
       $('#profile').attr('src', '../img/default.jpg');
     }
 
+    if (user.hasOwnProperty('phone')) {
+      $('#phone').append(user.phone).attr('href', 'tel:' + user.phone);
+    }
   });
 });
 
@@ -54,8 +58,11 @@ $("#event-list").ready(function () {
       var event = $("<div>").addClass("list-group-item small").appendTo(".list-group");
       event.append($("<a>", { href: "#" }).append(field.title));
       event.append($("<div>").append(field.team));
-      event.append($("<div>").append(start));
-      event.append($("<div>").append(end));
+
+      event.append($("<div>").append($("<span>").append(start)).
+                              append($("<span>").append(end)));
+      // event.append($("<div>").append(start));
+      // event.append($("<div>").append(end));
       event.append($("<div>").append(field.location));
     });
   });
