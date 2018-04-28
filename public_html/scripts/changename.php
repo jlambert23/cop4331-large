@@ -1,20 +1,20 @@
 <?php
 	echo "test\n";
 
-if(isset($_POST['submitPass'])){
+if(isset($_POST['submitName'])){
 	
 	include_once 'dbconnection.php';
 
 	//$username =mysqli_real_escape_string($conn, $_POST["username"]);
-	$oldPass = mysqli_real_escape_string($conn, $_POST["currPass"]);
-	$shinyPass = mysqli_real_escape_string($conn, $_POST["newPass"]);
+	$fName = mysqli_real_escape_string($conn, $_POST["fname"]);
+	$lName = mysqli_real_escape_string($conn, $_POST["lname"]);
 
 	$userID = $_SESSION["u_id"];
 
 
 	//error handlers
 	//empty fields
-	if(empty($oldPass) || empty($shinyPass)){
+	if(empty($fName) || empty($lName)){
 		//header("Location: ../index.html ? signup=empty");
 		echo "empty fields\n";
 		exit();
@@ -22,10 +22,8 @@ if(isset($_POST['submitPass'])){
 
 	else{
 
-	$sql = "select password from users where userID = ?";
-	
-	$oldHashedPassword = password_has($oldPass,PASSWORD_DEFAULT);
-	
+	$sql = "update users set fName = ?, lName = ? where userID = ?";
+		
 
 	// if ($result = $conn->query($sql) != true) {
 	// 	echo "It it didn't work, yo.\n";
@@ -44,12 +42,8 @@ if(isset($_POST['submitPass'])){
 	}
 	
 	else{
-		//hash pwd
-		$hashedNewPassword = password_hash($shinyPass,PASSWORD_DEFAULT);
-		printf("%s\n", $hashedPassword);
-
-		mysqli_stmt_bind_param($stmt, "ssss" , $first, $last , $email, $hashedPassword);
-		$oldpass = mysqli_stmt_execute($stmt);
+		mysqli_stmt_bind_param($stmt, "sss" , $fName, $lName , $userID);
+		mysqli_stmt_execute($stmt);
 
 		//echo "\nsignup is working\n";
 		header("Location: ../index.html? signup=success");
