@@ -54,8 +54,11 @@ $("#event-list").ready(function () {
       var event = $("<div>").addClass("list-group-item small").appendTo(".list-group");
       event.append($("<a>", { href: "#" }).append(field.title));
       event.append($("<div>").append(field.team));
-      event.append($("<div>").append(start));
-      event.append($("<div>").append(end));
+
+      event.append($("<div>").append($("<span>").append(start)).
+                              append($("<span>").append(end)));
+      // event.append($("<div>").append(start));
+      // event.append($("<div>").append(end));
       event.append($("<div>").append(field.location));
     });
   });

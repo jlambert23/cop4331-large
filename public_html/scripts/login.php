@@ -47,6 +47,7 @@ if(isset($_POST['submitButton'])){
 						$_SESSION["u_first"] = $row["fName"];
 						$_SESSION["u_last"] = $row["lName"];
 						$_SESSION["u_email"] = $row["email"];
+						$_SESSION["u_pic"] = $row["picture_path"];
 						//$_SESSION["u_username"] = $row["username"];
 
 						header("Location: ../pages/dashboard.html");
