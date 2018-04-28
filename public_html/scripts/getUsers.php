@@ -1,6 +1,7 @@
 <?php
     session_start();
 
+    if (isset($_SESSION["u_id"])) {
         include 'dbconnection.php';
         
         $sql = "SELECT fName, lName, email FROM users;";
@@ -15,4 +16,4 @@
         }
 
         echo json_encode($json);
-    
+    }
