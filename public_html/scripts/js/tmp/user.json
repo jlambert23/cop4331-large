@@ -1,5 +1,5 @@
 {
     "fname" : "Pizza",
     "lname" : "Face",
-    "image" : "/img/Pizzaface.jpg"
+    "image" : "../../img/Pizzaface.jpg"
 }

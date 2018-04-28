@@ -1,20 +1,30 @@
+// Alert when giveUserInfo.php fails
+$(document).ready(function() {
+  $.ajax({
+    dataType: 'json',
+    url: '../scripts/getTeams.php',
+    error: function(data) {
+      alert(data.responseText);
+    }
+  });
+});
+
 // Profile loader
 $(document).ready(function () {
-  $.getJSON('/scripts/js/tmp/user.json', function (user) {
-    $('#firstname').append(user.fname);
+  $.getJSON('../scripts/giveUserInfo.php', function (user) {
+    $('#firstname').append(user.fname + " ");
     $('#lastname').append(user.lname);
-    $('#description').append(user.description);
 
     if (user.hasOwnProperty('image')) {
       $.get(user.image)
         .done(function () {
           $('#profile').attr('src', user.image);
         }).fail(function () {
-          $('#profile').attr('src', '/img/default.jpg');
+          $('#profile').attr('src', '../img/default.jpg');
         });
     }
     else {
-      $('#profile').attr('src', '/img/default.jpg');
+      $('#profile').attr('src', '../img/default.jpg');
     }
 
   });
@@ -22,7 +32,7 @@ $(document).ready(function () {
 
 // Event loader
 $("#event-list").ready(function () {
-  $.getJSON("/scripts/js/tmp/events.json", function (result) {
+  $.getJSON("../scripts/js/tmp/events.json", function (result) {
     $.each(result, function (i, field) {
       var dateformat = "dddd, MMM D YYYY";
       var start = moment(field.start).format("h:mm a " + dateformat);
@@ -53,13 +63,13 @@ $("#event-list").ready(function () {
 
 // Team loader
 $("#team-dropdown").ready(function () {
-  $.getJSON("/scripts/js/tmp/emptyteams.json", function (result) {
-    if (result.length <= 0) {
+  $.getJSON("../scripts/getTeams.php", function (teams) {
+    if (teams.length <= 0) {
       var message = "Click here to create your<br>first team and get started!";
       $("#team-dropdown").append($("<a>", { href: "#create-team-modal", "data-toggle": "modal", "data-target": "#create-team-modal" }).addClass("dropdown-item").append(message));
     }
     else {
-      $.each(result, function (i, field) {
+      $.each(teams, function (i, field) {
         $("#team-dropdown").append($("<a>", { href: "#" }).addClass("dropdown-item").append(field.team));
       });
     }
