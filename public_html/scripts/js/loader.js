@@ -12,8 +12,9 @@ $(document).ready(function() {
 // Profile loader
 $(document).ready(function () {
   $.getJSON('../scripts/giveUserInfo.php', function (user) {
-    $('#firstname').append(user.fname + " ");
+    $('#firstname').append(user.fname + ' ');
     $('#lastname').append(user.lname);
+    $('#email').append(user.email).attr('href', 'mailto:' + user.email);
 
     if (user.hasOwnProperty('image')) {
       $.get(user.image)
@@ -27,6 +28,9 @@ $(document).ready(function () {
       $('#profile').attr('src', '../img/default.jpg');
     }
 
+    if (user.hasOwnProperty('phone')) {
+      $('#phone').append(user.phone).attr('href', 'tel:' + user.phone);
+    }
   });
 });
 

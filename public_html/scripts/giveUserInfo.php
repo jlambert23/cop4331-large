@@ -6,9 +6,13 @@
 if(isset($_SESSION["u_id"])){
 	$json_payload['fname'] = $_SESSION["u_first"];
 	$json_payload['lname'] = $_SESSION["u_last"];
+	$json_payload['email'] = $_SESSION["u_email"];
 
 	if (isset($_SESSION["u_pic"]))
 		$json_payload['image'] = $_SESSION["u_pic"];
+
+	if (isset($_SESSION["u_phone"]))
+		$json_payload['phone'] = $_SESSION["u_phone"];
 
 	echo json_encode($json_payload, JSON_UNESCAPED_SLASHES);
 

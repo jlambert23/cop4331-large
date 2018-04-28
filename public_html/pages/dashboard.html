@@ -38,8 +38,8 @@
       <ul class="navbar-nav ml-auto">
         <!-- Modal Dropdown -->
         <div class="dropdown">
-          <button class="btn btn-primary" data-toggle="dropdown">
-            <i class="fas fa-plus"></i>
+          <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            Create
           </button>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="#create-team-modal" data-toggle="modal" data-target="#create-team-modal">Create Team</a>
@@ -73,7 +73,7 @@
 
       <div class="col-4">
         <!-- Name -->
-        <div class="card mb-4">
+        <div class="card h-100">
           <div class="card-header">
             <h4 class="text-white section-header fas fa-user pr-1"></h4>
             <h4 id="firstname" class="font-weight-bold text-white section-header"></h4>
@@ -83,16 +83,23 @@
           <div class="card-body mx-auto my-auto">
             <img id="profile" class="rounded card-img-top">
           </div>
+          <!-- Contact information-->
+          <div class="card-footer">
+            <div class="row">
+              <h5 class="text-red section-header mx-auto">Contact Information</h5>
+            </div>
+            Email:
+            <a id="email"></a>
+            <br>Phone:
+            <a id="phone"></a>
+          </div>
         </div>
-
-
-
       </div>
 
       <div class="col-8">
 
         <!-- Upcoming Events -->
-        <div class="card mb-4">
+        <div class="card h-100">
           <div class="card-header">
             <h4 class="text-white section-header">
               <span class="fas fa-list-alt pr-1"></span> Upcoming Events
@@ -107,7 +114,7 @@
     <div class="container">
       <div class="row">
         <!-- Calendar -->
-        <div class="card mb-4">
+        <div class="card my-4">
           <div class="card-header">
             <h4 class="text-white section-header">
               <span class="fas fa-calendar-alt pr-1"></span>
