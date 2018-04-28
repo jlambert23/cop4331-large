@@ -38,6 +38,12 @@ h6 {
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
+select.error, textarea.error, input.error {
+  border: 1px solid red;
+  border-radius: 4px;
+  background-color:#ffeeee;
+}
+
 .dropdown-toggle, .dropdown-item:active {
   background-color: #F05F40 !important;
 }
