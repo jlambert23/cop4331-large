@@ -2,7 +2,7 @@
 $(document).ready(function() {
   $.ajax({
     dataType: 'json',
-    url: '../scripts/giveUserInfo.php',
+    url: '../scripts/getTeams.php',
     error: function(data) {
       alert(data.responseText);
     }
@@ -63,13 +63,14 @@ $("#event-list").ready(function () {
 
 // Team loader
 $("#team-dropdown").ready(function () {
-  $.getJSON("../scripts/js/tmp/emptyteams.json", function (result) {
-    if (result.length <= 0) {
+  $.getJSON("../scripts/getTeams.php", function (teams) {
+    alert(teams);
+    if (teams.length <= 0) {
       var message = "Click here to create your<br>first team and get started!";
       $("#team-dropdown").append($("<a>", { href: "#create-team-modal", "data-toggle": "modal", "data-target": "#create-team-modal" }).addClass("dropdown-item").append(message));
     }
     else {
-      $.each(result, function (i, field) {
+      $.each(teams, function (i, field) {
         $("#team-dropdown").append($("<a>", { href: "#" }).addClass("dropdown-item").append(field.team));
       });
     }

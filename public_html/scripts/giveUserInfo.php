@@ -1,6 +1,6 @@
 <?php 
 	session_start();
-	include 'dbconnection.php';
+	// include 'dbconnection.php';
 
 // person is logged in we have a session
 if(isset($_SESSION["u_id"])){
