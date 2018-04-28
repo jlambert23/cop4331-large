@@ -21,9 +21,7 @@ if (isset($_POST['email']) && isset($_POST['psw']) && isset($_POST['submitButton
 		$hashedPasswordCheck = password_verify($password, $row['password']);
 
 		if($hashedPasswordCheck == false){
-			echo "error: incorrect password.";
-			header("Location: ../index.html?login=invalid");
-			exit();
+			throw new Exception("Given password is not valid.");
 		}
 
 		// Store the user session info.

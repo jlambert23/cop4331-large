@@ -27,16 +27,25 @@
                 minlength: 5
             }
         },
-        invalidHandler: function(event, validator) {
-            var errors = validator.numberOfInvalids();
-            if (errors) {
-                validator.errorMap["psw"] = "The password given is not correct.";
-                validator.errorMap["email"] = "The emaill given is not correct.";
-            }
-
+        submitHandler: function (form) {
+            login(form);
+        },
+        invalidHandler: function(form, validator) {
+            alert('invalidHandler');
         },
         showErrors: function(errorMap, errorList) { showToolTipErrors(this, errorList); }
     });
+
+    function login(form) {
+        alert("logging in");
+        var data = (form).serializeArray();
+        $.post('../scripts/login.php', data, function() {
+            alert("success");
+        })
+        .fail(function() {
+            alert("failed");
+        });
+    }
 
     // Validate signup form.
     $('#signup-frm').validate({
