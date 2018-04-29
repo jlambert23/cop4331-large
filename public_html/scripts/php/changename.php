@@ -23,6 +23,7 @@ if(isset($_POST['submitName'])){
 	else{
 
 	$sql = "update users set fName = ?, lName = ? where userID = ?";
+	$sql = "UPDATE users SET fName = ?, lName = ? WHERE userID = ?";
 		
 
 	// if ($result = $conn->query($sql) != true) {
