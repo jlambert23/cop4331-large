@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <script src="/scripts/js/session.js"></script>
   <script src="../scripts/js/session.js"></script>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,6 +36,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
+      <a class="navbar-brand" href="/pages/dashboard.html">Apical</a>
       <a class="navbar-brand" href="dashboard.html">Apical</a>
       <ul class="navbar-nav ml-auto">
         <!-- Modal Dropdown -->
@@ -66,6 +68,10 @@
             <a class="dropdown-item" href="/index.html" id="logout">Sign Out</a>
 =======
           <div class="dropdown-menu">
+            <a class="dropdown-item" href="/pages/dashboard.html">My Profile</a>
+            <a class="dropdown-item" href="#">Settings</a>
+            <a class="dropdown-item" href="#" id="logout" name = "logout">Sign Out</a>
+            <a class="dropdown-item" href="/pages/settings.html">Settings</a>
             <a class="dropdown-item" href="dashboard.html">My Profile</a>
             <a class="dropdown-item" href="settings.html">Settings</a>
             <a class="dropdown-item" href="#" id="logout">Sign Out</a>
@@ -182,7 +188,7 @@
                   role="form">
                   <input type="text" class="form-control input-lg my-3" placeholder="Team Name" name="team-name" required>
                   <textarea class="form-control" rows="5" id="event-description" placeholder="Event Description"></textarea>
-                  <input type="submit" class="btn btn-primary pull-right mt-3">
+                  <input type="submit" class="btn btn-primary pull-right mt-3" name = "submit-team">
                 </form>
               </div>
             </div>
@@ -216,17 +222,17 @@
 
                   <div class="row">
                     <span class="mr-2">
-                      <input class="form-control form-control-sm" type="date" value="2018-04-30" id="start-date-input">
+                      <input class="form-control form-control-sm" type="date" value="2018-04-30" id="start-date-input" name = "start-date-input">
                     </span>
                     <span class="mr-2">
-                      <input class="form-control form-control-sm" type="time" value="12:00" id="start-time-input">
+                      <input class="form-control form-control-sm" type="time" value="12:00" id="start-time-input" name ="start-time-input" >
                     </span>
                     <span class="mr-2 py-1">to</span>
                     <span class="mr-2">
-                      <input class="form-control form-control-sm" type="date" value="2018-04-30" id="end-date-input">
+                      <input class="form-control form-control-sm" type="date" value="2018-04-30" id="end-date-input" name = "end-date-input">
                     </span>
                     <span>
-                      <input class="form-control form-control-sm" type="time" value="13:00" id="end-time-input">
+                      <input class="form-control form-control-sm" type="time" value="13:00" id="end-time-input" name = "end-time-input">
                     </span>
                   </div>
 
@@ -234,10 +240,10 @@
                     <input type="text" id="event-location" class="form-control input-lg my-3" placeholder="Location" name="event-location" required>
                   </div>
                   <div class="row">
-                    <textarea class="form-control" rows="5" id="event-description" placeholder="Event Description"></textarea>
+                    <textarea class="form-control" rows="5" id="event-description" placeholder="Event Description" name = "event-description"></textarea>
                   </div>
                   <div class="row pull-right mt-3">
-                    <input type="submit" class="btn btn-primary">
+                    <input type="submit" class="btn btn-primary" name = "submit">
                   </div>
                 </form>
               </div>
