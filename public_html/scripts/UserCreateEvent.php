@@ -3,7 +3,7 @@
 
 if(isset($_POST['submit'])){
 
-	include_once 'dbconnection.php';
+	include_once 'php/dbconnection.php';
 
 	$eventName = mysqli_real_escape_string($conn, $_POST["event-name"]);
 	$startDate = mysqli_real_escape_string($conn, $_POST["start-date-input"]);

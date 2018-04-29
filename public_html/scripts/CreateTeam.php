@@ -3,7 +3,7 @@
 
 if(isset($_POST['submit-team'])){
 
-	include_once 'dbconnection.php';
+	include_once 'php/dbconnection.php';
 
 	$teamName = mysqli_real_escape_string($conn, $_POST["team-name" ]);
 	//$eventDescription = mysqli_real_escape_string($conn, $_POST["event-description" ]);
