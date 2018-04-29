@@ -1,4 +1,6 @@
 <?php
+	
+	session_start();
 	//given a team id spit back out information as json
 	//change the isset to whatever justin is doing
 	if(isset($_POST['t_id']){
@@ -19,24 +21,16 @@
 	}
 
 	if($row = mysqli_fetch_assoc($result)){
-		/*
-		$hashedPasswordCheck = password_verify($password, $row['password']);
-
-		if($hashedPasswordCheck == false){
-			$json['password'] = false;
-			echo json_encode($json);
-			exit();
-		}
-      */
-
+		
 		$json['team_name'] = $row['team_name'];
 		$json['picture_path'] = $row['picture_path'];
+		echo json_encode($json);
       
 	}
 
 	else{
 		
-	echo "didnt get an ID post...do your job Justin!";
+		echo "didnt get an ID post...do your job Justin!";
 
 	}
 
