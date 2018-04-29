@@ -40,14 +40,17 @@ if(isset($_POST['submitName'])){
 	if(!mysqli_stmt_prepare($stmt, $sql)){
 		//echo "SQL error\n";
 		header("Location: ../../index.html? signup = ivalidSQL");
+		header("Location: ../../pages/dashboard.html? nameChange = ivalidSQL");
 	}
 	
 	else{
+
 		mysqli_stmt_bind_param($stmt, "sss" , $fName, $lName , $userID);
 		mysqli_stmt_execute($stmt);
 
 		//echo "\nsignup is working\n";
 		header("Location: ../../index.html? signup=success");
+		header("Location: ../../pages/dashboard.html ? nameChange =success");
 	}
 
 	
@@ -61,5 +64,6 @@ else{
 
 	//echo "nothing worked at all\n";
 	header("Location: ../../index.html? signup= fail");
+	header("Location: ../../pages/dashboard.html? nameChange = fail");
 	exit();
 }
