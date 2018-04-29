@@ -39,8 +39,8 @@ if(isset($_POST['submit'])){
 		
 
 		mysqli_stmt_bind_param($stmt, "sssssss" , $eventName, 
-								$startDate , $startTime, $endDate,$endTime, 
-								$eventDescription, $eventLocation);
+								$startDate , $endDate, $startTime,$endTime, 
+								$eventLocation, $eventDescription);
 
 		mysqli_stmt_execute($stmt);
 		header("Location: ../pages/dashboard.html ? we got in?");
