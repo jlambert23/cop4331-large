@@ -2,7 +2,7 @@
 
 session_start();
 
-if (isset($_POST['email']) && isset($_POST['psw']) && isset($_POST['submitButton'])){
+if (isset($_POST['email']) && isset($_POST['psw']) && isset($_POST['submitLogin'])){
 	include 'dbconnection.php';
 
 	$email = mysqli_real_escape_string($conn, $_POST['email']);
