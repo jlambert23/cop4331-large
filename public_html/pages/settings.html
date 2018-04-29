@@ -17,7 +17,6 @@
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
   <!-- Fonts -->
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
@@ -101,8 +100,13 @@
                     Change Name
                 </button>
             </div>
-            <div class="row"></div>
-            <div class="row"></div>
+
+            <!--Change Email Button-->
+            <div class="row">
+              <button type="button" class="btn btn-primary my-2" data-toggle="modal" data-target="#email-modal">
+                  Change Email
+              </button>
+            </div>
 
 
             <!--Input for uploading picture-->
@@ -119,9 +123,6 @@
                       Submit
               </button>
             </form>
-
-            
-    
                     
         </div>
     </div>
@@ -221,6 +222,41 @@
                 </div>
             </div>
         </div>
+
+        <!--Change Email Modal-->
+        <div class="modal fade" id="email-modal">
+          <div class="modal-dialog">
+              <div class="modal-content">
+          
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                  <h4 class="modal-title text-primary">Change Name</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <form id="change-name-frm" class="form-group" action="/scripts/changename.php" method="post" accept-charset="utf-8"
+                  class="form" role="form">
+
+              
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                      <div class="container">
+                          <div class="row">
+                              <input type="text" id="new-email" class="form-control input-lg my-3" placeholder="Enter New Email" name="email" required>
+                          </div>
+                      </div>
+                    </div>
+                
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                      <button type="submit" class="btn btn-success" name="submitName">Submit</button>
+                    </div>
+                </form>
+
+              </div>
+          </div>
+      </div>
+
 
   <div>
     <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
