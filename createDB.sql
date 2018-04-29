@@ -47,6 +47,7 @@ CREATE TABLE IF NOT EXISTS `events` (
   `location` VARCHAR(45) NULL,
   `description` VARCHAR(256) NULL,
   `category` VARCHAR(256) NULL,
+  `owner` VARCHAR(45),
   PRIMARY KEY (`eventID`))
 ENGINE = InnoDB;
 

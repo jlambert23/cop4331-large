@@ -68,7 +68,7 @@ if(isset($_POST['submitPass'])){
 
 		
 		}
-}
+	}
 }
 
 else{
