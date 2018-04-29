@@ -19,6 +19,7 @@ if(isset($_POST['submitPass'])){
 	if(empty($oldPass) || empty($newPass)){
 		//header("Location: ../../index.html ? signup=empty");
 		echo "empty fields\n";
+		header("Location: ../../pages/settings.html? Password empty");
 		exit();
 	}
 
@@ -26,6 +27,8 @@ if(isset($_POST['submitPass'])){
 	$result = mysqli_query($conn, $sql);
 
 	if (mysqli_num_rows($result) != 1) {
+		header("Location: ../../pages/settings.html? SQL error");
+
 		exit();
 	}
 
@@ -33,6 +36,7 @@ if(isset($_POST['submitPass'])){
 		$hashedPasswordCheck = password_verify($oldPass, $row['password']);
 
 		if($hashedPasswordCheck == false){
+			header("Location: ../../pages/settings.html? Old Pass Incorrect");
 			$json['password'] = false;
 			exit();
 		}
@@ -47,7 +51,7 @@ if(isset($_POST['submitPass'])){
 
 			if(!mysqli_stmt_prepare($stmt, $sql)){
 				//echo "SQL error\n";
-				header("Location: ../../pages/dashboard.html? nameChange = ivalidSQL");
+				header("Location: ../../pages/settings.html? passChange = ivalidSQL");
 			}
 			
 			else{
@@ -55,7 +59,7 @@ if(isset($_POST['submitPass'])){
 				mysqli_stmt_bind_param($stmt, "ss" , $hashedPassword , $userID);
 				mysqli_stmt_execute($stmt);
 				
-				header("Location: ../../pages/dashboard.html ? nameChange =success");
+				header("Location: ../../pages/settings.html ? passChange =success");
 				//echo "$userID <br> $fName <br> $lName" ;
 			}
 
@@ -70,6 +74,6 @@ if(isset($_POST['submitPass'])){
 else{
 
 	//echo "nothing worked at all\n";
-	header("Location: ../../pages/dashboard.html? nameChange = fail");
+	header("Location: ../../pages/settings.html? passChange = fail");
 	exit();
 }
