@@ -27,10 +27,6 @@ if(isset($_POST['submitPass'])){
 
 		//$sql = "select password from users where userID = '$userID';";
 
-<<<<<<< HEAD:public_html/scripts/changepassword.php
-		// Checks if the user entered the correct password
-		$hashedPasswordCheck = password_verify($password,$row['password']);
-=======
 	if(!mysqli_stmt_prepare($stmt, $sql)){
 		//echo "SQL error\n";
 		header("Location: ../../index.html? signup = ivalidSQL");
@@ -40,19 +36,14 @@ if(isset($_POST['submitPass'])){
 		//hash pwd
 		$hashedNewPassword = password_hash($shinyPass,PASSWORD_DEFAULT);
 		printf("%s\n", $hashedPassword);
->>>>>>> 5c4d19ba089c89a9c1afd075643b135d06036b2b:public_html/scripts/php/changepassword.php
 
 		if($hashedPasswordCheck == false){
 			header("Location: ../index.html?password=notCorrect");
 			exit();
 
-<<<<<<< HEAD:public_html/scripts/changepassword.php
-		}
-=======
 		//echo "\nsignup is working\n";
 		header("Location: ../../index.html? signup=success");
 	}
->>>>>>> 5c4d19ba089c89a9c1afd075643b135d06036b2b:public_html/scripts/php/changepassword.php
 
 		// if ($result = $conn->query($sql) != true) {
 		// 	echo "It it didn't work, yo.\n";
