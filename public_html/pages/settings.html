@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Apical</title>
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" type='text/css'>
+  <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css' rel='stylesheet' type='text/css'>
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type='text/css'>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <!-- Fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+    rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic'
+    rel='stylesheet' type='text/css'>
+
+  <!-- Font Awesome Icons -->
+  <link href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" rel="stylesheet" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+    crossorigin="anonymous">
+
+  <!-- Custom CSS -->
+  <link href="../css/style.css" rel="stylesheet">
+  <link href="../css/dashboard.css" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand">Apical</a>
+    </div>
+    <div>
+      <ul class="navbar-nav navbar-right">
+
+        <!-- Modal Dropdown -->
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            Create
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#create-team-modal" data-toggle="modal" data-target="#create-team-modal">Create Team</a>
+            <a class="dropdown-item" href="#create-event-modal" data-toggle="modal" data-target="#create-event-modal">Create Event</a>
+          </div>
+        </div>
+
+        <!-- Navbar My Teams Dropdown -->
+        <div class="dropdown mx-3">
+          <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            My Teams
+          </button>
+          <div id="team-dropdown" class="dropdown-menu"></div>
+        </div>
+
+        <!-- Navbar Profile Dropdown-->
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            Profile
+          </button>
+          <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" href="/pages/dashboard.html">My Profile</a>
+            <a class="dropdown-item" href="#">Settings</a>
+            <a class="dropdown-item" href="/index.html">Sign Out</a>
+          </div>
+        </div>
+
+      </ul>
+    </div>
+  </nav>
+
+  <div id="wrapper">
+    <div class="container">
+        <div class="row">
+            <h2>Settings</h2>
+        </div>
+        <div class="jumbotron">
+
+            <!--Change Password Button-->
+            <div class="row">
+                <button type="button" class="btn btn-primary my-2" data-toggle="modal" data-target="#password-modal">
+                    Change Password
+                </button>
+            </div>
+
+            <!--Change Name Button-->
+            <div class="row">
+                <button type="button" class="btn btn-primary my-2" data-toggle="modal" data-target="#name-modal">
+                    Change Name
+                </button>
+            </div>
+            <div class="row"></div>
+            <div class="row"></div>
+
+
+            <!--Input for uploading picture-->
+            <form id="change-name-frm" class="form-group" action="/scripts/uploadpic.php" method="post" accept-charset="utf-8"
+            class="form" role="form">
+              <div class="form-group my-3">
+                  <label for="exampleInputFile" class="mt-5">Upload New Picture</label>
+                  <input type="file" class="form-control-file" id="picture-input" aria-describedby="fileHelp" name="picture">
+                  <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+              </div>
+              
+              <!--Submit Button-->
+              <button type="button" class="btn btn-success my-0" name="submitPic">
+                      Submit
+              </button>
+            </form>
+
+            
+    
+                    
+        </div>
+    </div>
+
+  </div>
+
+  <section class="bg-dark text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <hr class="my-4">
+          <p class="mb-5">This pizza made possible by COP 4331C Group 16!</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 ml-auto text-center">
+          <i class="fa fa-bar-chart fa-3x mb-3 sr-contact"></i>
+          <p><a href="https://www.youtube.com/watch?v=ZkwrIZQDt50">Our Software Development Process</a></p>
+        </div>
+        <div class="col-lg-4 mr-auto text-center">
+           <i class="fa fa-space-shuttle fa-3x mb-3 sr-contact"></i>
+          <p>
+            <a href="https://www.spacetelescope.org/images/archive/category/cosmology/">Reach For The Stars</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Change Password Modal -->
+  <div class="modal fade" id="password-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+          
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title text-primary">Change Password</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            
+            <form id="change-pass-frm" class="form-group" action="/scripts/changepassword.php" method="post" accept-charset="utf-8" class="form" role="form">
+
+            <!-- Modal body -->
+            <div class="modal-body">
+              <div class="container">
+                    <div class="row">
+                        <input type="text" id="current-password" class="form-control input-lg my-3" placeholder="Enter Current Password" name="currPass" required>
+                    </div>
+                    <div class="row">
+                        <input type="text" id="new-password" class="form-control input-lg my-3" placeholder="Enter New Password" name="newPass" required>
+                    </div>
+              </div>
+            </div>
+            
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-success" name="submitPass">Submit</button>
+            </div>
+          </form>
+          </div>
+        </div>
+      </div>
+
+            <!-- Change Name Modal -->
+        <div class="modal fade" id="name-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+            
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                    <h4 class="modal-title text-primary">Change Name</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <form id="change-name-frm" class="form-group" action="/scripts/changename.php" method="post" accept-charset="utf-8"
+                    class="form" role="form">
+
+                
+                      <!-- Modal body -->
+                      <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <input type="text" id="first-name" class="form-control input-lg my-3" placeholder="First Name" name="fname" required>
+                            </div>
+                            <div class="row">
+                                <input type="text" id="last-name" class="form-control input-lg my-3" placeholder="Last Name" name="lname" required>
+                            </div>
+                        </div>
+                      </div>
+                  
+                      <!-- Modal footer -->
+                      <div class="modal-footer">
+                      <button type="submit" class="btn btn-success" name="submitName">Submit</button>
+                      </div>
+                  </form>
+
+                </div>
+            </div>
+        </div>
+
+  <div>
+    <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js'></script>
+
+    <script src='../scripts/js/loader.js'></script>
+    <script src='../scripts/js/dashboard.js'></script>
+    <script src='../scripts/js/membersearch.js'></script>
+            <!-- Script for autocompleting member-search.  Need to move this to membersearch.js when ready. -->
+    <script>
+        $(function() {
+          var availableTutorials = [
+              "ActionScript",
+              "Bootstrap",
+              "C",
+              "C++",
+          ];
+          $( "#autocomplete-2" ).autocomplete({
+              source: availableTutorials,
+              autoFocus:true
+          });
+        });
+    </script>
+
+  </div>
+  
+</body>
