@@ -35,6 +35,18 @@ if(isset($_POST['submit-team'])){
 		mysqli_stmt_bind_param($stmt, "s" , $teamName);
 		mysqli_stmt_execute($stmt);
 
+		//get the Primary Key for the event you just entered
+		$teamId = mysqli_insert_id($conn);
+		$userId = $_SESSION['u_id'];
+
+		//since they created the team they are admin
+		$adminPrivelege = true;
+		//NOW I NEED TO ADD TO THE USER HAS TEAMS TABLE
+
+		$sql = "INSERT INTO users_has_teams (users_userID, teams_teamID, isUserAdmin) VALUES( $userId ,$teamId,$adminPrivelege);";
+
+		mysqli_query($conn,$sql);
+
 		header("Location: ../pages/dashboard.html ? we got in?");
 
 	}
