@@ -1,3 +1,7 @@
+$(window).on("load", function() {
+  $("body").css("visibility", "visible");
+});
+
 $(document).ready(function () {
   $('#calendar').fullCalendar({
     customButtons: {
@@ -18,7 +22,7 @@ $(document).ready(function () {
     },
     editable: true,
     eventLimit: true, // allow "more" link when too many events
-    events: '../scripts/getEvents.php'
+    events: '../scripts/php/getEvents.php'
   });
 });
 
@@ -30,7 +34,7 @@ $(document).on('mouseenter', '.dropdown-toggle', function () {
 $('#logout').click(function () {
   $.ajax({
     type: 'POST',
-    url: '/scripts/logout.php',
+    url: '/scripts/php/logout.php',
     data: { logout: 'true' },
     success: function (data) {
       window.location = data;
@@ -39,8 +43,8 @@ $('#logout').click(function () {
 });
 
 $('#wrapper').ready(repad_wrapper);
-$(window).resize(repad_wrapper);
-$(window).load(repad_wrapper);
+// $(window).resize(repad_wrapper);
+// $(window).load(repad_wrapper);
 
 function repad_wrapper() {
   $('#wrapper').css('padding-top', $('#mainNav').height() + 50);

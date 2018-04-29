@@ -1,6 +1,6 @@
 <?php
 
-require dirname(__FILE__) . '/../lib/fullcalendar/utils.php';
+require dirname(__FILE__) . '/../../lib/fullcalendar/utils.php';
 
 // Read and parse our events JSON file into an array of event data arrays.
 // echo $_POST['json'];

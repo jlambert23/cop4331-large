@@ -9,9 +9,9 @@
 
     // Clear forms on modal exit.
     $('#login-modal').on('hidden.bs.modal', function () {
-        $('#login-frm .error').
-            removeClass('error').
-            tooltip("dispose");
+        // $('#login-frm .error').
+        //     removeClass('error').
+        //     tooltip("dispose");
         $('#login-frm')[0].reset();
 
         $('#signup-frm .error').
@@ -27,16 +27,35 @@
                 minlength: 5
             }
         },
-        invalidHandler: function(event, validator) {
-            var errors = validator.numberOfInvalids();
-            if (errors) {
-                validator.errorMap["psw"] = "The password given is not correct.";
-                validator.errorMap["email"] = "The emaill given is not correct.";
-            }
-
+        submitHandler: function (form) {
+            login(form);
         },
         showErrors: function(errorMap, errorList) { showToolTipErrors(this, errorList); }
     });
+
+    function login(form) {
+        var formData = $(form).serializeArray();
+        $.post('../scripts/php/login.php', formData, function(data) {
+            var obj = JSON.parse(data);
+
+            if (obj['email'] == false) {
+                var validator = $('#login-frm').validate();
+                validator.showErrors({ "email": "Email does not exist."});
+                showToolTipErrors(validator, validator.errorList);
+            }
+            else if (obj['password'] == false) {
+                var validator = $('#login-frm').validate();
+                validator.showErrors({ "psw": "Incorrect password."});
+                showToolTipErrors(validator, validator.errorList);
+            }
+            else if (obj.hasOwnProperty('email') && obj.hasOwnProperty('password')) {
+                location.href = '../../pages/dashboard.html';
+            }
+            else {
+                alert("Something wrong happened. Returned data: " + data);
+            }
+        })
+    }
 
     // Validate signup form.
     $('#signup-frm').validate({
@@ -49,7 +68,7 @@
                 equalTo: "#signup-frm :input[name='psw']"
             },
             email: {
-                remote: '../scripts/checkEmail.php'
+                remote: '../scripts/php/checkEmail.php'
             }
         },
         messages: {
@@ -58,7 +77,7 @@
         showErrors: function(errorMap, errorList) { showToolTipErrors(this, errorList); },
 
         submitHandler: function (form) {
-            alert("This is a valid form!");
+            form.submit();
         }
     });
 

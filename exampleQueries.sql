@@ -25,3 +25,8 @@ select fName, lName, email from users where
     where users_has_events.users_userID = 2) 
     OR any(select events_eventID*/
 
+select password from users
+	where userID = 2;
+    
+update users set fName = Lebron, lName = James where userID = 2;
+

@@ -101,18 +101,24 @@
                     Change Name
                 </button>
             </div>
+            <div class="row"></div>
+            <div class="row"></div>
+
 
             <!--Input for uploading picture-->
-            <div class="form-group my-3">
-                <label for="exampleInputFile" class="my-1">Upload New Picture</label>
-                <input type="file" class="form-control-file" id="picture-input" aria-describedby="fileHelp">
-                <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
-            </div>
-            
-            <!--Submit Button-->
-            <button type="button" class="btn btn-primary my-0" data-target="">
-                    Submit
-            </button>
+            <form id="change-name-frm" class="form-group" action="/scripts/php/uploadpic.php" method="post" accept-charset="utf-8"
+            class="form" role="form">
+              <div class="form-group my-3">
+                  <label for="exampleInputFile" class="mt-5">Upload New Picture</label>
+                  <input type="file" class="form-control-file" id="picture-input" aria-describedby="fileHelp" name="picture">
+                  <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+              </div>
+              
+              <!--Submit Button-->
+              <button type="button" class="btn btn-success my-0" name="submitPic">
+                      Submit
+              </button>
+            </form>
 
             
     
@@ -156,25 +162,25 @@
               <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             
+            <form id="change-pass-frm" class="form-group" action="/scripts/php/changepassword.php" method="post" accept-charset="utf-8" class="form" role="form">
+
             <!-- Modal body -->
             <div class="modal-body">
               <div class="container">
-                <form id="create-event-frm" class="form-group" action="/scripts/UserCreateEvent.php" method="post" accept-charset="utf-8"
-                class="form" role="form">
                     <div class="row">
-                        <input type="text" id="current-password" class="form-control input-lg my-3" placeholder="Enter Current Password" name="event-name" required>
+                        <input type="text" id="current-password" class="form-control input-lg my-3" placeholder="Enter Current Password" name="currPass" required>
                     </div>
                     <div class="row">
-                        <input type="text" id="new-password" class="form-control input-lg my-3" placeholder="Enter New Password" name="event-name" required>
+                        <input type="text" id="new-password" class="form-control input-lg my-3" placeholder="Enter New Password" name="newPass" required>
                     </div>
-                </form>
               </div>
             </div>
             
             <!-- Modal footer -->
             <div class="modal-footer">
-              <button type="button" class="btn btn-success" data-dismiss="modal">Submit</button>
+              <button type="submit" class="btn btn-success" name="submitPass">Submit</button>
             </div>
+          </form>
           </div>
         </div>
       </div>
@@ -189,88 +195,33 @@
                     <h4 class="modal-title text-primary">Change Name</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
+
+                    <form id="change-name-frm" class="form-group" action="/scripts/php/changename.php" method="post" accept-charset="utf-8"
+                    class="form" role="form">
+
                 
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                    <div class="container">
-                        <form id="create-event-frm" class="form-group" action="/scripts/UserCreateEvent.php" method="post" accept-charset="utf-8"
-                        class="form" role="form">
+                      <!-- Modal body -->
+                      <div class="modal-body">
+                        <div class="container">
                             <div class="row">
-                                <input type="text" id="first-name" class="form-control input-lg my-3" placeholder="First Name" name="event-name" required>
+                                <input type="text" id="first-name" class="form-control input-lg my-3" placeholder="First Name" name="fname" required>
                             </div>
                             <div class="row">
-                                <input type="text" id="last-name" class="form-control input-lg my-3" placeholder="Last Name" name="event-name" required>
+                                <input type="text" id="last-name" class="form-control input-lg my-3" placeholder="Last Name" name="lname" required>
                             </div>
-                        </form>
-                    </div>
-                    </div>
-                
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-dismiss="modal">Submit</button>
-                    </div>
+                        </div>
+                      </div>
+                  
+                      <!-- Modal footer -->
+                      <div class="modal-footer">
+                      <button type="submit" class="btn btn-success" name="submitName">Submit</button>
+                      </div>
+                  </form>
+
                 </div>
             </div>
         </div>
 
-    
-  <!-- Create Event Modal -->
-  <div class="modal fade" id="create-event-modal" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Create Event</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-
-        <div class="modal-body">
-          <div class="container">
-            <!-- Modal Content/Forms -->
-            <!-- Probably will need to change action="scripts/UserCreateEvent.php" when we get to that. -->
-            <div class="tab-pane fade show active" id="create-event" role="tabpanel" aria-labelledby="create-event">
-              <div class="container">
-                <form id="create-event-frm" class="form-group" action="/scripts/UserCreateEvent.php" method="post" accept-charset="utf-8"
-                  class="form" role="form">
-
-                  <div class="row">
-                    <input type="text" id="event-name" class="form-control input-lg my-3" placeholder="Event Name" name="event-name" required>
-                  </div>
-
-                  <div class="row">
-                    <span class="mx-1">
-                      <input class="form-control form-control-sm" type="date" value="2018-04-30" id="start-date-input">
-                    </span>
-                    <span class="mx-1">
-                      <input class="form-control form-control-sm" type="time" value="12:00" id="start-time-input">
-                    </span>
-                    <span class="mx-1">to</span>
-                    <span class="mx-1">
-                      <input class="form-control form-control-sm" type="date" value="2018-04-30" id="end-date-input">
-                    </span>
-                    <span class="mx-1"  >
-                      <input class="form-control form-control-sm" type="time" value="13:00" id="end-time-input">
-                    </span>
-                  </div>
-
-                  <div class="row">
-                    <input type="text" id="event-location" class="form-control input-lg my-3" placeholder="Location" name="event-location" required>
-                  </div>
-                  <div class="row">
-                    <textarea class="form-control" rows="5" id="event-description" placeholder="Event Description"></textarea>
-                  </div>
-                  <div class="row">
-                    <input type="submit" class="btn btn-primary pull-right">
-                  </div>
-                </form>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
   <div>
     <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

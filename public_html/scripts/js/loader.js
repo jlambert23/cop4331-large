@@ -1,17 +1,6 @@
-// Alert when giveUserInfo.php fails
-$(document).ready(function() {
-  $.ajax({
-    dataType: 'json',
-    url: '../scripts/getTeams.php',
-    error: function(data) {
-      alert(data.responseText);
-    }
-  });
-});
-
 // Profile loader
 $(document).ready(function () {
-  $.getJSON('../scripts/giveUserInfo.php', function (user) {
+  $.getJSON('../scripts/php/giveUserInfo.php', function (user) {
     $('#firstname').append(user.fname + ' ');
     $('#lastname').append(user.lname);
     $('#email').append(user.email).attr('href', 'mailto:' + user.email);
@@ -70,7 +59,7 @@ $("#event-list").ready(function () {
 
 // Team loader
 $("#team-dropdown").ready(function () {
-  $.getJSON("../scripts/getTeams.php", function (teams) {
+  $.getJSON("../scripts/php/getTeams.php", function (teams) {
     if (teams.length <= 0) {
       var message = "Click here to create your<br>first team and get started!";
       $("#team-dropdown").append($("<a>", { href: "#create-team-modal", "data-toggle": "modal", "data-target": "#create-team-modal" }).addClass("dropdown-item").append(message));
