@@ -21,44 +21,52 @@ if(isset($_POST['submitPass'])){
 	}
 
 	else{
+		$sql = "SELECT * FROM users WHERE userID = '$userID';";
+		$result = mysqli_query($conn, $sql);
 
-	$sql = "select password from users where userID = ?";
-	
-	$oldHashedPassword = password_has($oldPass,PASSWORD_DEFAULT);
-	
 
-	// if ($result = $conn->query($sql) != true) {
-	// 	echo "It it didn't work, yo.\n";
-	// 	exit();
-	// }
+		//$sql = "select password from users where userID = '$userID';";
 	
-	// echo $result;
-	// echo "\n WE PIP IT\n";
-	
+		$hashedPasswordCheck = password_verify($password,$row['password']);
+
+		if($hashedPasswordCheck == false){
+			header("Location: ../index.html?password=notCorrect");
+			exit();
+
+		}
+
+		// if ($result = $conn->query($sql) != true) {
+		// 	echo "It it didn't work, yo.\n";
+		// 	exit();
+		// }
 		
-	$stmt = mysqli_stmt_init($conn);
+		// echo $result;
+		// echo "\n WE PIP IT\n";
+		
+			
+		//$stmt = mysqli_stmt_init($conn);
 
-	if(!mysqli_stmt_prepare($stmt, $sql)){
-		//echo "SQL error\n";
-		header("Location: ../index.html? signup = ivalidSQL");
-	}
-	
-	else{
-		//hash pwd
-		$hashedNewPassword = password_hash($shinyPass,PASSWORD_DEFAULT);
-		printf("%s\n", $hashedPassword);
+		if(!mysqli_stmt_prepare($stmt, $sql)){
+			//echo "SQL error\n";
+			header("Location: ../index.html? signup = ivalidSQL");
+		}
+		
+		else{
+			//hash pwd
+			$hashedNewPassword = password_hash($shinyPass,PASSWORD_DEFAULT);
+			printf("%s\n", $hashedPassword);
 
-		mysqli_stmt_bind_param($stmt, "ssss" , $first, $last , $email, $hashedPassword);
-		$oldpass = mysqli_stmt_execute($stmt);
+			mysqli_stmt_bind_param($stmt, "ssss" , $first, $last , $email, $hashedPassword);
+			$oldpass = mysqli_stmt_execute($stmt);
 
-		//echo "\nsignup is working\n";
-		header("Location: ../index.html? signup=success");
-	}
+			//echo "\nsignup is working\n";
+			header("Location: ../index.html? signup=success");
+		}
 
-	
+		
 
 
-	
+		
 	}
 }
 
