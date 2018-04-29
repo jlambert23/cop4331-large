@@ -26,7 +26,8 @@ if(isset($_POST['submitPass'])){
 
 
 		//$sql = "select password from users where userID = '$userID';";
-	
+
+		// Checks if the user entered the correct password
 		$hashedPasswordCheck = password_verify($password,$row['password']);
 
 		if($hashedPasswordCheck == false){
@@ -45,7 +46,8 @@ if(isset($_POST['submitPass'])){
 		
 			
 		//$stmt = mysqli_stmt_init($conn);
-
+		
+		
 		if(!mysqli_stmt_prepare($stmt, $sql)){
 			//echo "SQL error\n";
 			header("Location: ../index.html? signup = ivalidSQL");

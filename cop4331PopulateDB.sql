@@ -29,3 +29,5 @@ INSERT INTO events_has_teams VALUES('2','1');
 
 INSERT INTO users_has_events VALUES('7','3');
 INSERT INTO users_has_events VALUES('2','4');
+
+
