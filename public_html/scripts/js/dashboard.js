@@ -22,7 +22,7 @@ $(document).ready(function () {
     },
     editable: true,
     eventLimit: true, // allow "more" link when too many events
-    events: '../scripts/getEvents.php'
+    events: '../scripts/php/getEvents.php'
   });
 });
 
@@ -34,7 +34,7 @@ $(document).on('mouseenter', '.dropdown-toggle', function () {
 $('#logout').click(function () {
   $.ajax({
     type: 'POST',
-    url: '/scripts/logout.php',
+    url: '/scripts/php/logout.php',
     data: { logout: 'true' },
     success: function (data) {
       window.location = data;

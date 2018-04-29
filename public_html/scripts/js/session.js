@@ -9,6 +9,6 @@ document.write('<style>body { visibility: hidden; } </style>');
         window.location = "/index.html";
     }
   }
-  xhttp.open("GET", "/scripts/session.php", true);
+  xhttp.open("GET", "/scripts/php/session.php", true);
   xhttp.send();
 })();

@@ -35,7 +35,7 @@
 
     function login(form) {
         var formData = $(form).serializeArray();
-        $.post('../scripts/login.php', formData, function(data) {
+        $.post('../scripts/php/login.php', formData, function(data) {
             var obj = JSON.parse(data);
 
             if (obj['email'] == false) {
@@ -68,7 +68,7 @@
                 equalTo: "#signup-frm :input[name='psw']"
             },
             email: {
-                remote: '../scripts/checkEmail.php'
+                remote: '../scripts/php/checkEmail.php'
             }
         },
         messages: {
