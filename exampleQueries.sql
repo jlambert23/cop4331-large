@@ -28,8 +28,10 @@ select fName, lName, email from users where
 select password from users
 	where userID = 2;
     
-update users set fName = Lebron, lName = James where userID = 2;
+update users set fName = 'James', lName = 'James' where userID = 2;
 
 /* Update email using userID */
 update users set email = 'KingJames@gmail.com' where userID = 2;
+
+select * from users;
 
