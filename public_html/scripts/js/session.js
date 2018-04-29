@@ -6,9 +6,9 @@ document.write('<style>body { visibility: hidden; } </style>');
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       if (!this.responseText)
-        window.location = "/index.html";
+        window.location = "/";
     }
   }
-  xhttp.open("GET", "/scripts/php/session.php", true);
+  xhttp.open("GET", "../scripts/php/session.php", true);
   xhttp.send();
 })();

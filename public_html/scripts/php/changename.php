@@ -15,7 +15,7 @@ if(isset($_POST['submitName'])){
 	//error handlers
 	//empty fields
 	if(empty($fName) || empty($lName)){
-		//header("Location: ../index.html ? signup=empty");
+		//header("Location: ../../index.html ? signup=empty");
 		echo "empty fields\n";
 		exit();
 	}
@@ -38,7 +38,7 @@ if(isset($_POST['submitName'])){
 
 	if(!mysqli_stmt_prepare($stmt, $sql)){
 		//echo "SQL error\n";
-		header("Location: /index.html? signup = ivalidSQL");
+		header("Location: ../../index.html? signup = ivalidSQL");
 	}
 	
 	else{
@@ -46,7 +46,7 @@ if(isset($_POST['submitName'])){
 		mysqli_stmt_execute($stmt);
 
 		//echo "\nsignup is working\n";
-		header("Location: /index.html? signup=success");
+		header("Location: ../../index.html? signup=success");
 	}
 
 	
@@ -59,6 +59,6 @@ if(isset($_POST['submitName'])){
 else{
 
 	//echo "nothing worked at all\n";
-	header("Location: /index.html? signup= fail");
+	header("Location: ../../index.html? signup= fail");
 	exit();
 }

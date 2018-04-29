@@ -39,7 +39,7 @@
 
     function login(form) {
         var formData = $(form).serializeArray();
-        $.post('../scripts/php/login.php', formData, function (data) {
+        $.post('scripts/php/login.php', formData, function(data) {
             var obj = JSON.parse(data);
 
             if (obj['email'] == false) {
@@ -53,7 +53,7 @@
                 showToolTipErrors(validator, validator.errorList);
             }
             else if (obj.hasOwnProperty('email') && obj.hasOwnProperty('password')) {
-                location.href = '../../pages/dashboard.html';
+                location.href = 'pages/dashboard.html';
             }
             else {
                 alert("Something wrong happened. Returned data: " + data);
@@ -72,7 +72,7 @@
                 equalTo: "#signup-frm :input[name='psw']"
             },
             email: {
-                remote: '../scripts/php/checkEmail.php'
+                remote: "scripts/php/checkEmail.php"
             }
         },
         messages: {
