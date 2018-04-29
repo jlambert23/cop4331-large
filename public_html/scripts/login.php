@@ -9,19 +9,26 @@ if (isset($_POST['email']) && isset($_POST['psw']) && isset($_POST['submitButton
 	$password = mysqli_real_escape_string($conn, $_POST['psw']);
 
 	if(empty ($email) || empty($password)) {
-		echo "error: email or password is empty.";
-		header("Location: ../index.html?login=empty");
+		echo json_encode("false");
 		exit();
 	}
 
 	$sql = "SELECT * FROM users WHERE email = '$email';";
 	$result = mysqli_query($conn, $sql);
 
+	if (mysqli_num_rows($result) <= 0) {
+		$json['email'] = false;
+		echo json_encode($json);
+		exit();
+	}
+
 	if($row = mysqli_fetch_assoc($result)){
 		$hashedPasswordCheck = password_verify($password, $row['password']);
 
 		if($hashedPasswordCheck == false){
-			throw new Exception("Given password is not valid.");
+			$json['password'] = false;
+			echo json_encode($json);
+			exit();
 		}
 
 		// Store the user session info.
@@ -31,7 +38,8 @@ if (isset($_POST['email']) && isset($_POST['psw']) && isset($_POST['submitButton
 		$_SESSION["u_email"] = $row["email"];
 		$_SESSION["u_pic"] = $row["picture_path"];
 		$_SESSION["u_phone"] = $row["phone"];
-		header("Location: ../pages/dashboard.html");
+		
+		echo json_encode($row);
 	}
 }
 
