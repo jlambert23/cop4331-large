@@ -16,13 +16,13 @@ if(isset($_POST['submit'])){
 	//error handlers
 	//empty fields
 	if(empty($first) || empty($last) || empty($email) || empty($password)){
-		//header("Location: ../index.html ? signup=empty");
+		//header("Location: ../../index.html ? signup=empty");
 		echo "empty fields\n";
 		exit();
 	}
 
 	else if(! ($password === $passwordRepeat) ){
-		//header("Location: ../index.html ? signup=passwordNotMatching");
+		//header("Location: ../../index.html ? signup=passwordNotMatching");
 		echo "passwords dont match\n";
 		exit();
 	}
@@ -44,7 +44,7 @@ if(isset($_POST['submit'])){
 
 	if(!mysqli_stmt_prepare($stmt, $sql)){
 		//echo "SQL error\n";
-		header("Location: /index.html? signup = ivalidSQL");
+		header("Location: ../../index.html? signup = ivalidSQL");
 	}
 	
 	else{
@@ -56,7 +56,7 @@ if(isset($_POST['submit'])){
 		mysqli_stmt_execute($stmt);
 
 		//echo "\nsignup is working\n";
-		header("Location: /index.html? signup=success");
+		header("Location: ../../index.html? signup=success");
 	}
 
 	
@@ -69,6 +69,6 @@ if(isset($_POST['submit'])){
 else{
 
 	//echo "nothing worked at all\n";
-	header("Location: /index.html? signup= fail");
+	header("Location: ../../index.html? signup= fail");
 	exit();
 }

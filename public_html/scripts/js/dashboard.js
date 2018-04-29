@@ -34,7 +34,7 @@ $(document).on('mouseenter', '.dropdown-toggle', function () {
 $('#logout').click(function () {
   $.ajax({
     type: 'POST',
-    url: '/scripts/php/logout.php',
+    url: '../scripts/php/logout.php',
     data: { logout: 'true' },
     success: function (data) {
       window.location = data;

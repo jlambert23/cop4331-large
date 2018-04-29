@@ -6,4 +6,5 @@ if(isset($_POST['logout'])){
 	session_destroy();
 	echo "/../index.html";
 	header("Location: ../pages/dashboard.html");
+	echo "../../index.html";
 }

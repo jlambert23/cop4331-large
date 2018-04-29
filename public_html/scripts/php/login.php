@@ -55,7 +55,7 @@ if (isset($_POST['email']) && isset($_POST['psw']) && isset($_POST['submitButton
 // 		// echo'<script type = "text/javascript">' ,
 // 		// 'alert("empty")',
 // 		// '</script>';
-// 		header("Location: ../index.html? login=empty");
+// 		header("Location: ../../index.html? login=empty");
 // 	}
 
 // 	else{
@@ -65,7 +65,7 @@ if (isset($_POST['email']) && isset($_POST['psw']) && isset($_POST['submitButton
 
 // 			// NOT SURE IF USERNAME CAN HAVE DUPLICATES
 // 			if($resultCheck <1 || $resultCheck >1){
-// 				header("Location: ../index.html?login=error johnson");
+// 				header("Location: ../../index.html?login=error johnson");
 // 				exit();
 // 			}
 
@@ -76,7 +76,7 @@ if (isset($_POST['email']) && isset($_POST['psw']) && isset($_POST['submitButton
 // 					$hashedPasswordCheck = password_verify($password,$row['password']);
 
 // 					if($hashedPasswordCheck == false){
-// 						header("Location: ../index.html?password=notCorrect");
+// 						header("Location: ../../index.html?password=notCorrect");
 // 						exit();
 
 // 					}
@@ -91,7 +91,7 @@ if (isset($_POST['email']) && isset($_POST['psw']) && isset($_POST['submitButton
 // 						$_SESSION["u_phone"] = $row["phone"];
 // 						//$_SESSION["u_username"] = $row["username"];
 
-// 						header("Location: ../pages/dashboard.html");
+// 						header("Location: ../../pages/dashboard.html");
 // 						exit();
 					
 
@@ -111,7 +111,7 @@ if (isset($_POST['email']) && isset($_POST['psw']) && isset($_POST['submitButton
 
 // else{
 
-// 	header("Location: ../index.html? login = errordude");
+// 	header("Location: ../../index.html? login = errordude");
 // 	exit();
 
 // }
