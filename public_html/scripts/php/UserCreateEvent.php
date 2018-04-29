@@ -3,7 +3,7 @@
 
 if(isset($_POST['submit'])){
 
-	include_once 'php/dbconnection.php';
+	include_once 'dbconnection.php';
 
 	$eventName = mysqli_real_escape_string($conn, $_POST["event-name"]);
 	$startDate = mysqli_real_escape_string($conn, $_POST["start-date-input"]);
@@ -56,7 +56,7 @@ if(isset($_POST['submit'])){
 		mysqli_query($conn,$sql);
 
 		//redirects to the dashboard
-		header("Location: ../pages/dashboard.html ? we got in?");
+		header("Location: ../../pages/dashboard.html ? we got in?");
 
 		}
 	}

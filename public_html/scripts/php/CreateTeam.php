@@ -3,7 +3,7 @@
 
 if(isset($_POST['submit-team'])){
 
-	include_once 'php/dbconnection.php';
+	include_once 'dbconnection.php';
 
 	$teamName = mysqli_real_escape_string($conn, $_POST["team-name" ]);
 	//$eventDescription = mysqli_real_escape_string($conn, $_POST["event-description" ]);
@@ -47,7 +47,7 @@ if(isset($_POST['submit-team'])){
 
 		mysqli_query($conn,$sql);
 
-		header("Location: ../pages/dashboard.html ? we got in?");
+		header("Location: ../../pages/dashboard.html ? we got in?");
 
 	}
 
