@@ -1,19 +1,9 @@
-// Alert when giveUserInfo.php fails
-$(document).ready(function() {
-  $.ajax({
-    dataType: 'json',
-    url: '../scripts/getTeams.php',
-    error: function(data) {
-      alert(data.responseText);
-    }
-  });
-});
-
 // Profile loader
 $(document).ready(function () {
-  $.getJSON('../scripts/giveUserInfo.php', function (user) {
-    $('#firstname').append(user.fname + " ");
+  $.getJSON('../scripts/php/giveUserInfo.php', function (user) {
+    $('#firstname').append(user.fname + ' ');
     $('#lastname').append(user.lname);
+    $('#email').append(user.email).attr('href', 'mailto:' + user.email);
 
     if (user.hasOwnProperty('image')) {
       $.get(user.image)
@@ -27,6 +17,9 @@ $(document).ready(function () {
       $('#profile').attr('src', '../img/default.jpg');
     }
 
+    if (user.hasOwnProperty('phone')) {
+      $('#phone').append(user.phone).attr('href', 'tel:' + user.phone);
+    }
   });
 });
 
@@ -54,8 +47,11 @@ $("#event-list").ready(function () {
       var event = $("<div>").addClass("list-group-item small").appendTo(".list-group");
       event.append($("<a>", { href: "#" }).append(field.title));
       event.append($("<div>").append(field.team));
-      event.append($("<div>").append(start));
-      event.append($("<div>").append(end));
+
+      event.append($("<div>").append($("<span>").append(start)).
+                              append($("<span>").append(end)));
+      // event.append($("<div>").append(start));
+      // event.append($("<div>").append(end));
       event.append($("<div>").append(field.location));
     });
   });
@@ -63,7 +59,7 @@ $("#event-list").ready(function () {
 
 // Team loader
 $("#team-dropdown").ready(function () {
-  $.getJSON("../scripts/getTeams.php", function (teams) {
+  $.getJSON("../scripts/php/getTeams.php", function (teams) {
     if (teams.length <= 0) {
       var message = "Click here to create your<br>first team and get started!";
       $("#team-dropdown").append($("<a>", { href: "#create-team-modal", "data-toggle": "modal", "data-target": "#create-team-modal" }).addClass("dropdown-item").append(message));
