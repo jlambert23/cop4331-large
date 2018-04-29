@@ -1,11 +1,11 @@
 <?php
 
-require dirname(__FILE__) . '/../lib/fullcalendar/utils.php';
+require dirname(__FILE__) . '/../../lib/fullcalendar/utils.php';
 
 // Read and parse our events JSON file into an array of event data arrays.
 // echo $_POST['json'];
 
-$json = file_get_contents(dirname(__FILE__) . '/js/tmp/events.json');
+$json = file_get_contents(dirname(__FILE__) . '../js/tmp/events.json');
 $input_arrays = json_decode($json, true);
 
 // Accumulate an output array of event data arrays.
