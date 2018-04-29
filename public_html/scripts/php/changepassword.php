@@ -40,6 +40,7 @@ if(isset($_POST['submitPass'])){
 
 		else{
 
+			$hashedPassword = password_hash($newPass,PASSWORD_DEFAULT);
 			$sql = "UPDATE users SET password = ? WHERE userID = ?;";
 			
 				
@@ -52,7 +53,7 @@ if(isset($_POST['submitPass'])){
 			
 			else{
 
-				mysqli_stmt_bind_param($stmt, "ss" , $newPass , $userID);
+				mysqli_stmt_bind_param($stmt, "ss" , $hashedPassword , $userID);
 				mysqli_stmt_execute($stmt);
 				
 				header("Location: ../../pages/dashboard.html ? nameChange =success");
