@@ -2,7 +2,7 @@
 	
 session_start();
 
-if(isset($_POST['submitEmai'])){
+if(isset($_POST['submitEmail'])){
 	
 	include_once 'dbconnection.php';
 
