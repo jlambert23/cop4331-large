@@ -34,7 +34,6 @@ if(isset($_POST['submitPass'])){
 
 		if($hashedPasswordCheck == false){
 			$json['password'] = false;
-			echo json_encode($json);
 			exit();
 		}
 
