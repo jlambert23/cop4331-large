@@ -1,3 +1,7 @@
+$(window).on("load", function() {
+  $("body").css("visibility", "visible");
+});
+
 $(document).ready(function () {
   $('#calendar').fullCalendar({
     customButtons: {
@@ -39,8 +43,8 @@ $('#logout').click(function () {
 });
 
 $('#wrapper').ready(repad_wrapper);
-$(window).resize(repad_wrapper);
-$(window).load(repad_wrapper);
+// $(window).resize(repad_wrapper);
+// $(window).load(repad_wrapper);
 
 function repad_wrapper() {
   $('#wrapper').css('padding-top', $('#mainNav').height() + 50);
