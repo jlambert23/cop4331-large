@@ -27,7 +27,7 @@ if(isset($_POST['submit-team'])){
 
 		if(!mysqli_stmt_prepare($stmt, $sql)){
 			//echo "SQL error\n";
-			header("Location: ../pages/dashboard.html? eventCreation = ivalidSQL");
+			header("Location: ../pages/dashboard.html? eventCreation = invalidSQL");
 		}
 
 		

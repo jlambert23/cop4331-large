@@ -36,6 +36,8 @@ if(isset($_POST['submit'])){
 			header("Location: ../pages/dashboard.html? eventCreation = ivalidSQL");
 		}
 
+		else{
+
 		
 
 		mysqli_stmt_bind_param($stmt, "sssssss" , $eventName, 
@@ -43,8 +45,20 @@ if(isset($_POST['submit'])){
 								$eventLocation, $eventDescription);
 
 		mysqli_stmt_execute($stmt);
+
+		//get the Primary Key for the event you just entered
+		$eventId = mysqli_insert_id($conn);
+		$userId = $_SESSION['u_id'] ;
+		//NOW I NEED TO ADD TO THE USER HAS TEAMS TABLE
+
+		$sql = "INSERT INTO users_has_events (users_userID, events_eventID) VALUES( $userId ,$eventId);";
+
+		mysqli_query($conn,$sql);
+
+		//redirects to the dashboard
 		header("Location: ../pages/dashboard.html ? we got in?");
 
+		}
 	}
 
 
