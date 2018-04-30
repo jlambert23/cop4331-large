@@ -29,11 +29,13 @@ $(function () {
         type: 'GET',
         dataType: 'json',
         data: {
-          term: request.term
+          term: request.term,
+          t_id: getTeamId()
         },
         success: function (data) {
           $.each(data, function (i, field) {
-            arr.push(field.fname + " " + field.lname);;
+            var name = field.fname + " " + field.lname + " (" + field.email + ")";
+            arr.push(name);
           });
           var users = JSON.stringify(arr);
           response(JSON.parse(users));
@@ -51,9 +53,29 @@ $(function () {
 // Load team-members.
 $('member-list').ready(function() {
   $.getJSON("../scripts/php/getTeamsUsers.php", { t_id: getTeamId }, function(data) {
-    alert("getTeamsUsers test" + data);
-    
+    if (data.length <= 0) return false;
+
+    $.each(events, function (i, field) {
+      var item = $("<div>").addClass("list-group-item small").appendTo("#member-list");
+      item.append($("<div>").append($("<h6>").append(field.fname + " " + field.lname)));
+      item.append($("<div>").append(field.email));
+    });
+
+
   }).fail(function(data) {
     alert("getTeamsUsers test - ERROR: " + JSON.stringify(data));
   })
+});
+
+$("#add-tm-btn").click(function() {
+  var regExp = /\(([^)]+)\)/;
+  var matches = regExp.exec($("#teammate-auto").val());
+  var email = matches[1];
+
+  $.post("../scripts/php/addTeamMember.php", { 
+    email: email,
+    t_id: getTeamId()
+  }, function(data) {
+    window.location = data;
+  });
 });

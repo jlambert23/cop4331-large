@@ -136,9 +136,12 @@
           <div class="card-body">
             <!-- Search and Add Teammates -->
             <div class="row">
-              <input type="text" id="teammate-auto" class="form-control input-lg mb-3" placeholder="Add Team Member">
-              <input type="submit" class="btn btn-primary pull-right" value="+" name="submit-add-team">
-              <!-- <button class="btn btn-primary mx-2">+</button> -->
+              <div class="input-group">
+                <input type="text" id="teammate-auto" class="form-control input-lg mb-3" placeholder="Add Team Member">
+                <span class="input-group-btn">
+                  <button id="add-tm-btn" class="btn btn-primary" type="button">+</button>
+                </span>
+              </div>
             </div>
 
             <div class="row">

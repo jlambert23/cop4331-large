@@ -1,9 +1,13 @@
-var urlVar = parent.document.URL.substring(parent.document.URL.indexOf('?') + 1, parent.document.URL.length);
+var isTeampage = window.location.pathname.includes("teampage.html");
 
 // Load event list.
 $("#event-list").ready(function () {
+<<<<<<< HEAD
   var script = "../scripts/php/" + (urlVar.includes("tid") ? "getTeamsEvents.php" : "getUsersEvents.php");
   var tid = (script) ? urlVar.split("=")[1] : "";
+=======
+  var script = "../scripts/php/" + (isTeampage ? "getTeamsEvents.php" : "getUsersEvents.php");
+>>>>>>> JustinBranch
 
   $.getJSON(script, {t_id: tid }, function (events) {
     alert(JSON.stringify(events));
@@ -67,11 +71,9 @@ $("#team-dropdown").ready(function () {
         $("#event-team").append($("<option>", { value: field.team }).append(field.team).attr("id", "t" + field.tid));
       });
 
-      if (urlVar.includes("tid")) {
+      if (isTeampage) {
         $("#event-team option:selected").removeAttr("selected");
-
-        var tid = urlVar.split('=')[1];
-        $("#t" + tid).attr("selected", "");
+        $("#t" + getTeamId()).attr("selected", "");
       }
     }
   });
