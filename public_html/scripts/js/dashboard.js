@@ -22,8 +22,8 @@ $(document).ready(function () {
       right: 'month,agendaWeek'
     },
     editable: true,
-    eventLimit: true, // allow "more" link when too many events
-    events: '../scripts/php/getEvents.php'
+    // eventLimit: true, // allow "more" link when too many events
+    // events: '../scripts/php/getEvents.php'
   });
 });
 
