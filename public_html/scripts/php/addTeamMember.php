@@ -13,7 +13,7 @@ if (isset($_SESSION['u_id']) && isset($_POST['email']) && isset($_POST['t_id']))
 	$result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) <= 0) {
-        header("Location: ../../pages/teampage.html? addtm = fail");
+        echo "teampage.html? addtm = fail";
         exit();
     }
 
@@ -21,17 +21,17 @@ if (isset($_SESSION['u_id']) && isset($_POST['email']) && isset($_POST['t_id']))
     $tm_id = $row['userID'];
 
     // add user id with team id to users_has_teams
-    $sql = "INSERT INTO users(users_userID, teams_teamID, isUserAdmin) VALUES(?, ?, '0');";
+    $sql = "INSERT INTO users_has_teams(users_userID, teams_teamID, isUserAdmin) VALUES(?, ?, '0');";
 	$stmt = mysqli_stmt_init($conn);
 
 	if(!mysqli_stmt_prepare($stmt, $sql)){
-		header("Location: ../../teampage.html? addtm = ivalidSQL");
+		echo "teampage.html? addtm = ivalidSQL";
 	}
 	
 	else{
 		mysqli_stmt_bind_param($stmt, "ss" , $tm_id, $team_id);
 		mysqli_stmt_execute($stmt);
-		header("Location: ../../index.html? addtm=success");
+		echo "teampage.html? addtm=success";
 	}
 
 
