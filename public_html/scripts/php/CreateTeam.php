@@ -6,6 +6,8 @@ if(isset($_POST['submit-team'])){
 	include_once 'dbconnection.php';
 
 	$teamName = mysqli_real_escape_string($conn, $_POST["team-name" ]);
+	$teamDescription = mysqli_real_escape_string($conn, $_POST["description" ]);
+
 	//$eventDescription = mysqli_real_escape_string($conn, $_POST["event-description" ]);
 	
 
@@ -22,7 +24,7 @@ if(isset($_POST['submit-team'])){
 	// right now storing in DB without questions
 	else{
 
-		$sql = "INSERT INTO teams (team_name) VALUES (?)";
+		$sql = "INSERT INTO teams (team_name, description) VALUES (?, ?)";
 		$stmt = mysqli_stmt_init($conn);
 
 		if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -32,7 +34,7 @@ if(isset($_POST['submit-team'])){
 
 		
 
-		mysqli_stmt_bind_param($stmt, "s" , $teamName);
+		mysqli_stmt_bind_param($stmt, "ss" , $teamName, $teamDescription);
 		mysqli_stmt_execute($stmt);
 
 		//get the Primary Key for the event you just entered

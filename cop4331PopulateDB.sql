@@ -9,8 +9,8 @@ INSERT INTO users (fName,lName,userName,email,password,phone,description,picture
 INSERT INTO users (fName,lName,userName,email,password,phone,description,picture_path) VALUES('Don','Draper','MarketingMan','alcoholic@aol.com','2password','5555555555','Bla bla description','picture path here');
 
 
-INSERT INTO teams VALUES('1','New Jersey Crime Family','picture path here');
-INSERT INTO teams VALUES('2','NBA Best Friends Club','picture path here');
+INSERT INTO teams VALUES('1','New Jersey Crime Family','Tony Soprano\'s Family');
+INSERT INTO teams VALUES('2','NBA Best Friends Club','We are all best friends and we all play in the NBA');
 
 INSERT INTO users_has_teams VALUES('2','2',TRUE);
 INSERT INTO users_has_teams VALUES('5','2',FALSE);
