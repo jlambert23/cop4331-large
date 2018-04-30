@@ -237,9 +237,9 @@
               <!-- Modal body -->
               <div class="modal-body">
                 <div class="container">
-                    <div class="row">
-                        <input type="text" id="new-email" class="form-control input-lg my-3" placeholder="Enter New Email" name="email" required>
-                    </div>
+                  <div class="row">
+                    <input type="text" id="new-email" class="form-control input-lg my-3" placeholder="Enter New Email" name="email" required>
+                  </div>
                 </div>
               </div>
           
@@ -282,65 +282,65 @@
   </div>
   <!-- Create Event Modal -->
   <div class="modal fade" id="create-event-modal" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <!-- Modal Header -->
-          <div class="modal-header">
-            <h4 class="modal-title">Create Event</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-  
-          <div class="modal-body">
-            <div class="container">
-              <!-- Modal Content/Forms -->
-              <div class="tab-pane fade show active" id="create-event" role="tabpanel" aria-labelledby="create-event">
-                <div class="container">
-                  <form id="create-event-frm" class="form-group" action="../scripts/php/UserCreateEvent.php" method="post" accept-charset="utf-8"
-                    class="form" role="form">
-  
-                    <div class="row">
-                      <input type="text" id="event-name" class="form-control input-lg my-3" placeholder="Event Name" name="event-name" required>
-                    </div>
-  
-                    <div class="row">
-                      <span class="mr-2">
-                        <input class="form-control form-control-sm" type="date" value="2018-04-30" id="start-date-input" name="start-date-input">
-                      </span>
-                      <span class="mr-2">
-                        <input class="form-control form-control-sm" type="time" value="12:00" id="start-time-input" name="start-time-input">
-                      </span>
-                      <span class="mr-2 py-1">to</span>
-                      <span class="mr-2">
-                        <input class="form-control form-control-sm" type="date" value="2018-04-30" id="end-date-input" name="end-date-input">
-                      </span>
-                      <span>
-                        <input class="form-control form-control-sm" type="time" value="13:00" id="end-time-input" name="end-time-input">
-                      </span>
-                    </div>
-  
-                    <div class="row">
-                      <select id="event-team" class="form-control input-lg mt-3" name="event-team">
-                        <option value="" disabled selected>Select Team (Optional)</option>
-                      </select>
-                    </div>
-                    <div class="row">
-                      <input type="text" id="event-location" class="form-control input-lg my-3" placeholder="Location" name="event-location" required>
-                    </div>
-                    <div class="row">
-                      <textarea class="form-control" rows="5" id="event-description" placeholder="Event Description" name="event-description"></textarea>
-                    </div>
-                    <div class="row pull-right mt-3">
-                      <input type="submit" class="btn btn-primary" value="Submit" name="submitEvent">
-                    </div>
-                  </form>
-                </div>
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Create Event</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <div class="modal-body">
+          <div class="container">
+            <!-- Modal Content/Forms -->
+            <div class="tab-pane fade show active" id="create-event" role="tabpanel" aria-labelledby="create-event">
+              <div class="container">
+                <form id="create-event-frm" class="form-group" action="../scripts/php/UserCreateEvent.php" method="post" accept-charset="utf-8"
+                  class="form" role="form">
+
+                  <div class="row">
+                    <input type="text" id="event-name" class="form-control input-lg my-3" placeholder="Event Name" name="event-name" required>
+                  </div>
+
+                  <div class="row">
+                    <span class="mr-2">
+                      <input class="form-control form-control-sm" type="date" value="2018-04-30" id="start-date-input" name="start-date-input">
+                    </span>
+                    <span class="mr-2">
+                      <input class="form-control form-control-sm" type="time" value="12:00" id="start-time-input" name="start-time-input">
+                    </span>
+                    <span class="mr-2 py-1">to</span>
+                    <span class="mr-2">
+                      <input class="form-control form-control-sm" type="date" value="2018-04-30" id="end-date-input" name="end-date-input">
+                    </span>
+                    <span>
+                      <input class="form-control form-control-sm" type="time" value="13:00" id="end-time-input" name="end-time-input">
+                    </span>
+                  </div>
+
+                  <div class="row">
+                    <select id="event-team" class="form-control input-lg mt-3" name="event-team">
+                      <option value="" disabled selected>Select Team (Optional)</option>
+                    </select>
+                  </div>
+                  <div class="row">
+                    <input type="text" id="event-location" class="form-control input-lg my-3" placeholder="Location" name="event-location" required>
+                  </div>
+                  <div class="row">
+                    <textarea class="form-control" rows="5" id="event-description" placeholder="Event Description" name="event-description"></textarea>
+                  </div>
+                  <div class="row pull-right mt-3">
+                    <input type="submit" class="btn btn-primary" value="Submit" name="submitEvent">
+                  </div>
+                </form>
               </div>
-  
             </div>
+
           </div>
         </div>
       </div>
     </div>
+  </div>
       
     
 

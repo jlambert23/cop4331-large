@@ -109,9 +109,9 @@ if(isset($_POST['submit-team-event'])){
 					$sql = "INSERT INTO users_has_events (users_userID, teams_teamID) VALUES( $currentUserPrimary,$teamEventId);";
 					mysqli_query($conn,$sql);
 				
-					}
-
 				}
+
+			}
 
 		}
 	}
@@ -120,6 +120,5 @@ if(isset($_POST['submit-team-event'])){
 
 //couldnt get into the if because the session is not working
 else{
-
 	echo "denied bitch!!";
 }
