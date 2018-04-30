@@ -4,6 +4,7 @@ $(document).ready(function() {
 
   $.getJSON('../scripts/php/getTeamInfo.php', obj, function (data) {
     $('#teamName').append(data.team);
-    alert(data);
+    $('#description').append(data.description);
+    //alert(data);
   });
 });

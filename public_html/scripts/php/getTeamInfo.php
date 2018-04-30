@@ -24,7 +24,7 @@
 	if($row = mysqli_fetch_assoc($result)){
 		
 		$json['team'] = $row['team_name'];
-		$json['picture'] = $row['picture_path'];
+		$json['description'] = $row['description'];
 		echo json_encode($json);
       
 	}
