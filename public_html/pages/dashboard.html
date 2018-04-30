@@ -200,7 +200,7 @@
             <!-- Modal Content/Forms -->
             <div class="tab-pane fade show active" id="create-event" role="tabpanel" aria-labelledby="create-event">
               <div class="container">
-                <form id="create-event-frm" class="form-group" action="../scripts/php/createEvent.php" method="post" accept-charset="utf-8"
+                <form id="create-event-frm" class="form-group" action="../scripts/php/UserCreateEvent.php" method="post" accept-charset="utf-8"
                   class="form" role="form">
 
                   <div class="row">
@@ -225,7 +225,7 @@
 
                   <div class="row">
                     <select id="event-team" class="form-control input-lg mt-3" name="event-team">
-                      <option value="" selected>No Team</option>
+                      <option value=""  selected>Select Team (Optional)</option>
                     </select>
                   </div>
                   <div class="row">
@@ -235,7 +235,7 @@
                     <textarea class="form-control" rows="5" id="event-description" placeholder="Event Description" name="event-description"></textarea>
                   </div>
                   <div class="row pull-right mt-3">
-                    <input type="submit" class="btn btn-primary" value="Submit" name="submit-event">
+                    <input type="submit" class="btn btn-primary" value="Submit" name="submitEvent">
                   </div>
                 </form>
               </div>
