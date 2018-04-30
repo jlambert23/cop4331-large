@@ -51,9 +51,9 @@ $(function () {
 // Load team-members.
 $('member-list').ready(function() {
   $.getJSON("../scripts/php/getTeamsUsers.php", { t_id: getTeamId }, function(data) {
-    alert(data);
+    alert("getTeamsUsers test" + data);
     
   }).fail(function(data) {
-    alert("ERROR: " + JSON.stringify(data));
+    alert("getTeamsUsers test - ERROR: " + JSON.stringify(data));
   })
 });
