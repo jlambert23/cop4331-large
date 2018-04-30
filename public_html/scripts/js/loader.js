@@ -2,12 +2,7 @@ var isTeampage = window.location.pathname.includes("teampage.html");
 
 // Load event list.
 $("#event-list").ready(function () {
-<<<<<<< HEAD
-  var script = "../scripts/php/" + (urlVar.includes("tid") ? "getTeamsEvents.php" : "getUsersEvents.php");
-  var tid = (script) ? urlVar.split("=")[1] : "";
-=======
   var script = "../scripts/php/" + (isTeampage ? "getTeamsEvents.php" : "getUsersEvents.php");
->>>>>>> JustinBranch
 
   $.getJSON(script, {t_id: tid }, function (events) {
     alert(JSON.stringify(events));
