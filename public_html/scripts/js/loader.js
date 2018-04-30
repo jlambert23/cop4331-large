@@ -3,8 +3,9 @@ var urlVar = parent.document.URL.substring(parent.document.URL.indexOf('?') + 1,
 // Load event list.
 $("#event-list").ready(function () {
   var script = "../scripts/php/" + (urlVar.includes("tid") ? "getTeamsEvents.php" : "getUsersEvents.php");
+  var tid = (script) ? urlVar.split("=")[1] : "";
 
-  $.getJSON(script, function (events) {
+  $.getJSON(script, {t_id: tid }, function (events) {
     alert(JSON.stringify(events));
     if (events.length <= 0) {
       var item = $("<div>").addClass("list-group-item small").appendTo("#event-list");
