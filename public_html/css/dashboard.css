@@ -15,11 +15,6 @@ h1 {
     display: inline;
 }
 
-#event-list{
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-
 #wrapper {
     padding-left: 30px;
     padding-right: 30px;
