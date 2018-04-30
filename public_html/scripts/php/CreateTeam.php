@@ -47,9 +47,9 @@ if(isset($_POST['submit-team'])){
 
 		$sql = "INSERT INTO users_has_teams (users_userID, teams_teamID, isUserAdmin) VALUES( $userId ,$teamId,$adminPrivelege);";
 
-		mysqli_query($conn,$sql);
+		$result = mysqli_query($conn,$sql);
 
-		header("Location: ../../pages/dashboard.html? we got in?");
+		header("Location: ../../pages/dashboard.html? we got in?q=" . $result);
 
 	}
 
