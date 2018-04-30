@@ -86,17 +86,33 @@
       <!-- Upcoming Events -->
       <div class="col-8">
         <div class="card">
+          <div class="card-header">
+            <h4 class="text-white section-header">
+              <span class="fas fa-list-alt"></span> Upcoming Events
+            </h4>
+          </div>
+          <div class="card-body">
+            <div id="event-list" class="list-group"></div>
+          </div>
+        </div>
+                  <!-- Calendar -->
+        <div class="card mt-4">
             <div class="card-header">
               <h4 class="text-white section-header">
-                <span class="fas fa-list-alt"></span> Upcoming Events
+                <span class="fas fa-calendar-alt pr-1"></span>
+                Calendar
               </h4>
             </div>
+  
             <div class="card-body">
-              <div id="event-list" class="list-group"></div>
+              <div id="calendar"></div>
             </div>
           </div>
+  
       </div>
       <div class="col-4 float-right">
+        
+        <!--Profile Card-->
         <div class="card">
           <div class="card-header">
             <h1 id="firstname" class="text-white section-header">
@@ -116,54 +132,47 @@
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="row">
+        <!-- Team Members List -->
+        <div class="card mt-4">
+            <div class="card-header">
+              <h4 class="text-white section-header">
+                <span class="fa fa-users"></span> Team Members
+              </h4>
+  
+            </div>
+            <div class="card-body">
+              <div id="member-list" class="list-group"></div>
+  
+              <!-- Search and Add Teammates -->
+              
+                    <div class = "ui-widget">
+                      <label for = "autocomplete-2">Add Teammates: </label>
+                      <input id = "autocomplete-2">
+                    </div>
+  
+  
+                <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+  
+              
+            </div>
+          </div>
+            
+      </div>
+      
+
+      <div class="row mt-4">
 
 
       <div class="col-lg-8">
-        <!-- Calendar -->
-        <div class="card mb-4 mt-2">
-          <div class="card-header">
-            <h4 class="text-white section-header">
-              <span class="fas fa-calendar-alt pr-1"></span>
-              Calendar
-            </h4>
-          </div>
-
-          <div class="card-body">
-            <div id="calendar"></div>
-          </div>
-        </div>
       </div>
-      <div class="col-lg-4">
-        <!-- Team Members List -->
-        <div class="card float-right">
-          <div class="card-header">
-            <h4 class="text-white section-header">
-              <span class="fa fa-users"></span> Team Members
-            </h4>
 
-          </div>
-          <div class="card-body">
-            <div id="member-list" class="list-group"></div>
-
-            <!-- Search and Add Teammates -->
-            
-                  <div class = "ui-widget">
-                    <label for = "autocomplete-2">Add Teammates: </label>
-                    <input id = "autocomplete-2">
-                  </div>
-
-
-              <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
-
-            
-          </div>
-        </div>
-        </div>
+      <div class="col-lg-4 float-right">
+      </div>
+  
   
     </div>
+    
 
     </div>
   </div>
