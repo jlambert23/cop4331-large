@@ -230,7 +230,7 @@
             <!-- Modal Content/Forms -->
             <div class="tab-pane fade show active" id="create-event" role="tabpanel" aria-labelledby="create-event">
               <div class="container">
-                <form id="create-event-frm" class="form-group" action="../scripts/php/UserCreateEvent.php" method="post" accept-charset="utf-8"
+                <form id="create-event-frm" class="form-group" action="../scripts/php/teamsCreateEvent.php" method="post" accept-charset="utf-8"
                   class="form" role="form">
 
                   <div class="row">
@@ -239,17 +239,17 @@
 
                   <div class="row">
                     <span class="mx-1">
-                      <input class="form-control form-control-sm" type="date" value="2018-04-30" id="start-date-input">
+                      <input class="form-control form-control-sm" type="date" value="2018-04-30" id="start-date-input" name="start-date-input">
                     </span>
                     <span class="mx-1">
-                      <input class="form-control form-control-sm" type="time" value="12:00" id="start-time-input">
+                      <input class="form-control form-control-sm" type="time" value="12:00" id="start-time-input" name="start-time-input">
                     </span>
                     <span class="mx-1">to</span>
                     <span class="mx-1">
-                      <input class="form-control form-control-sm" type="date" value="2018-04-30" id="end-date-input">
+                      <input class="form-control form-control-sm" type="date" value="2018-04-30" id="end-date-input" name="end-date-input">
                     </span>
                     <span class="mx-1"  >
-                      <input class="form-control form-control-sm" type="time" value="13:00" id="end-time-input">
+                      <input class="form-control form-control-sm" type="time" value="13:00" id="end-time-input" name="end-time-input">
                     </span>
                   </div>
 
@@ -257,10 +257,10 @@
                     <input type="text" id="event-location" class="form-control input-lg my-3" placeholder="Location" name="event-location" required>
                   </div>
                   <div class="row">
-                    <textarea class="form-control" rows="5" id="event-description" placeholder="Event Description"></textarea>
+                    <textarea class="form-control" rows="5" id="event-description" placeholder="Event Description" name="event-description"></textarea>
                   </div>
                   <div class="row">
-                    <input type="submit" class="btn btn-primary pull-right" value="Submit">
+                    <input type="submit" class="btn btn-primary pull-right" value="Submit" name="submit-team-event">
                   </div>
                 </form>
               </div>
