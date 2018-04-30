@@ -16,15 +16,15 @@
 
 
 	 if (!mysqli_num_rows($result)) {
-		$json['team_name'] = false;
+		$json['team'] = false;
 		echo json_encode($json);
 		exit();
 	}
 
 	if($row = mysqli_fetch_assoc($result)){
 		
-		$json['team_name'] = $row['team_name'];
-		$json['picture_path'] = $row['picture_path'];
+		$json['team'] = $row['team_name'];
+		$json['picture'] = $row['picture_path'];
 		echo json_encode($json);
       
 	}
