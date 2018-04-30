@@ -40,111 +40,61 @@
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
       <a class="navbar-brand">Apical</a>
-    </div>
-    <div>
-      <ul class="navbar-nav navbar-right">
+      <div>
+        <ul class="navbar-nav navbar-right">
 
-        <!-- Modal Dropdown -->
-        <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-            Create
-          </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#create-team-modal" data-toggle="modal" data-target="#create-team-modal">Create Team</a>
-            <a class="dropdown-item" href="#create-event-modal" data-toggle="modal" data-target="#create-event-modal">Create Event</a>
+          <!-- Modal Dropdown -->
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+              Create
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#create-team-modal" data-toggle="modal" data-target="#create-team-modal">Create Team</a>
+              <a class="dropdown-item" href="#create-event-modal" data-toggle="modal" data-target="#create-event-modal">Create Event</a>
+            </div>
           </div>
-        </div>
 
-        <!-- Navbar My Teams Dropdown -->
-        <div class="dropdown mx-3">
-          <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-            My Teams
-          </button>
-          <div id="team-dropdown" class="dropdown-menu"></div>
-        </div>
-
-        <!-- Navbar Profile Dropdown-->
-        <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-            Profile
-          </button>
-          <div class="dropdown-menu dropdown-menu-right">
-            <a class="dropdown-item" href="dashboard.html">My Profile</a>
-            <a class="dropdown-item" href="settings.html">Settings</a>
-            <a class="dropdown-item" href="../index.html">Sign Out</a>
+          <!-- Navbar My Teams Dropdown -->
+          <div class="dropdown mx-3">
+            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+              My Teams
+            </button>
+            <div id="team-dropdown" class="dropdown-menu"></div>
           </div>
-        </div>
 
-      </ul>
+          <!-- Navbar Profile Dropdown-->
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+              Profile
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a class="dropdown-item" href="dashboard.html">My Profile</a>
+              <a class="dropdown-item" href="settings.html">Settings</a>
+              <a class="dropdown-item" href="../index.html">Sign Out</a>
+            </div>
+          </div>
+
+        </ul>
+      </div>
     </div>
   </nav>
 
-  <div id="wrapper">
-
+  <div id="wrapper" class="container">
     <div class="row">
-
-      <div class="col-sm mb-4">
-        <!-- Header -->
-        <div class="card">
-          <div class="card-header">
-            <h1 id="firstname" class="text-white section-header">
-              Pizza
-            </h1>
-            <h1 id="lastname" class="text-white section-header">
-              Face
-            </h1>
-          </div>
-          <div class="card-body">
-            <div class="row">
-              <!-- Profile picture -->
-              <div class="col-xs px-3">
-                <div class="card" style="width: 18rem;">
-                  <img class="card-img-top" src="../img/Pizzaface.jpg" alt="Card image cap">
-                </div>
-              </div>
-              <!-- Description -->
-              <div id="description" class="col-xl">
-                I'm just a guy. Please stop laughing.
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="col-lg-4">
-        <!-- Team Members List -->
+      <!-- Upcoming Events -->
+      <div class="col-8">
         <div class="card">
           <div class="card-header">
             <h4 class="text-white section-header">
-              <span class="fa fa-users"></span> Team Members
+              <span class="fas fa-list-alt"></span> Upcoming Events
             </h4>
-
           </div>
           <div class="card-body">
-            <div id="member-list" class="list-group"></div>
-
-            <!-- Search and Add Teammates -->
-            
-                  <div class = "ui-widget">
-                    <label for = "teammate-auto">Add Teammates: </label>
-                    <input id = "teammate-auto">
-                  </div>
-
-
-              <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
-
-            
+            <div id="event-list" class="list-group"></div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <div class="row">
-
-      <div class="col-lg-8">
         <!-- Calendar -->
-        <div class="card mb-4">
+        <div class="card mt-4">
           <div class="card-header">
             <h4 class="text-white section-header">
               <span class="fas fa-calendar-alt pr-1"></span>
@@ -156,46 +106,96 @@
             <div id="calendar"></div>
           </div>
         </div>
-      </div>
 
-      <div class="col-lg">
-        <!-- Upcoming Events -->
+      </div>
+      <div class="col-4 float-right">
+
+        <!--Profile Card-->
         <div class="card">
           <div class="card-header">
-            <h4 class="text-white section-header">
-              <span class="fas fa-list-alt"></span> Upcoming Events
-            </h4>
+            <h1 id="teamName" class="text-white section-header"></h1>
+
+            </h1>
           </div>
           <div class="card-body">
-            <div id="event-list" class="list-group"></div>
+            <div id="member-list" class="list-group"></div>
+
+            <!-- Search and Add Teammates -->
+
+            <div class="ui-widget">
+              <label for="teammate-auto">Add Teammates: </label>
+              <input id="teammate-auto">
+            </div>
+
+
+            <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+            <div class="row">
+              <!-- Description -->
+              <div id="description" class="col-xl"></div>
+
+            </div>
           </div>
         </div>
+
+        <!-- Team Members List -->
+        <div class="card mt-4">
+          <div class="card-header">
+            <h4 class="text-white section-header">
+              <span class="fa fa-users"></span> Team Members
+            </h4>
+
+          </div>
+          <div class="card-body">
+            <div id="member-list" class="list-group"></div>
+
+            <!-- Search and Add Teammates -->
+
+            <div class="ui-widget">
+              <label for="autocomplete-2">Add Teammates: </label>
+              <input id="autocomplete-2">
+            </div>
+
+
+            <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+
+
+          </div>
+        </div>
+
       </div>
+
+
     </div>
   </div>
 
-  <section class="bg-dark text-white">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mx-auto text-center">
-          <hr class="my-4">
-          <p class="mb-5">This pizza made possible by COP 4331C Group 16!</p>
+  <div class="row">
+    <div class="col-12">
+      <section class="bg-dark text-white">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+              <hr class="my-4">
+              <p class="mb-5">This pizza made possible by COP 4331C Group 16!</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 ml-auto text-center">
+              <i class="fa fa-bar-chart fa-3x mb-3 sr-contact"></i>
+              <p>
+                <a href="https://www.youtube.com/watch?v=ZkwrIZQDt50">Our Software Development Process</a>
+              </p>
+            </div>
+            <div class="col-lg-4 mr-auto text-center">
+              <i class="fa fa-space-shuttle fa-3x mb-3 sr-contact"></i>
+              <p>
+                <a href="https://www.spacetelescope.org/images/archive/category/cosmology/">Reach For The Stars</a>
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-4 ml-auto text-center">
-          <i class="fa fa-bar-chart fa-3x mb-3 sr-contact"></i>
-          <p><a href="https://www.youtube.com/watch?v=ZkwrIZQDt50">Our Software Development Process</a></p>
-        </div>
-        <div class="col-lg-4 mr-auto text-center">
-           <i class="fa fa-space-shuttle fa-3x mb-3 sr-contact"></i>
-          <p>
-            <a href="https://www.spacetelescope.org/images/archive/category/cosmology/">Reach For The Stars</a>
-          </p>
-        </div>
-      </div>
+      </section>
     </div>
-  </section>
+  </div>
 
   <!-- Create Team Modal -->
   <div class="modal fade" id="create-team-modal" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
@@ -212,8 +212,8 @@
             <!-- Contents of Modal -->
             <div class="tab-pane fade show active" id="create-team" role="tabpanel" aria-labelledby="create-team">
               <div class="container">
-                <form id="create-team-frm" class="form-group" action="../scripts/php/CreateTeam.php" method="post" accept-charset="utf-8" class="form"
-                  role="form">
+                <form id="create-team-frm" class="form-group" action="../scripts/php/CreateTeam.php" method="post" accept-charset="utf-8"
+                  class="form" role="form">
                   <input type="text" class="form-control input-lg my-3" placeholder="Team Name" name="team-name" required>
                   <textarea class="form-control" rows="5" id="event-description" placeholder="Event Description"></textarea>
                   <input type="submit" class="btn btn-primary pull-right" value="Submit">
@@ -259,7 +259,7 @@
                     <span class="mx-1">
                       <input class="form-control form-control-sm" type="date" value="2018-04-30" id="end-date-input">
                     </span>
-                    <span class="mx-1"  >
+                    <span class="mx-1">
                       <input class="form-control form-control-sm" type="time" value="13:00" id="end-time-input">
                     </span>
                   </div>
@@ -294,5 +294,5 @@
     <script src='../scripts/js/dashboard.js'></script>
     <script src='../scripts/js/teampage.js'></script>
   </div>
-  
+
 </body>
