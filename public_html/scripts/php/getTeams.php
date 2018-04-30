@@ -6,10 +6,10 @@
         
         // Currently, a user is fetching ALL of the teams for testing purposes.
         // We'll use the commented code later, when we're better at things.
-        //$id = $_SESSION["u_id"];
-        //$sql = "SELECT teams_teamID FROM users_has_teams WHERE users_userID = '$id';";
+        $id = $_SESSION["u_id"];
+        $sql = "SELECT teams_teamID FROM users_has_teams WHERE users_userID = '$id';";
 
-        $sql = "SELECT teams_teamID FROM users_has_teams;";
+       // $sql = "SELECT teams_teamID FROM users_has_teams;";
         $result = mysqli_query($conn, $sql);
         $teamIDs = mysqli_fetch_all($result);
 
