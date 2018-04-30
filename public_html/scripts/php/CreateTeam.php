@@ -19,6 +19,7 @@ if(isset($_POST['submit-team'])){
 	$tid = $tid['teamID'];
 
 	$sql = "INSERT INTO users_has_teams (users_userID, teams_teamID, isUserAdmin) VALUES ('$uid', '$tid', '0');";
+	header("Location: ../../dashboard.html? createteam = success");
 }
 
 // 	$teamName = mysqli_real_escape_string($conn, $_POST["team-name" ]);
