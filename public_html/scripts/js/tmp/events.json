@@ -1,9 +1,10 @@
 [
     {
-        "title": "Work on Server Meeting",
-        "team": "Senior Design Team",
-        "start": "2018-04-02T10:30:00",
-        "location": "UCF Library: Ground Floor"
+        "title": "The calendar sucks",
+        "team": "Super Boi Guys",
+        "start": "2018-04-25",
+        "end": "2018-04-26",
+        "location": "Toto's place"
     },
     {
         "title": "Work on Server Meeting 2",
@@ -13,13 +14,24 @@
         "location": "UCF Library: 2nd Floor"
     },
     {
-      "title": "Smoke Weed All Day Event",
-      "start": "2018-04-20"
+        "title": "The calendar sucks",
+        "team": "Super Boi Guys",
+        "start": "2018-04-25",
+        "end": "2018-04-26",
+        "location": "Toto's place"
     },
     {
-      "title": "The calendar sucks",
-      "team": "Super Boi Guys",
-      "start": "2018-04-25",
-      "end": "2018-04-26"
+        "title": "The calendar sucks",
+        "team": "Super Boi Guys",
+        "start": "2018-04-25",
+        "end": "2018-04-26",
+        "location": "Toto's place"
+    },
+    {
+        "title": "The calendar sucks",
+        "team": "Super Boi Guys",
+        "start": "2018-04-25",
+        "end": "2018-04-26",
+        "location": "Toto's place"
     }
 ]

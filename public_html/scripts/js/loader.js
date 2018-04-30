@@ -1,7 +1,18 @@
 // Load event list.
 $("#event-list").ready(function () {
-  $.getJSON("../scripts/js/tmp/events.json", function (result) {
-    $.each(result, function (i, field) {
+  $.getJSON("../scripts/js/tmp/events.json", function (events) {
+    if (events.length <= 0) {
+      var item = $("<div>").addClass("list-group-item small").appendTo(".list-group");
+      item.append($("<a>", { href: "#create-event-modal", "data-toggle": "modal", "data-target": "#create-event-modal" }).
+        append($("<h6>").
+        append($("<strong>").
+        append("Click here to create a new event!"))));
+        return false;
+    }
+
+    $.each(events, function (i, field) {
+      if (i == 5) return false;
+
       var dateformat = "dddd, MMM D YYYY";
       var start = moment(field.start).format("h:mm a " + dateformat);
       var end = field.hasOwnProperty("end") ? moment(field.end).format("h:mm a " + dateformat) : "";
@@ -19,15 +30,13 @@ $("#event-list").ready(function () {
 
       if (end != "") start += " to ";
 
-      var event = $("<div>").addClass("list-group-item small").appendTo(".list-group");
-      event.append($("<a>", { href: "#" }).append(field.title));
-      event.append($("<div>").append(field.team));
+      var item = $("<div>").addClass("list-group-item small").appendTo(".list-group");
+      item.append($("<a>", { href: "#" }).append(field.title));
+      item.append($("<div>").append(field.team));
 
-      event.append($("<div>").append($("<span>").append(start)).
+      item.append($("<div>").append($("<span>").append(start)).
                               append($("<span>").append(end)));
-      // event.append($("<div>").append(start));
-      // event.append($("<div>").append(end));
-      event.append($("<div>").append(field.location));
+      item.append($("<div>").append(field.location));
     });
   });
 });
