@@ -1,7 +1,7 @@
 <?php
 	session_start();
 
-if(isset($_POST['submit-team-event'])){
+if(isset($_POST['submitEvent'])){
 
 	include_once 'dbconnection.php';
 
