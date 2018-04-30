@@ -31,6 +31,15 @@ if (isset($_SESSION['u_id']) && isset($_POST['email']) && isset($_POST['t_id']))
 	
 	mysqli_stmt_bind_param($stmt, "ss" , $tm_id, $team_id);
 	mysqli_stmt_execute($stmt);
-	echo true;
-	
+
+    $sql = "SELECT * FROM users WHERE userID = $tm_id;";
+    $result = mysqli_query($conn, $sql);
+    
+    if (mysqli_num_rows($result) <= 0) {
+        echo false;
+        exit();
+    }
+
+    $user = mysqli_fetch_assoc($result);
+    echo json_encode($user);
 }

@@ -1,7 +1,7 @@
 // Load team data.
 $(document).ready(function () {
   var str = parent.document.URL.substring(parent.document.URL.indexOf('?') + 1, parent.document.URL.length);
-  var obj = { t_id : str.split('=')[1] };
+  var obj = { t_id: str.split('=')[1] };
 
   $.getJSON('../scripts/php/getTeamInfo.php', obj, function (data) {
     $('#teamName').append(data.team);
@@ -15,7 +15,7 @@ function getTeamId() {
 
   for (var i = 0; i < arr.length; i++) {
     if (arr[i] == "tid")
-      return parseInt(arr[i+1]);
+      return parseInt(arr[i + 1]);
   }
 }
 
@@ -40,7 +40,7 @@ $(function () {
           var users = JSON.stringify(arr);
           response(JSON.parse(users));
         },
-        error: function(data) {
+        error: function (data) {
           alert("ERROR: " + JSON.stringify(data));
         }
       });
@@ -51,10 +51,10 @@ $(function () {
 });
 
 // Load team-members.
-$('member-list').ready(function() {
-  $.getJSON("../scripts/php/getTeamsUsers.php", { t_id: getTeamId }, function(data) {
+$('#member-list').ready(function () {
+  $.getJSON("../scripts/php/getTeamsUsers.php", { t_id: getTeamId }, function (data) {
     if (data.length <= 0) return false;
-    
+
     $.each(data, function (i, field) {
       var item = $("<div>").addClass("list-group-item small").appendTo("#member-list");
       item.append($("<div>").append($("<h6>").append(field.fname + " " + field.lname)));
@@ -62,20 +62,26 @@ $('member-list').ready(function() {
     });
 
 
-  }).fail(function(data) {
+  }).fail(function (data) {
     alert("getTeamsUsers test - ERROR: " + JSON.stringify(data));
   })
 });
 
-$("#add-tm-btn").click(function() {
+// Add team member
+$("#add-tm-btn").click(function () {
   var regExp = /\(([^)]+)\)/;
   var matches = regExp.exec($("#teammate-auto").val());
   var email = matches[1];
 
-  $.post("../scripts/php/addTeamMember.php", { 
+  $.post("../scripts/php/addTeamMember.php", {
     email: email,
     t_id: getTeamId()
-  }, function(data) {
-    window.location = data;
+  }, function (data) {
+    var field = JSON.parse(data);
+
+    var item = $("<div>").addClass("list-group-item small").prependTo("#member-list");
+    item.append($("<div>").append($("<h6>").append(field.fName + " " + field.lName)));
+    item.append($("<div>").append(field.email));
+    $('#teammate-auto').val('');
   });
 });
