@@ -1,6 +1,7 @@
 // Load event list.
 $("#event-list").ready(function () {
   $.getJSON("../scripts/js/tmp/events.json", function (events) {
+    alert(JSON.stringify(events));
     if (events.length <= 0) {
       var item = $("<div>").addClass("list-group-item small").appendTo(".list-group");
       item.append($("<a>", { href: "#create-event-modal", "data-toggle": "modal", "data-target": "#create-event-modal" }).
