@@ -15,7 +15,7 @@ if(isset($_POST['submit-team'])){
 	//might need to change this according to Justin's plan. supposed to do error handling on front end?
 	if(empty($teamName))
 	{
-		//header("Location: ../index.html ? signup=empty");
+		//header("Location: ../index.html? signup=empty");
 		echo "empty fields\n";
 		exit();
 	}
@@ -49,7 +49,7 @@ if(isset($_POST['submit-team'])){
 
 		mysqli_query($conn,$sql);
 
-		header("Location: ../../pages/dashboard.html ? we got in?");
+		header("Location: ../../pages/dashboard.html? we got in?");
 
 	}
 

@@ -16,13 +16,13 @@ if(isset($_POST['submitSignup'])){
 	//error handlers
 	//empty fields
 	if(empty($first) || empty($last) || empty($email) || empty($password)){
-		//header("Location: ../../index.html ? signup=empty");
+		//header("Location: ../../index.html? signup=empty");
 		echo "empty fields\n";
 		exit();
 	}
 
 	else if(! ($password === $passwordRepeat) ){
-		//header("Location: ../../index.html ? signup=passwordNotMatching");
+		//header("Location: ../../index.html? signup=passwordNotMatching");
 		echo "passwords dont match\n";
 		exit();
 	}

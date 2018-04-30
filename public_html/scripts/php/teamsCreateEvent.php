@@ -38,7 +38,7 @@ function teamsCreateEvent() {
 			|| empty($endDate) || empty($eventLocation)
 			|| (empty($eventDescription)))
 		{
-			//header("Location: ../index.html ? signup=empty");
+			//header("Location: ../index.html? signup=empty");
 			echo "empty fields\n";
 			exit();
 		}
@@ -78,13 +78,13 @@ function teamsCreateEvent() {
 			$uid = $row['users_userID'];
 			$sql = "INSERT INTO users_has_events (users_userID, events_eventID) VALUES ($uid, $teamEventId);";
 			$result = mysqli_query($conn, $sql);
-			header("Location: ../../pages/dashboard.html ?eo=$eventOwner ?q=" . $result);
+			header("Location: ../../pages/dashboard.html?eo=$eventOwner ?q=" . $result);
 			exit();
 
 			}
 
 			
-		header("Location: ../../pages/dashboard.html ? we got inadskufuhsadiud?");
+		header("Location: ../../pages/dashboard.html? we got inadskufuhsadiud?");
 		exit();
 
 		}

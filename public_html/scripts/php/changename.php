@@ -16,7 +16,7 @@ if(isset($_POST['submitName'])){
 	//error handlers
 	//empty fields
 	if(empty($fName) || empty($lName)){
-		//header("Location: ../../index.html ? signup=empty");
+		//header("Location: ../../index.html? signup=empty");
 		echo "empty fields\n";
 		exit();
 	}
@@ -49,7 +49,7 @@ if(isset($_POST['submitName'])){
 
 		//echo "\nsignup is working\n";
 		
-		header("Location: ../../pages/dashboard.html ? nameChange =success");
+		header("Location: ../../pages/dashboard.html? nameChange =success");
 		$_SESSION['u_first'] = $fName;
 		$_SESSION['u_last'] = $lName;
 

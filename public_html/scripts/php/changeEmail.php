@@ -15,7 +15,7 @@ if(isset($_POST['submitEmail'])){
 	//error handlers
 	//empty fields
 	if(empty($email)){
-		//header("Location: ../../index.html ? signup=empty");
+		//header("Location: ../../index.html? signup=empty");
 		echo "empty fields\n";
 		exit();
 	}
@@ -37,7 +37,7 @@ if(isset($_POST['submitEmail'])){
 		mysqli_stmt_bind_param($stmt, "ss" , $email , $userID);
 		mysqli_stmt_execute($stmt);
 		
-		header("Location: ../../pages/dashboard.html ? nameChange =success");
+		header("Location: ../../pages/dashboard.html? nameChange =success");
 		$_SESSION['u_email']= $email;
 		//echo "$userID <br> $fName <br> $lName" ;
 	}

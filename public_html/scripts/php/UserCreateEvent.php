@@ -33,7 +33,7 @@ function userCreateEvent() {
 
 		if(empty($eventName) || empty($startDate) || empty($endDate) || empty($eventLocation) || (empty($eventDescription)))
 		{
-			//header("Location: ../index.html ? signup=empty");
+			//header("Location: ../index.html? signup=empty");
 			echo "empty fields\n";
 			exit();
 		}
@@ -82,7 +82,7 @@ function userCreateEvent() {
 
 		
 			//redirects to the dashboard
-			header("Location: ../../pages/dashboard.html ? we got in?");
+			header("Location: ../../pages/dashboard.html? we got in?");
 
 			}
 		}
