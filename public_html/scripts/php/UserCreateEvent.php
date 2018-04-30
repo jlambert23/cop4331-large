@@ -33,6 +33,10 @@ function userCreateEvent() {
 		if(empty($eventName) || empty($startDate) 
 			|| empty($endDate) || empty($eventLocation)
 			|| (empty($eventDescription)))
+		//checking to see if any of the feilds have been sent as empty
+		//might need to change this according to Justin's plan. supposed to do error handling on front end?
+
+		if(empty($eventName) || empty($startDate) || empty($endDate) || empty($eventLocation) || (empty($eventDescription)))
 		{
 			//header("Location: ../index.html ? signup=empty");
 			echo "empty fields\n";
@@ -45,6 +49,9 @@ function userCreateEvent() {
 		else{
 
 	
+			$sql = "INSERT INTO events (name, start, end, location, description) VALUES (?, ?, ?, ?, ?)";
+			$stmt = mysqli_stmt_init($conn);
+>>>>>>> master
 
 
 			mysqli_stmt_bind_param($stmt, "sssss" , $eventName, 
@@ -59,6 +66,13 @@ function userCreateEvent() {
 			}
 
 			
+
+	
+			mysqli_stmt_bind_param($stmt, "sssss" , $eventName, 
+									$startDate , $endDate, 
+									$eventLocation, $eventDescription);
+
+			mysqli_stmt_execute($stmt);
 
 		
 			//get the Primary Key for the event you just entered
