@@ -13,7 +13,7 @@ if (isset($_SESSION['u_id']) && isset($_POST['email']) && isset($_POST['t_id']))
 	$result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) <= 0) {
-        echo "teampage.html? addtm = fail";
+        echo false;
         exit();
     }
 
@@ -25,14 +25,12 @@ if (isset($_SESSION['u_id']) && isset($_POST['email']) && isset($_POST['t_id']))
 	$stmt = mysqli_stmt_init($conn);
 
 	if(!mysqli_stmt_prepare($stmt, $sql)){
-		echo "teampage.html? addtm = ivalidSQL";
+        echo false;
+        exit();
 	}
 	
-	else{
-		mysqli_stmt_bind_param($stmt, "ss" , $tm_id, $team_id);
-		mysqli_stmt_execute($stmt);
-		echo "teampage.html? addtm=success";
-	}
-
-
+	mysqli_stmt_bind_param($stmt, "ss" , $tm_id, $team_id);
+	mysqli_stmt_execute($stmt);
+	echo true;
+	
 }

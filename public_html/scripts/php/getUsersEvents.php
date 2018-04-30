@@ -6,34 +6,43 @@
 		include 'dbconnection.php';
 		$userId  = $_SESSION['u_id'];
 
-		$sql = "SELECT * FROM users_has_events WHERE users_userID = $userId ;";
+		$sql = "SELECT events_eventID FROM users_has_events WHERE users_userID = $userId;";
 
 		$result = mysqli_query($conn,$sql);
+		$events = mysqli_fetch_all($result);
 
-		$json[] = array();
-	 while ($row = mysqli_fetch_assoc($result)) {
+        // No teams are associated with this user. Return empty JSON.
+        if (count($events) <= 0) {
+            echo json_encode($events);
+            exit();
+        }
 
-	 	$eventId = $row['events_eventID'];
-	 	$sql = "SELECT * FROM  events WHERE eventID = $eventId;";
+        $sql = "SELECT * FROM events WHERE ";
+        for( $i = 0; $i < count($events); $i++ ) {
+            $eventid = $events[$i][0];
+            $sql .= "eventID = '$eventid'";
 
-	 	//STILL NEED TO CHECK IF THIS GAVE EVENTS
-	 	$eventResult = mysqli_query($conn,$sql);
-	 	$eventRow = mysqli_fetch_assoc($eventResult);
+            if ($i < count($events) - 1) $sql .= " OR ";
+        }
+        $sql .= ";";
 
-	 	$json[]['name'] = $eventRow['name'];
-	 	$json[]['start'] = $eventRow['start'];
-	 	$json[]['end'] = $eventRow['end'];
-	 	$json[]['location'] = $eventRow['location'];
-	 	$json[]['description'] = $eventRow['description'];
-	 	
-
-
-
-	 }
-	 echo json_encode($json);
-
-
-
+        $result = mysqli_query($conn, $sql);
+			
+		if (mysqli_num_rows($result) <= 0) {
+			echo json_encode($result);
+			exit();
+		}
+		
+		while ($event = mysqli_fetch_assoc($result)) {
+			$var['name'] = $event['name'];
+			$var['start'] = $event['start'];
+			$var['end'] = $event['end'];
+			$var['location'] = $event['description'];
+			$var['owner'] = $event['owner'];
+			$json[] = $var;
+		}
+		
+		echo json_encode($json);
 }
 
 

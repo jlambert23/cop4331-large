@@ -34,7 +34,7 @@ $("#event-list").ready(function () {
       if (end != "") start += " to ";
 
       var item = $("<div>").addClass("list-group-item small").appendTo("#event-list");
-      item.append($("<a>", { href: "#" }).append(field.title));
+      item.append($("<a>", { href: "#" }).append(field.name));
       item.append($("<div>").append(field.team));
 
       item.append($("<div>").append($("<span>").append(start)).

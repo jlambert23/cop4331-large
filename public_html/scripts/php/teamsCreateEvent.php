@@ -13,7 +13,7 @@ function teamsCreateEvent() {
 		$startTime = mysqli_real_escape_string($conn, $_POST["start-time-input"]);
 		$endD = mysqli_real_escape_string($conn, $_POST["end-date-input"]);
 		$endTime = mysqli_real_escape_string($conn, $_POST["end-time-input"]);
-	
+		$eventOwner = mysqli_real_escape_string($conn, $_POST["event-team"]);
 		
 		$startDate = $startD;
 		$startDate .= " ";
