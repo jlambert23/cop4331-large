@@ -8,18 +8,27 @@ function userCreateEvent() {
 		include_once 'dbconnection.php';
 
 		$eventName = mysqli_real_escape_string($conn, $_POST["event-name"]);
-		$startDate = mysqli_real_escape_string($conn, $_POST["start-date-input"]);
+		// start date is now combined with start time
+		$startD = mysqli_real_escape_string($conn, $_POST["start-date-input"]);
 		$startTime = mysqli_real_escape_string($conn, $_POST["start-time-input"]);
-		$endDate = mysqli_real_escape_string($conn, $_POST["end-date-input"]);
+		$endD = mysqli_real_escape_string($conn, $_POST["end-date-input"]);
 		$endTime = mysqli_real_escape_string($conn, $_POST["end-time-input"]);
+	
+		
+		$startDate = $startD;
+		$startDate .= " ";
+		$startDate .= $startTime;
+		//end date is now combined with end time
 		$eventDescription = mysqli_real_escape_string($conn, $_POST["event-description"]);
 		$eventLocation = mysqli_real_escape_string($conn, $_POST["event-location"]);
-
+	
+		$endDate = $endD;
+		$endDate .= " ";
+		$endDate .= $endTime;
 		//checking to see if any of the feilds have been sent as empty
 		//might need to change this according to Justin's plan. supposed to do error handling on front end?
-		if(empty($eventName) || empty($startDate) || empty($startTime) 
-			|| empty($endDate) || empty($endTime) || empty($eventLocation)
-			|| (empty($eventDescription)))
+
+		if(empty($eventName) || empty($startDate) || empty($endDate) || empty($eventLocation) || (empty($eventDescription)))
 		{
 			//header("Location: ../index.html ? signup=empty");
 			echo "empty fields\n";
