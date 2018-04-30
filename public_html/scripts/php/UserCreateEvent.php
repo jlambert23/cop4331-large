@@ -30,11 +30,6 @@ function userCreateEvent() {
 
 		//checking to see if any of the feilds have been sent as empty
 		//might need to change this according to Justin's plan. supposed to do error handling on front end?
-		if(empty($eventName) || empty($startDate) 
-			|| empty($endDate) || empty($eventLocation)
-			|| (empty($eventDescription)))
-		//checking to see if any of the feilds have been sent as empty
-		//might need to change this according to Justin's plan. supposed to do error handling on front end?
 
 		if(empty($eventName) || empty($startDate) || empty($endDate) || empty($eventLocation) || (empty($eventDescription)))
 		{
@@ -51,7 +46,7 @@ function userCreateEvent() {
 	
 			$sql = "INSERT INTO events (name, start, end, location, description) VALUES (?, ?, ?, ?, ?)";
 			$stmt = mysqli_stmt_init($conn);
->>>>>>> master
+
 
 
 			mysqli_stmt_bind_param($stmt, "sssss" , $eventName, 
@@ -92,6 +87,10 @@ function userCreateEvent() {
 			}
 		}
 
+else{
+	
+		echo "denied bitch!!";
+	}	
 
 
 
@@ -99,8 +98,3 @@ function userCreateEvent() {
 	}
 
 //couldnt get into the if because the session is not working
-else{
-	
-		echo "denied bitch!!";
-	}	
-}
