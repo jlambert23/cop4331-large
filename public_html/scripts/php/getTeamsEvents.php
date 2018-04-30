@@ -20,9 +20,17 @@ if(isset($_GET['t_id'])){
  				// based on the for loop this should be the PK from the array -> $currentUserPrimary 
 		 		$sql = "SELECT * FROM events WHERE eventID = $currentEventPrimary";
 
+		 		//need to verify that the event thingg has rows
 		 		$event = mysqli_query($conn,$sql);
+
+		 		$json[]['name'] = $event['name'];
+		 		$json[]['start'] = $event['start'];
+		 		$json[]['end'] = $event['end'];
+		 		$json[]['location'] = $event['description'];
+		 		$json[]['owner'] = $event['owner'];
 			   
 			}
+			echo json_encode($json);
 
 	}
 
