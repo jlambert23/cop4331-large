@@ -3,7 +3,7 @@
 	session_start();
 	if(isset($_SESSION['u_id'])){
 
-		 include 'dbconnection.php';
+		include 'dbconnection.php';
 		$userId  = $_SESSION['u_id'];
 
 		$sql = "SELECT * FROM users_has_events WHERE users_userID = $userId ;";
@@ -17,7 +17,9 @@
 	 	$sql = "SELECT * FROM  events WHERE eventID = $eventId;";
 
 	 	//STILL NEED TO CHECK IF THIS GAVE EVENTS
-	 	$eventRow = msqli_query($conn,$sql);
+	 	$eventResult = mysqli_query($conn,$sql);
+	 	$eventRow = mysqli_fetch_assoc($eventResult);
+
 	 	$json[]['name'] = $eventRow['name'];
 	 	$json[]['start'] = $eventRow['start'];
 	 	$json[]['end'] = $eventRow['end'];
