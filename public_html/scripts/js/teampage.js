@@ -55,7 +55,7 @@ $('member-list').ready(function() {
   $.getJSON("../scripts/php/getTeamsUsers.php", { t_id: getTeamId }, function(data) {
     if (data.length <= 0) return false;
 
-    $.each(events, function (i, field) {
+    $.each(data, function (i, field) {
       var item = $("<div>").addClass("list-group-item small").appendTo("#member-list");
       item.append($("<div>").append($("<h6>").append(field.fname + " " + field.lname)));
       item.append($("<div>").append(field.email));

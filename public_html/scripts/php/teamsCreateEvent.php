@@ -18,9 +18,9 @@ function teamsCreateEvent() {
 		$startDate = $startD;
 		$startDate .= " ";
 		$startDate .= $startTime;
-	//end date is now combined with end time
-	$eventDescription = mysqli_real_escape_string($conn, $_POST["event-description"]);
-	$eventLocation = mysqli_real_escape_string($conn, $_POST["event-location"]);
+		//end date is now combined with end time
+		$eventDescription = mysqli_real_escape_string($conn, $_POST["event-description"]);
+		$eventLocation = mysqli_real_escape_string($conn, $_POST["event-location"]);
 	
 		$endDate = $endD;
 		$endDate .= " ";
@@ -123,9 +123,4 @@ function teamsCreateEvent() {
 	
 		echo "denied bitch!!";
 	}
-}
-
-//couldnt get into the if because the session is not working
-else{
-	echo "denied bitch!!";
 }
