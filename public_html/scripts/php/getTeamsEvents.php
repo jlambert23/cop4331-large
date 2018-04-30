@@ -5,7 +5,7 @@ if(isset($_GET['t_id'])){
 	$teamId = $_GET['t_id'];
 
 	$sql = "SELECT * FROM events_has_teams WHERE teamID = $teamId;";
-	
+
 	$result = mysqli_query($conn, $sql);
 
 
@@ -14,6 +14,15 @@ if(isset($_GET['t_id'])){
 		 	$eventPrimary[] = $row['eventID'];
 
         	}
+
+        foreach ($eventPrimary as &$currentEventPrimary){
+ 				
+ 				// based on the for loop this should be the PK from the array -> $currentUserPrimary 
+		 		$sql = "SELECT * FROM events WHERE eventID = $currentEventPrimary";
+
+		 		$event = mysqli_query($conn,$sql);
+			   
+			}
 
 	}
 
