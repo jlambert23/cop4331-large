@@ -1,19 +1,22 @@
 <?php
 
-if(isset($_GET['t_id'])){
+if(isset($_GET['t_id']) ){
 
+	include 'dbconnection.php';
 	$teamId = $_GET['t_id'];
 
 	$sql = "SELECT * FROM events_has_teams WHERE teamID = $teamId;";
 
 	$result = mysqli_query($conn, $sql);
 
-
+		$eventPrimary = array();
 	  while ($row = mysqli_fetch_assoc($result)) {
 
 		 	$eventPrimary[] = $row['eventID'];
 
         	}
+
+        $json[] = array();
 
         foreach ($eventPrimary as &$currentEventPrimary){
  				
@@ -28,6 +31,7 @@ if(isset($_GET['t_id'])){
 		 		$json[]['end'] = $event['end'];
 		 		$json[]['location'] = $event['description'];
 		 		$json[]['owner'] = $event['owner'];
+		 		
 			   
 			}
 			echo json_encode($json);

@@ -136,9 +136,12 @@
           <div class="card-body">
             <!-- Search and Add Teammates -->
             <div class="row">
-              <input type="text" id="teammate-auto" class="form-control input-lg mb-3" placeholder="Add Team Member">
-              <input type="submit" class="btn btn-primary pull-right" value="+" name="submit-add-team">
-              <!-- <button class="btn btn-primary mx-2">+</button> -->
+              <div class="input-group">
+                <input type="text" id="teammate-auto" class="form-control input-lg mb-3" placeholder="Add Team Member">
+                <span class="input-group-btn">
+                  <button id="add-tm-btn" class="btn btn-primary" type="button">+</button>
+                </span>
+              </div>
             </div>
 
             <div class="row">
@@ -200,7 +203,7 @@
                 <form id="create-team-frm" class="form-group" action="../scripts/php/CreateTeam.php" method="post" accept-charset="utf-8"
                   class="form" role="form">
                   <input type="text" class="form-control input-lg my-3" placeholder="Team Name" name="team-name" required>
-                  <textarea class="form-control" rows="5" id="event-description" placeholder="Event Description" name="description"></textarea>
+                  <textarea class="form-control" rows="5" id="team-description" placeholder="Team Description" name="description"></textarea>
                   <input type="submit" class="btn btn-primary pull-right mt-3" value="Submit" name="submit-team">
                 </form>
               </div>

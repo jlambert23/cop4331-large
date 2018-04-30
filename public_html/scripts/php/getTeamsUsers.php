@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 //THIS NEEDS TO BE CHANGED TO THE ENTIRE USER FIELD
 if(isset($_GET['t_id'])){
 
@@ -7,11 +8,12 @@ if(isset($_GET['t_id'])){
 
  	 $teamId = $_GET['t_id'];
 
- 	 $sql = "SELECT * FROM user_has_teams WHERE teams_teamID = $teamId;";
+ 	 $sql = "SELECT * FROM users_has_teams WHERE teams_teamID = $teamId;";
 	
 	 $result = mysqli_query($conn, $sql);
 
-	  while ($row = mysqli_fetch_assoc($result)) {
+	 $json[] = array();
+	   while ($row = mysqli_fetch_assoc($result)) {
 	  		
 	  		//we have the user PK from the user has teams table
 	  		$currentUser = $row['users_userID'];
@@ -19,7 +21,8 @@ if(isset($_GET['t_id'])){
 	  		//need to get the users information from the users table
 	  		//ERROR CHECK IF FOUND NO ROWS should not happen but check
 	  		$sql = "SELECT * FROM users WHERE userID = $currentUser;";
-	  		$userRow = mysqli_query($conn, $sql);
+	  		$rowResult = mysqli_query($conn, $sql);
+	  		$userRow = mysqli_fetch_assoc($rowResult);
 
 	  		//now that we have the row put inside the json
 		 	$json[]['fName'] = $userRow['fName'];
