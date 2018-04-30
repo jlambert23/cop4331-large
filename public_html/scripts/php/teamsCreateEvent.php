@@ -120,8 +120,3 @@ function teamsCreateEvent() {
 		echo "denied bitch!!";
 	}
 }
-
-//couldnt get into the if because the session is not working
-else{
-	echo "denied bitch!!";
-}

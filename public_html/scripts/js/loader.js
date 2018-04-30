@@ -2,14 +2,9 @@ var isTeampage = window.location.pathname.includes("teampage.html");
 
 // Load event list.
 $("#event-list").ready(function () {
-<<<<<<< HEAD
-  var script = "../scripts/php/" + (urlVar.includes("tid") ? "getTeamsEvents.php" : "getUsersEvents.php");
-  var tid = (script) ? urlVar.split("=")[1] : "";
-=======
   var script = "../scripts/php/" + (isTeampage ? "getTeamsEvents.php" : "getUsersEvents.php");
->>>>>>> JustinBranch
 
-  $.getJSON(script, {t_id: tid }, function (events) {
+  $.getJSON(script, {t_id: isTeampage ? getTeamId() : "" }, function (events) {
     alert(JSON.stringify(events));
     if (events.length <= 0) {
       var item = $("<div>").addClass("list-group-item small").appendTo("#event-list");
