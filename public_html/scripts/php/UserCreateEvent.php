@@ -42,7 +42,7 @@ function userCreateEvent() {
 		else{
 
 	
-			$sql = "INSERT INTO events (name, start_date, end_date, start_time,end_time, location, description) VALUES (?, ?, ?, ?,?,?, ?)";
+			$sql = "INSERT INTO events (name, start, end, location, description) VALUES (?, ?, ?, ?, ?)";
 			$stmt = mysqli_stmt_init($conn);
 
 		
@@ -57,8 +57,8 @@ function userCreateEvent() {
 			
 
 	
-			mysqli_stmt_bind_param($stmt, "sssssss" , $eventName, 
-									$startDate , $endDate, $startTime,$endTime, 
+			mysqli_stmt_bind_param($stmt, "sssss" , $eventName, 
+									$startDate , $endDate, 
 									$eventLocation, $eventDescription);
 
 			mysqli_stmt_execute($stmt);
