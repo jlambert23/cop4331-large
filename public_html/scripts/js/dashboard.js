@@ -69,7 +69,7 @@ $('#logout').click(function () {
 });
 
 $('#wrapper').ready(repad_wrapper);
-// $(window).resize(repad_wrapper);
+$(window).resize(repad_wrapper);
 // $(window).load(repad_wrapper);
 
 function repad_wrapper() {
