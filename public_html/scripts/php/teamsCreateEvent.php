@@ -18,19 +18,15 @@ function teamsCreateEvent() {
 		$startDate = $startD;
 		$startDate .= " ";
 		$startDate .= $startTime;
-	//end date is now combined with end time
-	$eventDescription = mysqli_real_escape_string($conn, $_POST["event-description"]);
-	$eventLocation = mysqli_real_escape_string($conn, $_POST["event-location"]);
+		
+		//end date is now combined with end time
+		$eventDescription = mysqli_real_escape_string($conn, $_POST["event-description"]);
+		$eventLocation = mysqli_real_escape_string($conn, $_POST["event-location"]);
 	
 		$endDate = $endD;
 		$endDate .= " ";
 		$endDate .= $endTime;
 		
-		
-		//end date is now combined with end time
-		$eventDescription = mysqli_real_escape_string($conn, $_POST["event-description"]);
-		$eventLocation = mysqli_real_escape_string($conn, $_POST["event-location"]);
-		$eventOwner = $_POST['event-team'];
 		
 		//$startTime = mysqli_real_escape_string($conn, $_POST["start-time-input"]);
 		//$endTime = mysqli_real_escape_string($conn, $_POST["end-time-input"]);
