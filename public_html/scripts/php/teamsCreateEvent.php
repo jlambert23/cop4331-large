@@ -12,6 +12,8 @@ if(isset($_POST['submit-team-event'])){
 	$endD = mysqli_real_escape_string($conn, $_POST["end-date-input"]);
 	$endTime = mysqli_real_escape_string($conn, $_POST["end-time-input"]);
 
+	$eventOwner = mysqli_real_escape_string($conn, $_POST["event-team"]);
+
 	
 	$startDate = $startD;
 	$startDate .= " ";
@@ -25,7 +27,6 @@ if(isset($_POST['submit-team-event'])){
 	//end date is now combined with end time
 	$eventDescription = mysqli_real_escape_string($conn, $_POST["event-description"]);
 	$eventLocation = mysqli_real_escape_string($conn, $_POST["event-location"]);
-	$eventOwner = $_POST['owner'];
 	
 	//$startTime = mysqli_real_escape_string($conn, $_POST["start-time-input"]);
 	//$endTime = mysqli_real_escape_string($conn, $_POST["end-time-input"]);
@@ -64,7 +65,6 @@ if(isset($_POST['submit-team-event'])){
 
 		else{
 
-			
 
 			mysqli_stmt_bind_param($stmt, "ssssss" , $eventName, 
 									$startDate , $endDate, 
@@ -74,10 +74,12 @@ if(isset($_POST['submit-team-event'])){
 
 			//get the Primary Key for the team event you just entered
 			$teamEventId = mysqli_insert_id($conn);
-			$teamId = $_POST['t_id'];
+			$teamId = 2;
+
+			//$teamId = $_POST['t_id'];
 			
 			//NOW I NEED TO ADD TO THE EVENT HAS TEAMS TABLE
-			$sql = "INSERT INTO event_has_teams (teamID, eventID) VALUES( $teamId ,$teamEventId);";
+			$sql = "INSERT INTO events_has_teams (teamID, eventID) VALUES( $teamId ,$teamEventId);";
 
 			mysqli_query($conn,$sql);
 
