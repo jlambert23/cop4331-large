@@ -6,7 +6,7 @@
 		 include 'dbconnection.php';
 		$userId  = $_SESSION['u_id'];
 
-		$sql = "SELECT * FROM users_has_events WHERE users_userID = $userId ";
+		$sql = "SELECT * FROM users_has_events WHERE users_userID = $userId ;";
 
 		$result = mysqli_query($conn,$sql);
 
