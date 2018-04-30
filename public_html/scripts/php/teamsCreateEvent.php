@@ -1,7 +1,7 @@
 <?php
 	session_start();
 
-if(isset($_POST['submit-team-event'])){
+if(isset($_POST['submitEvent'])){
 
 	include_once 'dbconnection.php';
 
@@ -11,6 +11,8 @@ if(isset($_POST['submit-team-event'])){
 	$startTime = mysqli_real_escape_string($conn, $_POST["start-time-input"]);
 	$endD = mysqli_real_escape_string($conn, $_POST["end-date-input"]);
 	$endTime = mysqli_real_escape_string($conn, $_POST["end-time-input"]);
+
+	$eventOwner = mysqli_real_escape_string($conn, $_POST["event-team"]);
 
 	
 	$startDate = $startD;
@@ -25,7 +27,6 @@ if(isset($_POST['submit-team-event'])){
 	//end date is now combined with end time
 	$eventDescription = mysqli_real_escape_string($conn, $_POST["event-description"]);
 	$eventLocation = mysqli_real_escape_string($conn, $_POST["event-location"]);
-	$eventOwner = $_POST['owner'];
 	
 	//$startTime = mysqli_real_escape_string($conn, $_POST["start-time-input"]);
 	//$endTime = mysqli_real_escape_string($conn, $_POST["end-time-input"]);
@@ -64,7 +65,6 @@ if(isset($_POST['submit-team-event'])){
 
 		else{
 
-			
 
 			mysqli_stmt_bind_param($stmt, "ssssss" , $eventName, 
 									$startDate , $endDate, 
@@ -72,12 +72,22 @@ if(isset($_POST['submit-team-event'])){
 
 			mysqli_stmt_execute($stmt);
 
+			
+
 			//get the Primary Key for the team event you just entered
 			$teamEventId = mysqli_insert_id($conn);
-			$teamId = $_POST['t_id'];
+			$sql = "SELECT * from teams where team_name = '$eventOwner';";
+			$result = mysqli_query($conn,$sql);
+			$row = mysqli_fetch_assoc($result);
+			$teamID = $row['teamID'];
+
+
+			//$teamID = 2;
+
+			//$teamId = $_POST['t_id'];
 			
 			//NOW I NEED TO ADD TO THE EVENT HAS TEAMS TABLE
-			$sql = "INSERT INTO event_has_teams (teamID, eventID) VALUES( $teamId ,$teamEventId);";
+			$sql = "INSERT INTO events_has_teams (teamID, eventID) VALUES( $teamID ,$teamEventId);";
 
 			mysqli_query($conn,$sql);
 
@@ -88,7 +98,7 @@ if(isset($_POST['submit-team-event'])){
 			// WE need their primary keys from user_has_teams table
 			// put the PK's into an array we need to loop through this array later
 
-			$sql = "SELECT users_userID FROM users_has_teams WHERE teams_teamID = $teamId;";
+			$sql = "SELECT users_userID FROM users_has_teams WHERE teams_teamID = $teamID;";
 
 			$result = mysqli_query($conn, $sql);
 
@@ -107,9 +117,9 @@ if(isset($_POST['submit-team-event'])){
 					$sql = "INSERT INTO users_has_events (users_userID, teams_teamID) VALUES( $currentUserPrimary,$teamEventId);";
 					mysqli_query($conn,$sql);
 				
-					}
-
 				}
+
+			}
 
 		}
 	}
@@ -118,6 +128,5 @@ if(isset($_POST['submit-team-event'])){
 
 //couldnt get into the if because the session is not working
 else{
-
 	echo "denied bitch!!";
 }
