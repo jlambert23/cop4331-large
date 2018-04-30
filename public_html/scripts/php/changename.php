@@ -50,6 +50,9 @@ if(isset($_POST['submitName'])){
 		//echo "\nsignup is working\n";
 		
 		header("Location: ../../pages/dashboard.html ? nameChange =success");
+		$_SESSION['u_first'] = $fName;
+		$_SESSION['u_last'] = $lName;
+
 		//echo "$userID <br> $fName <br> $lName" ;
 	}
 

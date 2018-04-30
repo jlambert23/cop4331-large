@@ -38,6 +38,7 @@ if(isset($_POST['submitEmail'])){
 		mysqli_stmt_execute($stmt);
 		
 		header("Location: ../../pages/dashboard.html ? nameChange =success");
+		$_SESSION['u_email']= $email;
 		//echo "$userID <br> $fName <br> $lName" ;
 	}
 
