@@ -72,14 +72,22 @@ if(isset($_POST['submitEvent'])){
 
 			mysqli_stmt_execute($stmt);
 
+			
+
 			//get the Primary Key for the team event you just entered
 			$teamEventId = mysqli_insert_id($conn);
-			$teamId = 2;
+			$sql = "SELECT * from teams where team_name = '$eventOwner';";
+			$result = mysqli_query($conn,$sql);
+			$row = mysqli_fetch_assoc($result);
+			$teamID = $row['teamID'];
+
+
+			//$teamID = 2;
 
 			//$teamId = $_POST['t_id'];
 			
 			//NOW I NEED TO ADD TO THE EVENT HAS TEAMS TABLE
-			$sql = "INSERT INTO events_has_teams (teamID, eventID) VALUES( $teamId ,$teamEventId);";
+			$sql = "INSERT INTO events_has_teams (teamID, eventID) VALUES( $teamID ,$teamEventId);";
 
 			mysqli_query($conn,$sql);
 
@@ -90,7 +98,7 @@ if(isset($_POST['submitEvent'])){
 			// WE need their primary keys from user_has_teams table
 			// put the PK's into an array we need to loop through this array later
 
-			$sql = "SELECT users_userID FROM users_has_teams WHERE teams_teamID = $teamId;";
+			$sql = "SELECT users_userID FROM users_has_teams WHERE teams_teamID = $teamID;";
 
 			$result = mysqli_query($conn, $sql);
 
