@@ -20,7 +20,7 @@
         }
 
         // Build sql query so that we obtain the team names of all team ids we have.
-        $sql = "SELECT team_name FROM teams WHERE ";
+        $sql = "SELECT * FROM teams WHERE ";
         for( $i = 0; $i < count($teamIDs); $i++ ) {
             $teamid = $teamIDs[$i][0];
             $sql .= "teamID = '$teamid'";
@@ -34,6 +34,7 @@
         // Fetch team names and format for json package.
         while ($row = mysqli_fetch_assoc($result)) {
             $team['team'] = $row['team_name'];
+            $team['tid'] = $row['teamID'];
             $json[] = $team;
         }
 
