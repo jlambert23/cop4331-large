@@ -64,9 +64,9 @@
             <a class="dropdown-item" href="dashboard.html">My Profile</a>
             <a class="dropdown-item" href="settings.html">Settings</a>
             <a class="dropdown-item" href="#" id="logout">Sign Out</a>
-        </div>
+          </div>
       </ul>
-    </div>
+      </div>
   </nav>
 
   <div id="wrapper" class="container">
@@ -171,8 +171,8 @@
             <!-- Contents of Modal -->
             <div class="tab-pane fade show active" id="create-team" role="tabpanel" aria-labelledby="create-team">
               <div class="container">
-                <form id="create-team-frm" class="form-group" action="../scripts/php/CreateTeam.php" method="post" accept-charset="utf-8" class="form"
-                  role="form">
+                <form id="create-team-frm" class="form-group" action="../scripts/php/CreateTeam.php" method="post" accept-charset="utf-8"
+                  class="form" role="form">
                   <input type="text" class="form-control input-lg my-3" placeholder="Team Name" name="team-name" required>
                   <textarea class="form-control" rows="5" id="event-description" placeholder="Event Description" name="description"></textarea>
                   <input type="submit" class="btn btn-primary pull-right mt-3" value="Submit" name="submit-team">
@@ -209,25 +209,30 @@
 
                   <div class="row">
                     <span class="mr-2">
-                      <input class="form-control form-control-sm" type="date" value="2018-04-30" id="start-date-input" name = "start-date-input">
+                      <input class="form-control form-control-sm" type="date" value="2018-04-30" id="start-date-input" name="start-date-input">
                     </span>
                     <span class="mr-2">
-                      <input class="form-control form-control-sm" type="time" value="12:00" id="start-time-input" name ="start-time-input" >
+                      <input class="form-control form-control-sm" type="time" value="12:00" id="start-time-input" name="start-time-input">
                     </span>
                     <span class="mr-2 py-1">to</span>
                     <span class="mr-2">
-                      <input class="form-control form-control-sm" type="date" value="2018-04-30" id="end-date-input" name = "end-date-input">
+                      <input class="form-control form-control-sm" type="date" value="2018-04-30" id="end-date-input" name="end-date-input">
                     </span>
                     <span>
-                      <input class="form-control form-control-sm" type="time" value="13:00" id="end-time-input" name = "end-time-input">
+                      <input class="form-control form-control-sm" type="time" value="13:00" id="end-time-input" name="end-time-input">
                     </span>
                   </div>
 
                   <div class="row">
+                    <select id="event-team" class="form-control input-lg mt-3" name="event-team">
+                      <option value="" disabled selected>Select Team (Optional)</option>
+                    </select>
+                  </div>
+                  <div class="row">
                     <input type="text" id="event-location" class="form-control input-lg my-3" placeholder="Location" name="event-location" required>
                   </div>
                   <div class="row">
-                    <textarea class="form-control" rows="5" id="event-description" placeholder="Event Description" name = "event-description"></textarea>
+                    <textarea class="form-control" rows="5" id="event-description" placeholder="Event Description" name="event-description"></textarea>
                   </div>
                   <div class="row pull-right mt-3">
                     <input type="submit" class="btn btn-primary" value="Submit" name="submitEvent">

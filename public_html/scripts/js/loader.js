@@ -41,17 +41,26 @@ $("#event-list").ready(function () {
   });
 });
 
-// Team loader
+// Team loader for create events and team list.
 $("#team-dropdown").ready(function () {
   $.getJSON("../scripts/php/getTeams.php", function (teams) {
     if (teams.length <= 0) {
       var message = "Click here to create your<br>first team and get started!";
       $("#team-dropdown").append($("<a>", { href: "#create-team-modal", "data-toggle": "modal", "data-target": "#create-team-modal" }).addClass("dropdown-item").append(message));
     }
-    else {
+    else {      
       $.each(teams, function (i, field) {
         $("#team-dropdown").append($("<a>", { href: "teampage.html?tid=" + field.tid }).addClass("dropdown-item").append(field.team));
+        $("#event-team").append($("<option>", { value : field.team }).append(field.team).attr("id", "t" + field.tid));
       });
+
+      var str = parent.document.URL.substring(parent.document.URL.indexOf('?') + 1, parent.document.URL.length);
+      if (str.includes("tid")) {
+        $("#event-team option:selected").removeAttr("selected"  );
+
+        var tid = str.split('=')[1];
+        $("#t" + tid).attr("selected", "");
+      }
     }
   });
 });
