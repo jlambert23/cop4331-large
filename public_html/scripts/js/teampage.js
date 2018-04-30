@@ -1,3 +1,25 @@
+// Load team data.
+$(document).ready(function () {
+  var str = parent.document.URL.substring(parent.document.URL.indexOf('?') + 1, parent.document.URL.length);
+  var obj = { t_id : str.split('=')[1] };
+
+  $.getJSON('../scripts/php/getTeamInfo.php', obj, function (data) {
+    $('#teamName').append(data.team);
+    $('#description').append(data.description);
+  });
+});
+
+function getTeamId() {
+  var urlVar = parent.document.URL.substring(parent.document.URL.indexOf('?') + 1, parent.document.URL.length);
+  var arr = urlVar.split('=');
+
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] == "tid")
+      return parseInt(arr[i+1]);
+  }
+}
+
+// Autocomplete team member input box.
 $(function () {
   $("#teammate-auto").autocomplete({
     source: function (request, response) {
@@ -26,13 +48,12 @@ $(function () {
   });
 });
 
-$(document).ready(function () {
-  var str = parent.document.URL.substring(parent.document.URL.indexOf('?') + 1, parent.document.URL.length);
-  var obj = { t_id : str.split('=')[1] };
-
-  $.getJSON('../scripts/php/getTeamInfo.php', obj, function (data) {
-    $('#teamName').append(data.team);
-    $('#description').append(data.description);
-    //alert(data);
-  });
+// Load team-members.
+$('member-list').ready(function() {
+  $.getJSON("../scripts/php/getTeamsUsers.php", { t_id: getTeamId }, function(data) {
+    alert(data);
+    
+  }).fail(function(data) {
+    alert("ERROR: " + JSON.stringify(data));
+  })
 });
