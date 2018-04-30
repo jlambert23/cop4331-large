@@ -55,14 +55,14 @@ if(isset($_POST['submit-team-event'])){
 
 		//end is a key word in SQL not sure you can insert properly
 		$sql = "INSERT INTO events (name, start, end, location, description, owner) VALUES (?, ?, ?, ?,?,?)";
-			$stmt = mysqli_stmt_init($conn);
+		$stmt = mysqli_stmt_init($conn);
 
-			if(!mysqli_stmt_prepare($stmt, $sql)){
-				//echo "SQL error\n";
-				header("Location: ../pages/dashboard.html? eventCreation = ivalidSQL");
-			}
+		if(!mysqli_stmt_prepare($stmt, $sql)){
+			//echo "SQL error\n";
+			header("Location: ../pages/dashboard.html? eventCreation = ivalidSQL");
+		}
 
-			else{
+		else{
 
 			
 

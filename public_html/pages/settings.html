@@ -109,7 +109,7 @@
             </div>
 
             <!--Input for uploading picture-->
-            <form id="change-name-frm" class="form-group" action="../scripts/php/uploadPic.php" method="post" accept-charset="utf-8"
+            <form id="change-pic-frm" class="form-group" action="../scripts/php/uploadPic.php" method="post" accept-charset="utf-8"
             class="form" role="form">
               <div class="form-group my-3">
                   <label for="exampleInputFile" class="mt-5">Upload New Picture</label>
@@ -152,39 +152,39 @@
 
   <!-- Change Password Modal -->
   <div class="modal fade" id="password-modal">
-        <div class="modal-dialog">
-          <div class="modal-content">
-          
-            <!-- Modal Header -->
-            <div class="modal-header">
-              <h4 class="modal-title text-primary">Change Password</h4>
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            
-            <form id="change-pass-frm" class="form-group" action="../scripts/php/changepassword.php" method="post" accept-charset="utf-8" class="form" role="form">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title text-primary">Change Password</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <form id="change-pass-frm" class="form-group" action="../scripts/php/changepassword.php" method="post" accept-charset="utf-8" class="form" role="form">
 
-            <!-- Modal body -->
-            <div class="modal-body">
-              <div class="container">
-                    <div class="row">
-                        <input type="password" id="current-password" class="form-control input-lg my-3" placeholder="Enter Current Password" name="currPass" required>
-                    </div>
-                    <div class="row">
-                        <input type="password" id="new-password" class="form-control input-lg my-3" placeholder="Enter New Password" name="newPass" required>
-                    </div>
-              </div>
-            </div>
-            
-            <!-- Modal footer -->
-            <div class="modal-footer">
-              <button type="submit" class="btn btn-success" value="Submit" name="submitPass">Submit</button>
-            </div>
-          </form>
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="container">
+                <div class="row">
+                    <input type="password" id="current-password" class="form-control input-lg my-3" placeholder="Enter Current Password" name="currPass" required>
+                </div>
+                <div class="row">
+                    <input type="password" id="new-password" class="form-control input-lg my-3" placeholder="Enter New Password" name="newPass" required>
+                </div>
           </div>
         </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success" value="Submit" name="submitPass">Submit</button>
+        </div>
+      </form>
       </div>
+    </div>
+  </div>
 
-            <!-- Change Name Modal -->
+      <!-- Change Name Modal -->
       <div class="modal fade" id="name-modal">
           <div class="modal-dialog">
               <div class="modal-content">
@@ -227,14 +227,12 @@
         
                 <!-- Modal Header -->
                 <div class="modal-header">
-                <h4 class="modal-title text-primary">Change Name</h4>
+                <h4 class="modal-title text-primary">Change Email</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
-                <form id="change-name-frm" class="form-group" action="../scripts/php/changeEmail.php" method="post" accept-charset="utf-8"
-                class="form" role="form">
+                <form id="change-email-frm" class="form-group" action="../scripts/php/changeEmail.php" method="post" accept-charset="utf-8" class="form" role="form">
 
-            
                   <!-- Modal body -->
                   <div class="modal-body">
                     <div class="container">
@@ -246,7 +244,7 @@
               
                   <!-- Modal footer -->
                   <div class="modal-footer">
-                    <button type="submit" class="btn btn-success" name="submitEmail">Submit</button>
+                    <button type="submit" class="btn btn-success" value="what" name="submitEmail">Submit</button>
                   </div>
               </form>
 
