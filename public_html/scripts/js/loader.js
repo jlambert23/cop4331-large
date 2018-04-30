@@ -5,6 +5,7 @@ $("#event-list").ready(function () {
   var script = "../scripts/php/" + (urlVar.includes("tid") ? "getTeamsEvents.php" : "getUsersEvents.php");
 
   $.getJSON(script, function (events) {
+    alert(events);
     if (events.length <= 0) {
       var item = $("<div>").addClass("list-group-item small").appendTo("#event-list");
       item.append($("<a>", { href: "#create-event-modal", "data-toggle": "modal", "data-target": "#create-event-modal" }).
@@ -43,6 +44,7 @@ $("#event-list").ready(function () {
       item.append($("<div>").append(field.location));
     });
   }).fail(function (data) {
+    alert("ERROR: " + data);
     var item = $("<div>").addClass("list-group-item small").appendTo("#event-list");
     item.append($("<a>", { href: "#create-event-modal", "data-toggle": "modal", "data-target": "#create-event-modal" }).
       append($("<h6>").
