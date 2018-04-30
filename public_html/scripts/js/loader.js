@@ -3,9 +3,8 @@ var isTeampage = window.location.pathname.includes("teampage.html");
 // Load event list.
 $("#event-list").ready(function () {
   var script = "../scripts/php/" + (isTeampage ? "getTeamsEvents.php" : "getUsersEvents.php");
-
+  
   $.getJSON(script, {t_id: isTeampage ? getTeamId() : "" }, function (events) {
-    alert(JSON.stringify(events));
     if (events.length <= 0) {
       var item = $("<div>").addClass("list-group-item small").appendTo("#event-list");
       item.append($("<a>", { href: "#create-event-modal", "data-toggle": "modal", "data-target": "#create-event-modal" }).
@@ -17,7 +16,6 @@ $("#event-list").ready(function () {
 
     $.each(events, function (i, field) {
       if (i == 5) return false;
-
       var dateformat = "dddd, MMM D YYYY";
       var start = moment(field.start).format("h:mm a " + dateformat);
       var end = field.hasOwnProperty("end") ? moment(field.end).format("h:mm a " + dateformat) : "";
