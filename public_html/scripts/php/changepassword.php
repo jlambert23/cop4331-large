@@ -1,5 +1,6 @@
 <?php
-	echo "test\n";
+	
+session_start();
 
 if(isset($_POST['submitPass'])){
 	
@@ -7,64 +8,72 @@ if(isset($_POST['submitPass'])){
 
 	//$username =mysqli_real_escape_string($conn, $_POST["username"]);
 	$oldPass = mysqli_real_escape_string($conn, $_POST["currPass"]);
-	$shinyPass = mysqli_real_escape_string($conn, $_POST["newPass"]);
+	$newPass = mysqli_real_escape_string($conn, $_POST["newPass"]);
+
 
 	$userID = $_SESSION["u_id"];
 
 
 	//error handlers
 	//empty fields
-	if(empty($oldPass) || empty($shinyPass)){
+	if(empty($oldPass) || empty($newPass)){
 		//header("Location: ../../index.html ? signup=empty");
 		echo "empty fields\n";
+		header("Location: ../../pages/settings.html? Password empty");
 		exit();
 	}
 
-	else{
+	$sql = "SELECT * FROM users WHERE userID = $userID;";
+	$result = mysqli_query($conn, $sql);
 
-	$sql = "select password from users where userID = ?";
-	
-	$oldHashedPassword = password_has($oldPass,PASSWORD_DEFAULT);
-	
+	if (mysqli_num_rows($result) != 1) {
+		header("Location: ../../pages/settings.html? SQL error");
 
-	// if ($result = $conn->query($sql) != true) {
-	// 	echo "It it didn't work, yo.\n";
-	// 	exit();
-	// }
-	
-	// echo $result;
-	// echo "\n WE PIP IT\n";
-	
+		exit();
+	}
+
+	if($row = mysqli_fetch_assoc($result)){
+		$hashedPasswordCheck = password_verify($oldPass, $row['password']);
+
+		if($hashedPasswordCheck == false){
+			header("Location: ../../pages/settings.html? Old Pass Incorrect");
+			$json['password'] = false;
+			exit();
+		}
+
+		else{
+
+			$hashedPassword = password_hash($newPass,PASSWORD_DEFAULT);
+			$sql = "UPDATE users SET password = ? WHERE userID = ?;";
+			
+				
+			$stmt = mysqli_stmt_init($conn);
+
+			if(!mysqli_stmt_prepare($stmt, $sql)){
+				//echo "SQL error\n";
+				header("Location: ../../pages/settings.html? passChange = ivalidSQL");
+			}
+			
+			else{
+
+				mysqli_stmt_bind_param($stmt, "ss" , $hashedPassword , $userID);
+				mysqli_stmt_execute($stmt);
+				
+				header("Location: ../../pages/settings.html ? passChange =success");
+				//echo "$userID <br> $fName <br> $lName" ;
+			}
+
 		
-	$stmt = mysqli_stmt_init($conn);
-
-	if(!mysqli_stmt_prepare($stmt, $sql)){
-		//echo "SQL error\n";
-		header("Location: ../../index.html? signup = ivalidSQL");
-	}
-	
-	else{
-		//hash pwd
-		$hashedNewPassword = password_hash($shinyPass,PASSWORD_DEFAULT);
-		printf("%s\n", $hashedPassword);
-
-		mysqli_stmt_bind_param($stmt, "ssss" , $first, $last , $email, $hashedPassword);
-		$oldpass = mysqli_stmt_execute($stmt);
-
-		//echo "\nsignup is working\n";
-		header("Location: ../../index.html? signup=success");
-	}
-
-	
 
 
-	
+		
+		}
 	}
 }
 
 else{
 
 	//echo "nothing worked at all\n";
-	header("Location: ../../index.html? signup= fail");
+	header("Location: ../../pages/settings.html? passChange = fail");
 	exit();
 }

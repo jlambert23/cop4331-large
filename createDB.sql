@@ -42,13 +42,12 @@ DROP TABLE IF EXISTS `events` ;
 CREATE TABLE IF NOT EXISTS `events` (
   `eventID` INT NOT NULL auto_increment,
   `name` VARCHAR(45) NULL,
-  `start_date` DATE NULL,
-  `end_date` DATE NULL,
-  `start_time` TIME(0) NULL,
-  `end_time` TIME(0) NULL,
+  `start` DATETIME,
+  `end` DATETIME,
   `location` VARCHAR(45) NULL,
   `description` VARCHAR(256) NULL,
   `category` VARCHAR(256) NULL,
+  `owner` VARCHAR(45),
   PRIMARY KEY (`eventID`))
 ENGINE = InnoDB;
 

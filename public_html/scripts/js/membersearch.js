@@ -10,4 +10,4 @@ $("#member-search").keypress(function(){
         });
     });
 
-})
+});

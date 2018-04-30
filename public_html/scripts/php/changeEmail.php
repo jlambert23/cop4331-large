@@ -2,20 +2,19 @@
 	
 session_start();
 
-if(isset($_POST['submitName'])){
+if(isset($_POST['submitEmail'])){
 	
 	include_once 'dbconnection.php';
 
 	//$username =mysqli_real_escape_string($conn, $_POST["username"]);
-	$fName = mysqli_real_escape_string($conn, $_POST["fname"]);
-	$lName = mysqli_real_escape_string($conn, $_POST["lname"]);
+	$email = mysqli_real_escape_string($conn, $_POST["email"]);
 
 	$userID = $_SESSION["u_id"];
 
 
 	//error handlers
 	//empty fields
-	if(empty($fName) || empty($lName)){
+	if(empty($email)){
 		//header("Location: ../../index.html ? signup=empty");
 		echo "empty fields\n";
 		exit();
@@ -23,16 +22,7 @@ if(isset($_POST['submitName'])){
 
 	else{
 
-	$sql = "UPDATE users SET fName = ? , lName = ? WHERE userID = ?;";
-		
-
-	// if ($result = $conn->query($sql) != true) {
-	// 	echo "It it didn't work, yo.\n";
-	// 	exit();
-	// }
-	
-	// echo $result;
-	// echo "\n WE PIP IT\n";
+	$sql = "UPDATE users SET email = ? WHERE userID = ?;";
 	
 		
 	$stmt = mysqli_stmt_init($conn);
@@ -44,10 +34,8 @@ if(isset($_POST['submitName'])){
 	
 	else{
 
-		mysqli_stmt_bind_param($stmt, "sss" , $fName, $lName , $userID);
+		mysqli_stmt_bind_param($stmt, "ss" , $email , $userID);
 		mysqli_stmt_execute($stmt);
-
-		//echo "\nsignup is working\n";
 		
 		header("Location: ../../pages/dashboard.html ? nameChange =success");
 		//echo "$userID <br> $fName <br> $lName" ;
