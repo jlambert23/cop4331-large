@@ -28,11 +28,7 @@ $(function () {
 
 $(document).ready(function () {
   var str = parent.document.URL.substring(parent.document.URL.indexOf('?') + 1, parent.document.URL.length);
-<<<<<<< HEAD
-  var obj = { tid: str.split('=')[1] };
-=======
   var obj = { t_id : str.split('=')[1] };
->>>>>>> master
 
   $.getJSON('../scripts/php/getTeamInfo.php', obj, function (data) {
     $('#teamName').append(data.team);
