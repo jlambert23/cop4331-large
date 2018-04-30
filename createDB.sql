@@ -59,7 +59,7 @@ DROP TABLE IF EXISTS `teams` ;
 
 CREATE TABLE IF NOT EXISTS `teams` (
   `teamID` INT NOT NULL auto_increment,
-  `team_name` VARCHAR(45) NULL,
+  `team_name` VARCHAR(45) UNIQUE NULL,
   `description` VARCHAR(256),  
   PRIMARY KEY (`teamID`))
 ENGINE = InnoDB;
