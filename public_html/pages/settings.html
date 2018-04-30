@@ -82,47 +82,47 @@
 
   <div id="wrapper">
     <div class="container">
-        <div class="row">
-            <h2>Settings</h2>
-        </div>
-        <div class="jumbotron">
+      <div class="row">
+        <h2>Settings</h2>
+      </div>
+      <div class="jumbotron">
 
-            <!--Change Password Button-->
-            <div class="row">
-                <button type="button" class="btn btn-primary my-2" data-toggle="modal" data-target="#password-modal">
-                    Change Password
-                </button>
+          <!--Change Password Button-->
+          <div class="row">
+            <button type="button" class="btn btn-primary my-2" data-toggle="modal" data-target="#password-modal">
+              Change Password
+            </button>
+          </div>
+
+          <!--Change Name Button-->
+          <div class="row">
+            <button type="button" class="btn btn-primary my-2" data-toggle="modal" data-target="#name-modal">
+              Change Name
+            </button>
+          </div>
+
+          <!--Change Email Button-->
+          <div class="row">
+            <button type="button" class="btn btn-primary my-2" data-toggle="modal" data-target="#email-modal">
+              Change Email
+            </button>
+          </div>
+
+          <!--Input for uploading picture-->
+          <form id="change-pic-frm" class="form-group" action="../scripts/php/uploadPic.php" method="post" accept-charset="utf-8"
+          class="form" role="form">
+            <div class="form-group my-3">
+              <label for="exampleInputFile" class="mt-5">Upload New Picture</label>
+              <input type="file" class="form-control-file" id="picture-input" aria-describedby="fileHelp" name="picture">
             </div>
-
-            <!--Change Name Button-->
-            <div class="row">
-                <button type="button" class="btn btn-primary my-2" data-toggle="modal" data-target="#name-modal">
-                    Change Name
-                </button>
-            </div>
-
-            <!--Change Email Button-->
-            <div class="row">
-              <button type="button" class="btn btn-primary my-2" data-toggle="modal" data-target="#email-modal">
-                  Change Email
-              </button>
-            </div>
-
-            <!--Input for uploading picture-->
-            <form id="change-pic-frm" class="form-group" action="../scripts/php/uploadPic.php" method="post" accept-charset="utf-8"
-            class="form" role="form">
-              <div class="form-group my-3">
-                  <label for="exampleInputFile" class="mt-5">Upload New Picture</label>
-                  <input type="file" class="form-control-file" id="picture-input" aria-describedby="fileHelp" name="picture">
-              </div>
-              
-              <!--Submit Button-->
-              <button type="button" class="btn btn-success my-0" name="submitPic">
-                Submit
-              </button>
-            </form>
-                    
-        </div>
+            
+            <!--Submit Button-->
+            <button type="button" class="btn btn-success my-0" name="submitPic">
+              Submit
+            </button>
+          </form>
+                  
+      </div>
     </div>
 
   </div>
@@ -167,10 +167,10 @@
         <div class="modal-body">
           <div class="container">
             <div class="row">
-                <input type="password" id="current-password" class="form-control input-lg my-3" placeholder="Enter Current Password" name="currPass" required>
+              <input type="password" id="current-password" class="form-control input-lg my-3" placeholder="Enter Current Password" name="currPass" required>
             </div>
             <div class="row">
-                <input type="password" id="new-password" class="form-control input-lg my-3" placeholder="Enter New Password" name="newPass" required>
+              <input type="password" id="new-password" class="form-control input-lg my-3" placeholder="Enter New Password" name="newPass" required>
             </div>
           </div>
         </div>
@@ -189,32 +189,33 @@
       <div class="modal-dialog">
           <div class="modal-content">
       
-              <!-- Modal Header -->
-              <div class="modal-header">
-              <h4 class="modal-title text-primary">Change Name</h4>
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <!-- Modal Header -->
+            <div class="modal-header">
+            <h4 class="modal-title text-primary">Change Name</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <form id="change-name-frm" class="form-group" action="../scripts/php/changename.php" method="post" accept-charset="utf-8"
+            class="form" role="form">
+
+        
+              <!-- Modal body -->
+              <div class="modal-body">
+                <div class="container">
+                  <div class="row">
+                    <input type="text" id="first-name" class="form-control input-lg my-3" placeholder="First Name" name="fname" required>
+                  </div>
+                  <div class="row">
+                    <input type="text" id="last-name" class="form-control input-lg my-3" placeholder="Last Name" name="lname" required>
+                  </div>
+                </div>
+            
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                <button type="submit" class="btn btn-success" value="Submit" name="submitName">Submit</button>
+                </div>
               </div>
-
-              <form id="change-name-frm" class="form-group" action="../scripts/php/changename.php" method="post" accept-charset="utf-8"
-              class="form" role="form">
-
-          
-                <!-- Modal body -->
-                <div class="modal-body">
-                  <div class="container">
-                      <div class="row">
-                          <input type="text" id="first-name" class="form-control input-lg my-3" placeholder="First Name" name="fname" required>
-                      </div>
-                      <div class="row">
-                          <input type="text" id="last-name" class="form-control input-lg my-3" placeholder="Last Name" name="lname" required>
-                      </div>
-                  </div>
-              
-                  <!-- Modal footer -->
-                  <div class="modal-footer">
-                  <button type="submit" class="btn btn-success" value="Submit" name="submitName">Submit</button>
-                  </div>
-              </form>
+            </form>
 
           </div>
       </div>
