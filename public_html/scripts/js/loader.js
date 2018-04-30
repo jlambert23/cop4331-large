@@ -1,29 +1,4 @@
-// Profile loader
-$(document).ready(function () {
-  $.getJSON('../scripts/php/giveUserInfo.php', function (user) {
-    $('#firstname').append(user.fname + ' ');
-    $('#lastname').append(user.lname);
-    $('#email').append(user.email).attr('href', 'mailto:' + user.email);
-
-    if (user.hasOwnProperty('image')) {
-      $.get(user.image)
-        .done(function () {
-          $('#profile').attr('src', user.image);
-        }).fail(function () {
-          $('#profile').attr('src', '../img/default.jpg');
-        });
-    }
-    else {
-      $('#profile').attr('src', '../img/default.jpg');
-    }
-
-    if (user.hasOwnProperty('phone')) {
-      $('#phone').append(user.phone).attr('href', 'tel:' + user.phone);
-    }
-  });
-});
-
-// Event loader
+// Load event list.
 $("#event-list").ready(function () {
   $.getJSON("../scripts/js/tmp/events.json", function (result) {
     $.each(result, function (i, field) {
@@ -66,7 +41,7 @@ $("#team-dropdown").ready(function () {
     }
     else {
       $.each(teams, function (i, field) {
-        $("#team-dropdown").append($("<a>", { href: "#" }).addClass("dropdown-item").append(field.team));
+        $("#team-dropdown").append($("<a>", { href: "teampage.html?tid=" + field.tid }).addClass("dropdown-item").append(field.team));
       });
     }
   });

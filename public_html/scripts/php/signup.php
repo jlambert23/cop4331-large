@@ -1,7 +1,7 @@
 <?php
 	echo "test\n";
 
-if(isset($_POST['submit'])){
+if(isset($_POST['submitSignup'])){
 	
 	include_once 'dbconnection.php';
 

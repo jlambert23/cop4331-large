@@ -2,6 +2,7 @@ $(window).on("load", function() {
   $("body").css("visibility", "visible");
 });
 
+// Load calendar events.
 $(document).ready(function () {
   $('#calendar').fullCalendar({
     customButtons: {
@@ -26,6 +27,31 @@ $(document).ready(function () {
   });
 });
 
+// Profile loader
+$(document).ready(function () {
+  $.getJSON('../scripts/php/giveUserInfo.php', function (user) {
+    $('#firstname').append(user.fname + ' ');
+    $('#lastname').append(user.lname);
+    $('#email').append(user.email).attr('href', 'mailto:' + user.email);
+
+    if (user.hasOwnProperty('image')) {
+      $.get(user.image)
+        .done(function () {
+          $('#profile').attr('src', user.image);
+        }).fail(function () {
+          $('#profile').attr('src', '../img/default.jpg');
+        });
+    }
+    else {
+      $('#profile').attr('src', '../img/default.jpg');
+    }
+
+    if (user.hasOwnProperty('phone')) {
+      $('#phone').append(user.phone).attr('href', 'tel:' + user.phone);
+    }
+  });
+});
+
 $(document).on('mouseenter', '.dropdown-toggle', function () {
   $(this).trigger('click');
   repad_wrapper();
@@ -43,7 +69,7 @@ $('#logout').click(function () {
 });
 
 $('#wrapper').ready(repad_wrapper);
-// $(window).resize(repad_wrapper);
+$(window).resize(repad_wrapper);
 // $(window).load(repad_wrapper);
 
 function repad_wrapper() {
