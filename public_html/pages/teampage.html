@@ -188,33 +188,33 @@
 
   <!-- Create Team Modal -->
   <div class="modal fade" id="create-team-modal" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Create Team</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-
-        <div class="modal-body">
-          <div class="container">
-            <!-- Contents of Modal -->
-            <div class="tab-pane fade show active" id="create-team" role="tabpanel" aria-labelledby="create-team">
-              <div class="container">
-                <form id="create-team-frm" class="form-group" action="../scripts/php/CreateTeam.php" method="post" accept-charset="utf-8" class="form"
-                  role="form">
-                  <input type="text" class="form-control input-lg my-3" placeholder="Team Name" name="team-name" required>
-                  <textarea class="form-control" rows="5" id="event-description" placeholder="Event Description"></textarea>
-                  <input type="submit" class="btn btn-primary pull-right" value="Submit">
-                </form>
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Create Team</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+  
+          <div class="modal-body">
+            <div class="container">
+              <!-- Contents of Modal -->
+              <div class="tab-pane fade show active" id="create-team" role="tabpanel" aria-labelledby="create-team">
+                <div class="container">
+                  <form id="create-team-frm" class="form-group" action="../scripts/php/CreateTeam.php" method="post" accept-charset="utf-8" class="form"
+                    role="form">
+                    <input type="text" class="form-control input-lg my-3" placeholder="Team Name" name="team-name" required>
+                    <textarea class="form-control" rows="5" id="event-description" placeholder="Event Description" name="description"></textarea>
+                    <input type="submit" class="btn btn-primary pull-right mt-3" value="Submit" name="submit-team">
+                  </form>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-
+  
   <!-- Create Event Modal -->
   <div class="modal fade" id="create-event-modal" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">

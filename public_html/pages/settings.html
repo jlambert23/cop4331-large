@@ -166,12 +166,12 @@
         <!-- Modal body -->
         <div class="modal-body">
           <div class="container">
-                <div class="row">
-                    <input type="password" id="current-password" class="form-control input-lg my-3" placeholder="Enter Current Password" name="currPass" required>
-                </div>
-                <div class="row">
-                    <input type="password" id="new-password" class="form-control input-lg my-3" placeholder="Enter New Password" name="newPass" required>
-                </div>
+            <div class="row">
+                <input type="password" id="current-password" class="form-control input-lg my-3" placeholder="Enter Current Password" name="currPass" required>
+            </div>
+            <div class="row">
+                <input type="password" id="new-password" class="form-control input-lg my-3" placeholder="Enter New Password" name="newPass" required>
+            </div>
           </div>
         </div>
         
@@ -184,73 +184,73 @@
     </div>
   </div>
 
-      <!-- Change Name Modal -->
-      <div class="modal fade" id="name-modal">
-          <div class="modal-dialog">
-              <div class="modal-content">
-          
-                  <!-- Modal Header -->
-                  <div class="modal-header">
-                  <h4 class="modal-title text-primary">Change Name</h4>
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  </div>
-
-                  <form id="change-name-frm" class="form-group" action="../scripts/php/changename.php" method="post" accept-charset="utf-8"
-                  class="form" role="form">
-
-              
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                      <div class="container">
-                          <div class="row">
-                              <input type="text" id="first-name" class="form-control input-lg my-3" placeholder="First Name" name="fname" required>
-                          </div>
-                          <div class="row">
-                              <input type="text" id="last-name" class="form-control input-lg my-3" placeholder="Last Name" name="lname" required>
-                          </div>
-                      </div>
-                  
-                      <!-- Modal footer -->
-                      <div class="modal-footer">
-                      <button type="submit" class="btn btn-success" value="Submit" name="submitName">Submit</button>
-                      </div>
-                  </form>
-
+  <!-- Change Name Modal -->
+  <div class="modal fade" id="name-modal">
+      <div class="modal-dialog">
+          <div class="modal-content">
+      
+              <!-- Modal Header -->
+              <div class="modal-header">
+              <h4 class="modal-title text-primary">Change Name</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
               </div>
-          </div>
-      </div>
 
-      <!--Change Email Modal-->
-      <div class="modal fade" id="email-modal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-        
-                <!-- Modal Header -->
-                <div class="modal-header">
-                <h4 class="modal-title text-primary">Change Email</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
+              <form id="change-name-frm" class="form-group" action="../scripts/php/changename.php" method="post" accept-charset="utf-8"
+              class="form" role="form">
 
-                <form id="change-email-frm" class="form-group" action="../scripts/php/changeEmail.php" method="post" accept-charset="utf-8" class="form" role="form">
-
-                  <!-- Modal body -->
-                  <div class="modal-body">
-                    <div class="container">
-                        <div class="row">
-                            <input type="text" id="new-email" class="form-control input-lg my-3" placeholder="Enter New Email" name="email" required>
-                        </div>
-                    </div>
+          
+                <!-- Modal body -->
+                <div class="modal-body">
+                  <div class="container">
+                      <div class="row">
+                          <input type="text" id="first-name" class="form-control input-lg my-3" placeholder="First Name" name="fname" required>
+                      </div>
+                      <div class="row">
+                          <input type="text" id="last-name" class="form-control input-lg my-3" placeholder="Last Name" name="lname" required>
+                      </div>
                   </div>
               
                   <!-- Modal footer -->
                   <div class="modal-footer">
-                    <button type="submit" class="btn btn-success" value="what" name="submitEmail">Submit</button>
+                  <button type="submit" class="btn btn-success" value="Submit" name="submitName">Submit</button>
                   </div>
               </form>
 
+          </div>
+      </div>
+  </div>
+
+  <!--Change Email Modal-->
+  <div class="modal fade" id="email-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+    
+            <!-- Modal Header -->
+            <div class="modal-header">
+            <h4 class="modal-title text-primary">Change Email</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
+
+            <form id="change-email-frm" class="form-group" action="../scripts/php/changeEmail.php" method="post" accept-charset="utf-8" class="form" role="form">
+
+              <!-- Modal body -->
+              <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <input type="text" id="new-email" class="form-control input-lg my-3" placeholder="Enter New Email" name="email" required>
+                    </div>
+                </div>
+              </div>
+          
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-success" value="what" name="submitEmail">Submit</button>
+              </div>
+          </form>
+
         </div>
     </div>
+  </div>
 
   <div>
     <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
